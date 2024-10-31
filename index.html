@@ -41,25 +41,24 @@
     </div>
     <!-- Spinner End -->
 
-
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary"><img src="logo/logo.png" alt="logo" height="70" style="margin: 2px;">IAAP - Pjetër Bogdani</h2>
+            <h2 class="m-0"><img src="logo/logo.png" alt="logo" height="70" style="margin: 2px; color: #080F32;">IAAP - Pjetër Bogdani</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Ballina</a>
+                <a href="index.html" class="nav-item nav-link">Ballina</a>
                 <a href="about.html" class="nav-item nav-link">Rreth Nesh</a>
                 <a href="stafi.html" class="nav-item nav-link">Stafi</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Drejtimet</a>
                     <div class="dropdown-menu fade-down m-0">
-                        <a href="" class="dropdown-item">IT</a>
-                        <a href="" class="dropdown-item">Arkitekturë</a>
+                        <a href="Makineri.html" class="dropdown-item">MAKINERI</a>
+                        <a href="Elektronik.html" class="dropdown-item">ELEKTRONIKË</a>
                         <a href="" class="dropdown-item">Automekanik</a>
                     </div>
                 </div>
@@ -72,7 +71,7 @@
 
 
     <!-- Carousel Start -->
-    <div class="container-fluid p-0 mb-5">
+    <div class="container-fluid p-0 mb-0" style="background-color: #080F32;">
         <div class="owl-carousel header-carousel position-relative">
             <div class="owl-carousel-item position-relative">
                 <img class="img-fluid" src="img_/home.png" alt="">
@@ -107,10 +106,60 @@
         </div>
     </div>
     <!-- Carousel End -->
+     
+    <!-- Vizioni and Misioni Section Start -->
+    <div class="container-xxxl py-5" style="background-color: #080F32; color: white; width: 100%;">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Vizioni Section -->
+                <div class="col-lg-6 col-sm-12 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item text-center pt-3 transition-hover" style="min-height: 300px;">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-eye text-primary mb-4"></i>
+                            <h5 class="mb-3">Vizioni</h5>
+                            <p>Vizioni ynë eshte te jemi nje shkolle model qe perfaqeson standarte te larta akademike, inovacion dhe pergaditje per te ardhme. Ne synojme te krijojme nje ambient frymezues ku nxenesit zhvillojne aftesi per mendim kritik, zgjidhjen e problemeve komplekse dhe ndikimin pozitv ne boten qe i rrethon.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Misioni Section -->
+                <div class="col-lg-6 col-sm-12 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item text-center pt-3 transition-hover" style="min-height: 300px;">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-bullseye text-primary mb-4"></i>
+                            <h5 class="mb-3">Misioni</h5>
+                            <p>Misioni ynë eshte te ofrojme nje mjedis inkurajues dhe te pershtatshem per nxenesit, duke i frymezuar ata te arrijne sukses akademik dhe zhvillim personal. Ne promovojme nje kulture te diversitetit, respektit dhe bashkepunimit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Vizioni and Misioni Section End -->
 
+    <!-- Vizioni and Misioni Style CSS -->
+    <style>
+    /* Hover Effect Styling */
+    .transition-hover {
+        background-color: white;
+        color: black;
+        border-radius: 10px;
+        transition: all 0.3s ease; /* Smooth transition effect */
+    }
+
+    .transition-hover:hover {
+        background-color: #06BBCC; /* Light blue background on hover */
+        color: white;
+    }
+
+    .transition-hover:hover i,
+    .transition-hover:hover h5,
+    .transition-hover:hover p {
+        color: white; /* White text on hover */
+    }
+    </style>
 
     <!-- Service Start -->
-    <div class="container-xxl py-5">
+    <div class="container-xxxl py-5" style="background-color: #080F32; color: white; width: 100%;">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -118,7 +167,7 @@
                         <div class="p-4">
                             <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
                             <h5 class="mb-3">Edukim</h5>
-                            <p>Ofrim arsim dhe zhvillim profesional për sfidat e së ardhmes.</p>
+                            <p style="color: black;">Ofrim arsim dhe zhvillim profesional për sfidat e së ardhmes. Vetëm tek IAAP Pjeter Bogdani</p>
                         </div>
                     </div>
                 </div>
@@ -127,7 +176,7 @@
                         <div class="p-4">
                             <i class="fa fa-3x fa-globe text-primary mb-4"></i>
                             <h5 class="mb-3">Njohuri Spektakolare</h5>
-                            <p>Hap horizonte të reja me një gamë të gjerë njohurish dhe përvojash nga e gjithë bota.</p>
+                            <p style="color: black;">Hap horizonte të reja me një gamë të gjerë njohurish dhe përvojash nga e gjithë bota.</p>
                         </div>
                     </div>
                 </div>
@@ -136,7 +185,7 @@
                         <div class="p-4">
                             <i class="fa fa-3x fa-home text-primary mb-4"></i>
                             <h5 class="mb-3">Shtëpi e dytë</h5>
-                            <p>Ndihuni si në shtëpi duke përfituar nga një mjedis i ngrohtë dhe mikpritës për të gjithë.</p>
+                            <p style="color: black;">Ndihuni si në shtëpi duke përfituar nga një mjedis i ngrohtë dhe mikpritës për të gjithë.</p>
                         </div>
                     </div>
                 </div>
@@ -145,7 +194,7 @@
                         <div class="p-4">
                             <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
                             <h5 class="mb-3">Njohuri pa fundë</h5>
-                            <p>Vijoni të mësoni gjatë gjithë jetës me burime të pasura dhe mbështetje të vazhdueshme.</p>
+                            <p style="color: black;">Vijoni të mësoni gjatë gjithë jetës me burime të pasura dhe mbështetje të vazhdueshme.</p>
                         </div>
                     </div>
                 </div>
@@ -156,7 +205,7 @@
 
 
     <!-- About Start -->
-    <div class="container-xxl py-5">
+    <div class="container-xxxl py-5" style="background-color: #080F32; color: white; width: 100%;">
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
@@ -164,9 +213,9 @@
                         <img class="img-fluid position-absolute w-100 h-100" src="img_/revista.jpg" alt="" style="object-fit: cover;">
                     </div>
                 </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <h6 class="section-title bg-white text-start text-primary pe-3">RRETH NESH!</h6>
-                    <h1 class="mb-4">Mirësevini në shkollën tonë, IAAP Pjetër Bogdani</h1>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s" >
+                    <h6 class="section-title  text-start text-primary pe-3" style="background-color: #080F32; color: white;">RRETH NESH!</h6>
+                    <h1 class="mb-4" style="color: white;">Mirësevini në shkollën tonë, IAAP Pjetër Bogdani</h1>
                     <p class="mb-4">Shkolla e Mesme Teknike “Pjetër Bogdani” në Ferizaj është një ndër shkollat e para profesionale në komunën tonë. Kjo shkollë ka filluar punën në vitin 1963.</p>
                     <p class="mb-4">Nga viti shkollor 1990/91 ndodh pavarësimi i shkollës shqipe dhe procesi edukativo- arsimor zhvillohet jashtë sistemit te deriatëhershëm, tani sipas plan programeve të Republikës së Kosovës dhe me vendim të Ministrisë së Arsimit të Republikës së Kosovës shkollës i ndërrohet emri, nga “Nikolla Teslla” në “Pjetër Bogdani”.</p>
                     <div class="row gy-2 gx-4 mb-4">
@@ -189,7 +238,7 @@
                             <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Mundësi Bashkëpunimi Me Kompani profesionale & Serioze</p>
                         </div>
                     </div>
-                    <a class="btn btn-primary py-3 px-5 mt-2" href="about.html">LEXO MË SHUMË</a>
+                    <a class="btn btn-light py-3 px-5 mt-2" style="color: #080F32;" href="about.html">LEXO MË SHUMË</a>
                 </div>
             </div>
         </div>
@@ -198,60 +247,51 @@
 
 
     <!-- Categories Start -->
-    <div class="container-xxl py-5 category">
+    <div class="container-xxxl py-5 category" style="background-color: #080F32; color: white; width: 100%;">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">DREJTIMET</h6>
-                <h1 class="mb-5">DISA NGA DREJTIMET</h1>
+                <h1 class="mb-5" style="color: white;">DREJTIMET</h1>
             </div>
-            <div class="row g-3">
-                <div class="col-lg-7 col-md-6">
+            <div class="row g-3 justify-content-center">
+                <div class="col-lg-6 col-md-6">
                     <div class="row g-3">
                         <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="img_/IT.avif" alt="IT">
+                            <a class="position-relative d-block overflow-hidden" href="Makineri.html">
+                                <img class="img-fluid" src="img_/makineri.jpg" alt="IT">
                                 <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                    <h5 class="m-0">IT (Teknologhi e Informacionit)</h5>
+                                    <h5 class="m-0">MAKINERI</h5>
                                 </div>
                             </a>
                         </div>
                         <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="img_/Dizajn-GRFK.jpg" alt="Dizajn Grafik">
+                            <a class="position-relative d-block overflow-hidden" href="Elektronik.html">
+                                <img class="img-fluid" src="img_/elektronik.jpg" alt="Dizajn Grafik">
                                 <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                    <h5 class="m-0">Dizajn Grafik</h5>
+                                    <h5 class="m-0">ELEKTRONIKË</h5>
                                 </div>
                             </a>
                         </div>
                         <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
-                            <a class="position-relative d-block overflow-hidden" href="Auto Mekanik">
+                            <a class="position-relative d-block overflow-hidden" href="Ndertimtari.html">
                                 <img class="img-fluid" src="img_/A.jpg" alt="">
                                 <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                    <h5 class="m-0">Auto Mekanik</h5>
+                                    <h5 class="m-0">NDËRTIMTARI</h5>
                                 </div>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
-                    <a class="position-relative d-block h-100 overflow-hidden" href="">
-                        <img class="img-fluid position-absolute w-100 h-100" src="img_/ARK.jpg" alt="Arkitekturë" style="object-fit: cover;">
-                        <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin:  1px;">
-                            <h5 class="m-0">Arkitekturë</h5>
-                        </div>
-                    </a>
-                </div>
             </div>
         </div>
     </div>
-    <!-- Categories Start -->
+    <!-- Categories End -->
+
 
     <!-- Team Start -->
-    <div class="container-xxl py-5">
+    <div class="container-xxxl py-5" style="background-color: #080F32; color: white; width: 100%;">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-centertext-primary px-3">STAFI</h6>
-                <h1 class="mb-5">STAFI UDHËHEQËS</h1>
+                <h1 class="mb-5" style="color: white;">STAFI UDHËHEQËS</h1>
             </div>
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -259,16 +299,10 @@
                         <div class="overflow-hidden">
                             <img class="img-fluid" src="Staf_IMG/img_4211.png" alt="">
                         </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
+                        
                         <div class="text-center p-4">
                             <h5 class="mb-0">Sami Jahiu</h5>
-                            <small>Drejtor</small>
+                            <small class="text-primary">Drejtor</small>
                         </div>
                     </div>
                 </div>
@@ -277,16 +311,10 @@
                         <div class="overflow-hidden">
                             <img class="img-fluid" src="Staf_IMG/img_4298.png" alt="">
                         </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
+                        
                         <div class="text-center p-4">
                             <h5 class="mb-0">Gafurr ....</h5>
-                            <small>Zv. Drejtor</small>
+                            <small class="text-primary">Zv. Drejtor</small>
                         </div>
                     </div>
                 </div>
@@ -295,16 +323,10 @@
                         <div class="overflow-hidden">
                             <img class="img-fluid" src="logo/logo.png" alt="">
                         </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
+                        
                         <div class="text-center p-4">
                             <h5 class="mb-0">SK</h5>
-                            <small>Sekretar</small>
+                            <small class="text-primary">Sekretar</small>
                         </div>
                     </div>
                 </div>
@@ -313,16 +335,10 @@
                         <div class="overflow-hidden">
                             <img class="img-fluid" src="logo/logo.png" alt="">
                         </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
+                        
                         <div class="text-center p-4">
                             <h5 class="mb-0">SK</h5>
-                            <small>SK</small>
+                            <small class="text-primary">SK</small>
                         </div>
                     </div>
                 </div>
@@ -333,27 +349,26 @@
 
 
     <!-- Testimonial Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container-xxxl py-5 wow fadeInUp" data-wow-delay="0.1s" style="background-color: #080F32; color: white; width: 100%;">
         <div class="container">
             <div class="text-center">
-                <h6 class="section-title bg-white text-center text-primary px-3">MENDIMET</h6>
-                <h1 class="mb-5">MENDIMET E NXËNËSVE!</h1>
+                <h1 class="mb-5" style="color: white;">MENDIMET E NXËNËSVE!</h1>
             </div>
             <div class="owl-carousel testimonial-carousel position-relative">
                 <div class="testimonial-item text-center">
                     <img class="border rounded-circle p-2 mx-auto mb-3" src="logo/logo.png" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">NXS_1</h5>
+                    <h5 class="mb-0 text-light">NXS_1</h5>
                     <p>DREJTIMI</p>
                     <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">KOMENTI</p>
+                    <p class="mb-0 text-light">KOMENTI</p>
                     </div>
                 </div>
                 <div class="testimonial-item text-center">
                     <img class="border rounded-circle p-2 mx-auto mb-3" src="logo/logo.png" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">NXS_2</h5>
+                    <h5 class="mb-0 text-light">NXS_2</h5>
                     <p>DREJTIMI</p>
                     <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">KOMENTI</p>
+                    <p class="mb-0 text-light">KOMENTI</p>
                     </div>
                 </div>
                 <div class="testimonial-item text-center">
@@ -361,7 +376,7 @@
                     <h5 class="mb-0">NXS_3</h5>
                     <p>DREJTIMI</p>
                     <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">KOMENTI</p>
+                    <p class="mb-0 text-light">KOMENTI</p>
                     </div>
                 </div>
             </div>
@@ -371,7 +386,7 @@
         
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-0 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
@@ -390,7 +405,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Drejtimet</h4>
+                    <h4 class="text-white mb-3">Profilet</h4>
                     <div class="row g-2 pt-2">
                         <div class="footer-menu">
                             <a class="btn btn-link">IT</a>
