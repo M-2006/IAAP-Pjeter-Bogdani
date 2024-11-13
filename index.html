@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>IAAP - Pjetër Bogdani</title>
+    <title>IAAP - Pjetër Bogdani | Ballina</title>
     <link rel="icon" href="logo/logo.png">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
@@ -44,11 +44,12 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0"><img src="logo/logo.png" alt="logo" height="70" style="margin: 2px; color: #080F32;">IAAP - Pjetër Bogdani</h2>
+            <img src="logo/logo.png" alt="logo" height="70" style="margin-right: 20px; color: #080F32;">
+            <h2 class="m-0" style="margin-left: 10px;">IAAP - Pjetër Bogdani</h2>
         </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <button type="button" class="navbar-toggler ms-auto me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
-        </button>
+        </button>        
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.html" class="nav-item nav-link">Ballina</a>
@@ -69,7 +70,6 @@
     </nav>
     <!-- Navbar End -->
 
-
     <!-- Carousel Start -->
     <div class="container-fluid p-0 mb-0" style="background-color: #080F32;">
         <div class="owl-carousel header-carousel position-relative">
@@ -79,9 +79,9 @@
                     <div class="container">
                         <div class="row justify-content-start">
                             <div class="col-sm-10 col-lg-8">
-                                <h5 class="text-light text-uppercase mb-3 animated slideInDown">Vizioni</h5>
-                                <h1 class="display-3 text-white animated slideInDown">IAAP Pjetër Bogdani</h1>
-                                <p class="text-light">Vizioni ynë eshte te jemi nje shkolle model qe perfaqeson standarte te larta akademike, inovacion dhe pergaditje per te ardhme. Ne synojme te krijojme nje ambient frymezues ku nxenesit zhvillojne aftesi per mendim kritik, zgjidhjen e problemeve komplekse dhe ndikimin pozitv ne boten qe i rrethon.</p>
+                                <h1 class="display-3 text-white animated slideInDown">IAAP Pjetër Bogdani - Vizioni</h1>
+                                <p class="text-light mb-3 animated slideInDown description-carosel fs-4">
+                                    Vizioni ynë eshte te jemi nje shkolle model qe perfaqeson standarte te larta akademike, inovacion dhe pergaditje per te ardhme. Ne synojme te krijojme nje ambient frymezues ku nxenesit zhvillojne aftesi per mendim kritik, zgjidhjen e problemeve komplekse dhe ndikimin pozitv ne boten qe i rrethon.                                </p>
                                 <a href="about.html" class="btn btn-light py-md-3 px-md-5 me-3 animated slideInLeft">LEXO MË SHUMË</a>
                             </div>
                         </div>
@@ -94,10 +94,10 @@
                     <div class="container">
                         <div class="row justify-content-start">
                             <div class="col-sm-10 col-lg-8">
-                                <h5 class="text-light text-uppercase mb-3 animated slideInDown">Misioni</h5>
-                                <h1 class="display-3 text-white animated slideInDown">IAAP Pjetër Bogdani</h1>
-                                <p class="text-light">Misioni ynë eshte te ofrojme nje mjedis inkurajues dhe te pershtatshem per nxenesit, duke i frymezuar ata te arrijne sukses akademik dhe zhvillim personal. Ne promovojme nje kulture te diversitetit, respektit dhe bashkepunimit.</p>
-                                <a href="" class="btn btn-light py-md-3 px-md-5 me-3 animated slideInLeft">LEXO MË SHUMË</a>
+                                <h1 class="display-3 text-white animated slideInDown">IAAP Pjetër Bogdani - Misioni</h1>
+                                <p class="text-light mb-3 animated slideInDown description-carosel fs-4">
+                                    Misioni ynë eshte te ofrojme nje mjedis inkurajues dhe te pershtatshem per nxenesit, duke i frymezuar ata te arrijne sukses akademik dhe zhvillim personal. Ne promovojme nje kulture te diversitetit, respektit dhe bashkepunimit.                                </p>
+                                <a href="about.html" class="btn btn-light py-md-3 px-md-5 me-3 animated slideInLeft">LEXO MË SHUMË</a>
                             </div>
                         </div>
                     </div>
@@ -106,7 +106,23 @@
         </div>
     </div>
     <!-- Carousel End -->
-     
+
+    <style>
+    /* Custom styling for responsive text */
+    .description-carosel {
+        font-size: 1rem; /* Standard size for larger screens */
+    }
+
+    @media (max-width: 576px) {
+        .description-carosel {
+            font-size: 0.8rem; /* Adjust font size for smaller screens */
+        }
+        .description-carosel.fs-4 {
+        font-size: 1rem !important; /* Adjust the size as needed for phone view */
+    }
+    }
+    </style>
+
     <!-- Vizioni and Misioni Section Start COMMENT
     <div class="container-xxxl py-5" style="background-color: #080F32; color: white; width: 100%;">
         <div class="container">
@@ -163,7 +179,8 @@
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item text-center pt-3">
                         <div class="p-4">
-                            <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
+                            <i class="fa fa-3x fa-graduation-cap mb-4" style="color: #080f32c2;"></i>
+
                             <h5 class="mb-3">Edukim</h5>
                             <p style="color: black;">Ofrim arsim dhe zhvillim profesional për sfidat e së ardhmes. Vetëm tek IAAP Pjeter Bogdani</p>
                         </div>
@@ -172,7 +189,7 @@
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item text-center pt-3">
                         <div class="p-4">
-                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                            <i class="fa fa-3x fa-globe mb-4" style="color: #080f32c2;"></i>
                             <h5 class="mb-3">Njohuri Spektakolare</h5>
                             <p style="color: black;">Hap horizonte të reja me një gamë të gjerë njohurish dhe përvojash nga e gjithë bota.</p>
                         </div>
@@ -181,7 +198,7 @@
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item text-center pt-3">
                         <div class="p-4">
-                            <i class="fa fa-3x fa-home text-primary mb-4"></i>
+                            <i class="fa fa-3x fa-home mb-4" style="color: #080f32c2;"></i>
                             <h5 class="mb-3">Shtëpi e dytë</h5>
                             <p style="color: black;">Ndihuni si në shtëpi duke përfituar nga një mjedis i ngrohtë dhe mikpritës për të gjithë.</p>
                         </div>
@@ -190,7 +207,7 @@
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="service-item text-center pt-3">
                         <div class="p-4">
-                            <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
+                            <i class="fa fa-3x fa-book-open mb-4" style="color: #080f32c2;"></i>
                             <h5 class="mb-3">Njohuri pa fundë</h5>
                             <p style="color: black;">Vijoni të mësoni gjatë gjithë jetës me burime të pasura dhe mbështetje të vazhdueshme.</p>
                         </div>
@@ -212,8 +229,8 @@
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s" >
-                    <h6 class="section-title  text-start text-light pe-3" style="background-color: #080F32; color: white;">RRETH NESH!</h6>
-                    <h1 class="mb-4" style="color: white;">Mirësevini në shkollën tonë, IAAP Pjetër Bogdani</h1>
+                    <!-- <h6 class="section-title  text-start text-light pe-3" style="background-color: #080F32; color: white;">RRETH NESH!</h6> -->
+                    <h4 class="mb-4" style="color: white;">Mirësevini në shkollën tonë, IAAP Pjetër Bogdani</h4>
                     <p class="mb-4">Shkolla e Mesme Teknike “Pjetër Bogdani” në Ferizaj është një ndër shkollat e para profesionale në komunën tonë. Kjo shkollë ka filluar punën në vitin 1963.</p>
                     <p class="mb-4">Nga viti shkollor 1990/91 ndodh pavarësimi i shkollës shqipe dhe procesi edukativo- arsimor zhvillohet jashtë sistemit te deriatëhershëm, tani sipas plan programeve të Republikës së Kosovës dhe me vendim të Ministrisë së Arsimit të Republikës së Kosovës shkollës i ndërrohet emri, nga “Nikolla Teslla” në “Pjetër Bogdani”.</p>
                     <div class="row gy-2 gx-4 mb-4">
@@ -243,12 +260,11 @@
     </div>
     <!-- About End -->
 
-
     <!-- Categories Start -->
     <div class="container-xxxl py-5 category" style="background-color: #080F32; color: white; width: 100%;">
-        <div class="container">
+        <div class="container-fluid">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h1 class="mb-5" style="color: white;">DREJTIMET</h1>
+                <h3 class="mb-5" style="color: white;">DREJTIMET</h3>
             </div>
             <div class="row g-3 justify-content-center">
                 <div class="col-lg-6 col-md-6">
@@ -284,12 +300,11 @@
     </div>
     <!-- Categories End -->
 
-
     <!-- Team Start -->
     <div class="container-xxxl py-5" style="background-color: #080F32; color: white; width: 100%;">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h1 class="mb-5" style="color: white;">STAFI UDHËHEQËS</h1>
+                <h3 class="mb-5" style="color: white;">STAFI UDHËHEQËS</h3>
             </div>
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -350,7 +365,7 @@
     <div class="container-xxxl py-5 wow fadeInUp" data-wow-delay="0.1s" style="background-color: #080F32; color: white; width: 100%;">
         <div class="container">
             <div class="text-center">
-                <h1 class="mb-5" style="color: white;">MENDIMET E NXËNËSVE!</h1>
+                <h3 class="mb-5" style="color: white;">MENDIMET E NXËNËSVE!</h3>
             </div>
             <div class="owl-carousel testimonial-carousel position-relative">
                 <div class="testimonial-item text-center" style="background-color: transparent;">
