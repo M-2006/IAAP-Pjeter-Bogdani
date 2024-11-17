@@ -2,8 +2,56 @@
 :root {
     --primary: #06BBCC;
     --light: #F0FBFC;
-    --dark: #181d38;
+    --dark: #181d38;    
+    --primaryy: #1c676e;
 }
+
+.lexomeshume2 {
+    display: inline-block;
+    color: #ffffff;
+    background-color: #080F32;
+    text-decoration: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid #ffffff; /* Adds a border for a sleek look */
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.lexomeshume2:hover {
+    background-color: #ffffff;
+    color: #080F32;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Adds a soft shadow */
+}
+
+
+
+.lexomeshume {
+    display: inline-block;
+    color: #ffffff;
+    background-color: #080F32;
+    text-decoration: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid #080F32; /* Adds a border for a sleek look */
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.lexomeshume:hover {
+    background-color: #ffffff;
+    color: #080F32;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Adds a soft shadow */
+}
+
+
+
+
+
 
 .fw-medium {
     font-weight: 600 !important;
@@ -76,6 +124,11 @@
 }
 
 
+/:root {
+    --dark: #040f46; /* Example dark color */
+    --primary: #ff9800; /* Example primary color */
+}
+
 /*** Navbar ***/
 .navbar .dropdown-toggle::after {
     border: none;
@@ -89,16 +142,37 @@
 .navbar-light .navbar-nav .nav-link {
     margin-right: 30px;
     padding: 25px 0;
-    color: #FFFFFF;
+    color: var(--dark); /* Use the dark variable */
     font-size: 15px;
     text-transform: uppercase;
     outline: none;
+    position: relative; /* Necessary for pseudo-element */
+    transition: color 0.3s ease-in-out;
 }
 
+/* Hover effect with underline and color change */
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
-    color: #040f4665;
+    color: var(--primaryy); /* Use the primary variable */
 }
+
+/* Add underline animation */
+.navbar-light .navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 5px; /* Position underline just below the text */
+    width: 0%;
+    height: 2px;
+    background: var(--primaryy); /* Matches primary color */
+    transition: width 0.3s ease-in-out;
+}
+
+.navbar-light .navbar-nav .nav-link:hover::after,
+.navbar-light .navbar-nav .nav-link.active::after {
+    width: 100%; /* Expands the underline on hover */
+}
+
 
 @media (max-width: 991.98px) {
     .navbar-light .navbar-nav .nav-link  {
