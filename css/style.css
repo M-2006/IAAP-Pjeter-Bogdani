@@ -124,9 +124,8 @@
 }
 
 
-/:root {
+:root {
     --dark: #040f46; /* Example dark color */
-    --primary: #ff9800; /* Example primary color */
 }
 
 /*** Navbar ***/
@@ -152,8 +151,10 @@
 
 /* Hover effect with underline and color change */
 .navbar-light .navbar-nav .nav-link:hover,
+svg:hover,
 .navbar-light .navbar-nav .nav-link.active {
     color: var(--primaryy); /* Use the primary variable */
+    fill: var(--primary);
 }
 
 /* Add underline animation */
@@ -166,6 +167,7 @@
     height: 2px;
     background: var(--primaryy); /* Matches primary color */
     transition: width 0.3s ease-in-out;
+    
 }
 
 .navbar-light .navbar-nav .nav-link:hover::after,
@@ -485,4 +487,10 @@
     margin-right: 0;
     padding-right: 0;
     border-right: none;
+}
+
+@media screen and (max-width: 768px) {
+    .header-carousel .owl-nav {
+        top: 80%;
+    }
 }
