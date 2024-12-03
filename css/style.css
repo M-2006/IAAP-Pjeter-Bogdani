@@ -177,6 +177,17 @@
     flex-direction: column;
 }
 
+@media (max-width: 600px){
+    .header-carousel .owl-nav{
+        position:fixed;
+        bottom: -40px;
+        right: 8%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 .header-carousel .owl-nav .owl-prev,
 .header-carousel .owl-nav .owl-next {
     margin: 7px 0;
