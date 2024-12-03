@@ -1,0 +1,14 @@
+{
+    "professional": [
+        { "name": "Emri/Mbiemri", "profession": "Drejtimi/Profesioni", "img": "STAFF_WEBP/img_2507.jpeg.webp" },
+        { "name": "Emri/Mbiemri", "profession": "Drejtimi/Profesioni", "img": "STAFF_WEBP/img_2508.jpeg.webp" },
+        { "name": "Emri/Mbiemri", "profession": "Drejtimi/Profesioni", "img": "STAFF_WEBP/img_4211.webp" },
+        { "name": "Emri/Mbiemri", "profession": "Drejtimi/Profesioni", "img": "STAFF_WEBP/img_4244.webp" }
+    ],
+    "general": [
+        { "name": "Emri/Mbiemri", "profession": "Drejtimi/Profesioni", "img": "STAFF_WEBP/img_4248.webp" },
+        { "name": "Emri/Mbiemri", "profession": "Drejtimi/Profesioni", "img": "STAFF_WEBP/img_4275.webp" },
+        { "name": "Emri/Mbiemri", "profession": "Drejtimi/Profesioni", "img": "STAFF_WEBP/img_4286.webp" },
+        { "name": "Emri/Mbiemri", "profession": "Drejtimi/Profesioni", "img": "STAFF_WEBP/img_4291.webp" }
+    ]
+}
