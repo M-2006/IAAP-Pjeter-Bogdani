@@ -5,6 +5,8 @@
     --dark: #181d38;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=FAMILY_NAME:wght@WEIGHT_OR_RANGE&display=swap');
+
 .fw-medium {
     font-weight: 600 !important;
 }
@@ -250,16 +252,20 @@
     left: 0;
 }
 
-
+.coloraaa{
+    color: white;
+}
 /*** Service ***/
 .service-item {
-    background: var(--light);
+    background: #080F32;
     transition: .5s;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.219); /* Uniform shadow */
+    border-radius: 0.5px; /* Optional: Smooth rounded corners */
 }
 
 .service-item:hover {
     margin-top: -10px;
-    background: #2e1d5c;
+    background: var(--light);
 }
 
 .service-item * {
@@ -267,7 +273,7 @@
 }
 
 .service-item:hover * {
-    color: var(--light) !important;
+    color: black !important;
 }
 
 
