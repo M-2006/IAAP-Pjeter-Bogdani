@@ -111,7 +111,7 @@
                 <div class="accordion-item bg-dark border-0">
                     <h2 class="accordion-header" id="GHSH">
                         <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#GJSH" aria-expanded="false" aria-controls="GHSH" onclick="loadInstructors('professional-section', 'professional')">
-                            Lendet Profesionale
+                            Lëndet Profesionale
                         </button>
                     </h2>
                     <div id="GJSH" class="accordion-collapse collapse" aria-labelledby="GHSH" data-bs-parent="#instructorAccordion">
@@ -145,8 +145,7 @@
                                             console.error('Error fetching data:', error);
                                         }
                                     };
-                                </script>
-                                
+                                </script>  
                                 <!-- Placeholder Skeletons -->
                                 <div class="col-lg-3 col-md-6">
                                     <div class="team-item bg-light skeleton">
@@ -166,21 +165,21 @@
                 <div class="accordion-item bg-dark border-0">
                     <h2 class="accordion-header" id="GhRM">
                         <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#GJRM" aria-expanded="false" aria-controls="GhRM" onclick="loadInstructors('general-section', 'general')">
-                            Lendet e Pergjitheshme
+                            Lëndet e Pergjithëshme
                         </button>
                     </h2>
                     <div id="GJRM" class="accordion-collapse collapse" aria-labelledby="GhRM" data-bs-parent="#instructorAccordion">
                         <div class="accordion-body">
                             <div class="row g-4" id="general-section">
                                 <script>
-                                    async function fetchAndRenderGeneralInstructors() {
-                                        const section = document.getElementById('general-section');
+                                    window.loadInstructors = async function (sectionId, dataKey) {
+                                        const section = document.getElementById(sectionId);
                                         section.innerHTML = 'Loading...';
                                 
                                         try {
-                                            const response = await fetch('./instructors.json');
+                                            const response = await fetch('./instructors.json'); // Adjust path as needed
                                             const data = await response.json();
-                                            section.innerHTML = data.general.map(
+                                            section.innerHTML = data[dataKey].map(
                                                 ({ name, profession, img }) => `
                                                 <div class="col-lg-3 col-md-6">
                                                     <div class="team-item bg-light">
@@ -199,11 +198,8 @@
                                             section.innerHTML = 'Failed to load instructors.';
                                             console.error('Error fetching data:', error);
                                         }
-                                    }
-                                
-                                    fetchAndRenderGeneralInstructors();
+                                    };
                                 </script>
-                                
                                 <!-- Placeholder Skeletons -->
                                 <div class="col-lg-3 col-md-6">
                                     <div class="team-item bg-light skeleton">
