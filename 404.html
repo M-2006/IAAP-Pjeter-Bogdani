@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,30 +9,86 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
-            color: #343a40;
+            background-color: #f8f9fa; /* Light background */
+            font-family: 'Arial', sans-serif; /* Clean font */
         }
+
         .container {
             text-align: center;
             margin-top: 100px;
+            padding: 40px;
+            border-radius: 12px; /* Rounded corners */
+            background: #ffffff; /* White background for the container */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
         }
+
         h1 {
-            font-size: 100px;
+            font-size: 120px; /* Large font size for the error code */
+            color: #dc3545; /* Error color */
+            margin-bottom: 20px;
         }
+
         p {
-            font-size: 24px;
+            font-size: 20px; /* Font size for message */
+            margin-bottom: 30px;
+            color: #666; /* Muted text color */
         }
+
         .btn {
-            margin-top: 20px;
+            padding: 10px 25px; /* Adequate padding */
+            font-size: 16px; /* Button font size */
+            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Primary color */
+            border: none; /* Remove border */
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+            transform: translateY(-2px); /* Lift effect on hover */
+        }
+
+        .fa-exclamation-triangle {
+            font-size: 150px; /* Large icon size */
+            color: #dc3545; /* Matching color for the icon */
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            margin: 30px 0; /* Spacing for image */
+        }
+
+        .image-container img {
+            max-width: 100%; /* Responsive image */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 80px; /* Responsive font size */
+            }
+
+            p {
+                font-size: 18px; /* Responsive font size */
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1 class="display-1"><i class="fas fa-exclamation-triangle"></i></h1>
+        <h1><i class="fas fa-exclamation-triangle"></i></h1>
         <h1>404</h1>
         <p class="lead">Oops! The page you are looking for does not exist.</p>
-        <a href="index.html" class="btn btn-primary">Go to Home</a>
+        <div class="image-container">
+            <img src="./Ekstras/404.gif" alt="404 Not Found Image">
+        </div>
+        <a href="index.html" class="btn btn-primary">Go to Home</a><br><br>
+        <p><a href="javascript:history.back()">Go Back</a></p>
     </div>
 </body>
+
 </html>
