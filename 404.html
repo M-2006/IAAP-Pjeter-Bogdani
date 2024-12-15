@@ -81,5 +81,12 @@
             </div>
         </div>
     </main>
+        <!-- Redirect logic for deep paths -->
+    <script>
+      if (window.location.pathname !== '/IAAP-Pjeter-Bogdani/' && 
+          !window.location.pathname.endsWith('index.html')) {
+        window.location.href = '/IAAP-Pjeter-Bogdani/index.html';
+      }
+    </script>
 </body>
 </html>
