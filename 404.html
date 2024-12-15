@@ -103,14 +103,24 @@
             const isNested = basePaths.some(base => currentPath.startsWith(base) && currentPath !== base);
 
             if (isNested) {
-                const relativeDepth = basePaths.find(base => currentPath.startsWith(base)).replace(/\/[^/]*$/, "").length; // Adjust to get depth
-                const cssFiles = ["css/base.css", "css/components.css", "css/animations.css", "css/responsive.css"];
+                // Calculate relative depth for CSS files
+                const matchingBase = basePaths.find(base => currentPath.startsWith(base));
+                const depth = (currentPath.split('/').length - matchingBase.split('/').length);
 
+                // CSS files to load
+                const cssFiles = [
+                    "css/base.css",
+                    "css/components.css",
+                    "css/animations.css",
+                    "css/responsive.css"
+                ];
+
+                // Load CSS files dynamically
                 cssFiles.forEach(file => {
                     const link = document.createElement("link");
                     link.rel = "stylesheet";
-                    link.href = "../".repeat(relativeDepth) + file;
-                    document.head.appendChild(link); // Append to the <head>
+                    link.href = "../".repeat(depth) + file;
+                    document.head.appendChild(link);
                 });
 
                 // Optionally: Show a custom message for nested paths
