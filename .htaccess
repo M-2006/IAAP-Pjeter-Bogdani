@@ -1,10 +1,13 @@
 # Enable mod_rewrite
 RewriteEngine On
 
-# Redirect non-existent files or directories to the 404.html
+# Serve the 404.html for non-existent files or directories
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^.*$ /404.html [L]
 
 # Define a custom error document for 404
 ErrorDocument 404 /404.html
+
+# Redirect deep paths back to index.html
+RewriteRule ^(.*)/index$ /index.html [L,R=301]
