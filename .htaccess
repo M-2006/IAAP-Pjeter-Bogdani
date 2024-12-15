@@ -1,1 +1,10 @@
+# Enable mod_rewrite
+RewriteEngine On
+
+# Redirect non-existent files or directories to the 404.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ /404.html [L]
+
+# Define a custom error document for 404
 ErrorDocument 404 /404.html
