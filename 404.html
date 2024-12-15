@@ -83,10 +83,30 @@
     </main>
         <!-- Redirect logic for deep paths -->
     <script>
-      if (window.location.pathname !== '/IAAP-Pjeter-Bogdani/' && 
-          !window.location.pathname.endsWith('index.html')) {
-        window.location.href = '/IAAP-Pjeter-Bogdani/index.html';
-      }
-    </script>
+    // Function to adjust paths dynamically
+    (function() {
+        const currentPath = window.location.pathname;
+        const basePath = "/IAAP-Pjeter-Bogdani/index.html";
+
+        // Check if the URL is nested (e.g., /index.html/test)
+        if (currentPath.startsWith(basePath) && currentPath !== basePath) {
+            const relativeDepth = currentPath.replace(basePath, "").split("/").length - 1;
+            const cssFiles = ["css/base.css", "css/components.css", "css/animations.css", "css/responsive.css"];
+
+            cssFiles.forEach(file => {
+                const link = document.createElement("link");
+                link.rel = "stylesheet";
+                link.href = "../".repeat(relativeDepth) + file;
+                document.head.appendChild(link); // Append to the <head>
+            });
+
+            // Optionally: Show a custom message for nested paths
+            const message = document.createElement("p");
+            message.textContent = `You are at: ${currentPath}`;
+            document.body.appendChild(message);
+        }
+    })();
+</script>
+
 </body>
 </html>
