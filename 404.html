@@ -82,31 +82,44 @@
         </div>
     </main>
         <!-- Redirect logic for deep paths -->
+
     <script>
-    // Function to adjust paths dynamically
-    (function() {
-        const currentPath = window.location.pathname;
-        const basePath = "/IAAP-Pjeter-Bogdani/index.html";
+        // Function to adjust paths dynamically
+        (function() {
+            const currentPath = window.location.pathname;
+            const basePaths = [
+                "/IAAP-Pjeter-Bogdani/index.html",
+                "/IAAP-Pjeter-Bogdani/about.html",
+                "/IAAP-Pjeter-Bogdani/Makineri.html",
+                "/IAAP-Pjeter-Bogdani/Elektronik.html",
+                "/IAAP-Pjeter-Bogdani/Ndertimtari.html",
+                "/IAAP-Pjeter-Bogdani/stafi.html",
+                "/IAAP-Pjeter-Bogdani/contact.html",
+                "/IAAP-Pjeter-Bogdani/creators.html"
+                // Add more paths as needed
+            ];
 
-        // Check if the URL is nested (e.g., /index.html/test)
-        if (currentPath.startsWith(basePath) && currentPath !== basePath) {
-            const relativeDepth = currentPath.replace(basePath, "").split("/").length - 1;
-            const cssFiles = ["css/base.css", "css/components.css", "css/animations.css", "css/responsive.css"];
+            // Check if the URL is nested (e.g., /index.html/test)
+            const isNested = basePaths.some(base => currentPath.startsWith(base) && currentPath !== base);
 
-            cssFiles.forEach(file => {
-                const link = document.createElement("link");
-                link.rel = "stylesheet";
-                link.href = "../".repeat(relativeDepth) + file;
-                document.head.appendChild(link); // Append to the <head>
-            });
+            if (isNested) {
+                const relativeDepth = basePaths.find(base => currentPath.startsWith(base)).replace(/\/[^/]*$/, "").length; // Adjust to get depth
+                const cssFiles = ["css/base.css", "css/components.css", "css/animations.css", "css/responsive.css"];
 
-            // Optionally: Show a custom message for nested paths
-            const message = document.createElement("p");
-            message.textContent = `You are at: ${currentPath}`;
-            document.body.appendChild(message);
-        }
-    })();
-</script>
+                cssFiles.forEach(file => {
+                    const link = document.createElement("link");
+                    link.rel = "stylesheet";
+                    link.href = "../".repeat(relativeDepth) + file;
+                    document.head.appendChild(link); // Append to the <head>
+                });
+
+                // Optionally: Show a custom message for nested paths
+                const message = document.createElement("p");
+                message.textContent = `You are at: ${currentPath}`;
+                document.body.appendChild(message);
+            }
+        })();
+    </script>
 
 </body>
 </html>
