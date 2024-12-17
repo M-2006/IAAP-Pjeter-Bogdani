@@ -48,6 +48,10 @@
     transition: .5s;
 }
 
+.btn.btn-light:hover{
+    background-color: #f0fbfcb7;
+}
+
 .btn.btn-primary,
 .btn.btn-secondary {
     color: #FFFFFF;
