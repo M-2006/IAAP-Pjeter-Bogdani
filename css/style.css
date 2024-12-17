@@ -3,6 +3,8 @@
     --primary: #06BBCC;
     --light: #F0FBFC;
     --dark: #181d38;
+    --GhostWhite: #F8F8FF;
+    --main: #080F32;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=FAMILY_NAME:wght@WEIGHT_OR_RANGE&display=swap');
@@ -208,8 +210,9 @@
 
 .header-carousel .owl-nav .owl-prev:hover,
 .header-carousel .owl-nav .owl-next:hover {
-    background: var(--primary);
-    border-color: var(--primary);
+    background: var(--GhostWhite);
+    color: var(--main);
+    border-color: var(--GhostWhite);
 }
 
 .page-header {
