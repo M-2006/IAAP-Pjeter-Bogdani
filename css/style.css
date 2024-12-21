@@ -462,3 +462,48 @@
             scrollbar-width: thin; /* Thin scrollbar for Firefox */
             scrollbar-color: #00A3FF #1A2238; /* Thumb color and track color */
         }
+
+/* Hover Underline Animation */
+.underline-animation {
+    position: relative;
+    display: inline-block;
+    color: #080F32;
+    text-decoration: none;
+    overflow: hidden;
+    transition: color 1s ease;
+}
+
+.underline-animation:hover {
+    color: var(--main); /* Change text color on hover */
+}
+
+/* Animated Underline */
+.underline-animation::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, #007bff, #0056b3); /* Gradient for underline */
+    transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth animation */
+}
+
+.underline-animation:hover::after {
+    width: 100%; /* Expand underline to full width on hover */
+}
+
+.dropdown-menu {
+    background-color: #ffffff;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth dropdown appearance */
+}
+
+.dropdown-item {
+    padding: 0.5rem 1rem;
+    color: #080F32;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
