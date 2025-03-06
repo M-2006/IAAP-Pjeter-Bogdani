@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "professional": [
         { "name": "Adem Çerkini", "profession": "Makineri", "img": "Staf_IMG/Adem_Cerkini_Makineri.jpg" },
@@ -51,3 +52,57 @@
         { "name": "Zikirja Halili", "profession": "Gjuhë Shqipe", "img": "Staf_IMG/Zikirja_Halili_GJ_SH.png" }
   ]
 }
+=======
+{
+    "professional": [
+        { "name": "Adem Çerkini", "profession": "Makineri", "img": "Staf_IMG/Adem_Cerkini_Makineri.jpg" },
+        { "name": "Adem Shabani", "profession": "Makineri", "img": "Staf_IMG/Adem_Shabani_Makineri.png" },
+        { "name": "Agron Gjinolli", "profession": "Arkitektur", "img": "Staf_IMG/Aferdita_Gjinolli_Arkitekture.png" },
+        { "name": "Agron Sejdiu", "profession": "Makineri", "img": "Staf_IMG/Agron_Sejdiu_Makineri.png" },
+        { "name": "Anduena Hajdini", "profession": "TIK", "img": "Staf_IMG/Anduena_Hajdini_TIK.png" },
+        { "name": "Bujar Huruglica", "profession": "Makineri", "img": "Staf_IMG/Bujar_Huruglica_Makineri.png" },
+        { "name": "Arsim Çalaj", "profession": "Makineri", "img": "Staf_IMG/Arsim_Calaj_Makineri.png" },
+        { "name": "Ejup Krasniqi", "profession": "Ndërtimtari", "img": "Staf_IMG/Ejup_Krasniqi_Ndertimtari.jpg" },
+        { "name": "Fehmi Topalli", "profession": "Komunikacion", "img": "Staf_IMG/Fehmi_Topalli_Komunikacion.png" },
+        { "name": "Fexhri Baliu", "profession": "Elektronikë", "img": "Staf_IMG/Fexhri_Baliu_Elektronike.jpg" },
+        { "name": "Fuad Halili", "profession": "Makineri", "img": "Staf_IMG/Fuad_Halili_Makineri.jpg" },
+        { "name": "Gafurr Mehmeti", "profession": "Makineri", "img": "Staf_IMG/Gafurr_Mehmeti_Makineri.jpg" },
+        { "name": "Jehona Çerkini", "profession": "Dizajn Grafik", "img": "Staf_IMG/Jehona_Çerkini_Dizajn_Grafik.jpg" },
+        { "name": "Leudita Baftiu", "profession": "Makineri", "img": "Staf_IMG/Leudita_Baftiu_Makineri.png" },
+        { "name": "Luan Hoxha", "profession": "Elektronikë", "img": "Staf_IMG/Luan_Hoxha_Elektronike.png" },
+        { "name": "Murat Hajdari", "profession": "Elektronikë", "img": "Staf_IMG/Murat_Hajdari_Elektronike.png" },
+        { "name": "Musli Rexhepi", "profession": "Makineri", "img": "Staf_IMG/Musli_Rexhepi_Makineri.png" },
+        { "name": "Nexhije Koskoviku", "profession": "Makineri", "img": "Staf_IMG/Naxhije_Koskoviku_Makineri.png" },
+        { "name": "Neki Sadriu", "profession": "Elektronikë", "img": "Staf_IMG/Neki_Sadriu_Elektronik.jpg" },
+        { "name": "Sabahate Topojani", "profession": "Elektronikë", "img": "Staf_IMG/Sabahate_Topojani_Elektronike.jpg" },
+        { "name": "Sakip Qerimi", "profession": "Makineri", "img": "Staf_IMG/Sakip_Qerimi_Makineri.png" },
+        { "name": "Saeanda Mustafa", "profession": "Arkitektur", "img": "Staf_IMG/Saranda_Mustafa_Arkitekture.jpg" },
+        { "name": "Shkëlzen Azizi", "profession": "Elektronikë", "img": "Staf_IMG/Shkelzen_Azizi_Elektronike.jpg" },
+        { "name": "Shpend Ymeri", "profession": "Makineri", "img": "Staf_IMG/Shpend_Ymeri_Makineri.png" },
+        { "name": "Shpresa Asllani", "profession": "Makineri", "img": "Staf_IMG/Shpresa_Asllani_Makineri.jpg" },
+        { "name": "Skënder Mustafa", "profession": "Makineri", "img": "Staf_IMG/Skender_Mustafa_Makineri.png" },
+        { "name": "Valentina Nuhiu", "profession": "TIK", "img": "Staf_IMG/Valentina_Nuhiu_TIK.png" },
+        { "name": "Xhemil Halili", "profession": "Komunikacion", "img": "Staf_IMG/Xhemil_Halili_Komunikacion.png" },
+        { "name": "Valon Dervishi", "profession": "Komunikacion", "img": "Staf_IMG/Valon_Dervishi_Komunikacion.png" },
+        { "name": "Xhevdet Sejdiu", "profession": "Elektronikë", "img": "Staf_IMG/Xhevdet_Sejdiu_Elektronike.png" }
+    ],
+    "general": [
+        { "name": "Arbëreshë Lami", "profession": "Gjuhë Shqipe", "img": "Staf_IMG/Arbëreshë_Lami_GJ_SH.jpg" },
+        { "name": "Bardha Ramadani", "profession": "Gjuhë Shqipe", "img": "Staf_IMG/Bardha_Ramadani_GJ_SH.png" },
+        { "name": "Ibadete Gashi", "profession": "Matematikë", "img": "Staf_IMG/Ibadete_Gashi_Matematike.png" },
+        { "name": "Brikene Topalli", "profession": "Ekonomi", "img": "Staf_IMG/Brikene_Topalli_Ekonomi.png" },
+        { "name": "Afërdita ....", "profession": "Gjuhë Shqipe", "img": "Staf_IMG/img_5629.jpeg.jpg" },
+        { "name": "Kadri Neziri", "profession": "Matematikë", "img": "Staf_IMG/Kadri_Neziri_Matematike.jpg" },
+        { "name": "Liza Ajvazi", "profession": "Gjuhë Gjermane", "img": "Staf_IMG/Liza_Ajvazi_GJ_Gjermane.jpg" },
+        { "name": "Lule Hyseni", "profession": "Gjuhë Angleze", "img": "Staf_IMG/Lule_Hyseni_GJ_Angleze.png" },
+        { "name": "Mirjeta Muhaxheri", "profession": "Fizikë", "img": "Staf_IMG/Mirjeta_Muhaxheri_Fizike.jpg" },
+        { "name": "Njomza Rama", "profession": "Gjuhë Angleze", "img": "Staf_IMG/Njomza_Rama_GJ_Angleze.png" },
+        { "name": "Rrezarta Ademi", "profession": "Edukatë Qytetare", "img": "Staf_IMG/Rrezarta_Ademi_ED_Qytetare.jpg" },
+        { "name": "Sadije Gerbershi", "profession": "Matematikë", "img": "Staf_IMG/Sadije_Gerbershi_Matematike.png" },
+        { "name": "Sadije Salihu", "profession": "Gjuhë Shqipe", "img": "Staf_IMG/Sadije_Salihu_GJ_SH.png" },
+        { "name": "Valdete Vranovci", "profession": "Matematikë", "img": "Staf_IMG/Valdete_Vranovci_Matematike.png" },
+        { "name": "Vjollca Loku", "profession": "Edukatë Fizikë", "img": "Staf_IMG/Vjollca_Loku_ED_Fizike.jpg" },
+        { "name": "Zikirja Halili", "profession": "Gjuhë Shqipe", "img": "Staf_IMG/Zikirja_Halili_GJ_SH.png" }
+  ]
+}
+>>>>>>> mergebranch
