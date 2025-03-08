@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Termat Dhe Kushtet | IAAP - Pjetër Bogdani | Ferizaj</title>
+    <link rel="icon" href="logo/logo.png">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+            background-color: #080F32;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #00A3FF, #080F32);
+            border-radius: 6px;
+            border: 3px solid #080F32;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #00C8FF, #080F32);
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1A2238;
+            border-radius: 6px;
+        }
+
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #00A3FF #1A2238;
+        }
+
+        /* Body and Container Styling */
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #00539C;
+            font-weight: 700;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #00539C;
+            padding-bottom: 10px;
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+            color: #777;
+            background-color: #f8f9fa;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body style="background-color: #080F32; color: black; width: 100%;">
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0" style="font-size: 1.2rem;">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <img src="logo/logo.png" alt="logo" height="70" style="margin-right: 20px; color: #080F32;">
+            <h2 class="m-0" style="margin-left: 10px;">IAAP - Pjetër Bogdani</h2>
+        </a>
+        <button type="button" class="navbar-toggler ms-auto me-2" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>        
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link underline-animation" style="font-size: 1.2rem;">Ballina</a>
+                <a href="Lajmet.html" class="nav-item nav-link underline-animation" style="font-size: 1.2rem;">Lajmet</a>
+                <a href="about.html" class="nav-item nav-link underline-animation" style="font-size: 1.2rem;">Rreth Nesh</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" style="font-size: 1.2rem;">Drejtimet</a>
+                    <div class="dropdown-menu fade-down m-0">
+                        <a href="Makineri.html" class="dropdown-item underline-animation" style="font-size: 1.2rem;"> <i class="fas fa-cogs me-2"></i>  MAKINERI</a>
+                        <a href="Elektronik.html" class="dropdown-item underline-animation" style="font-size: 1.2rem;"><i class="fas fa-microchip me-2"></i> ELEKTRONIKË</a>
+                        <a href="Ndertimtari.html" class="dropdown-item underline-animation" style="font-size: 1.2rem;"><i class="fas fa-building me-2"></i> NDËRTIMTARI</a>
+                    </div>
+                </div>
+                <a href="stafi.html" class="nav-item nav-link underline-animation" style="font-size: 1.2rem;">Stafi</a>
+                <a href="contact.html" class="nav-item nav-link underline-animation" style="font-size: 1.2rem;">Contact</a>
+                <!-- <a href="creators.html" class="nav-item nav-link underline-animation" style="font-size: 1.2rem;">Creators</a> -->
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <div class="container">
+        <h1>Termat dhe Kushtet</h1>
+        <p>
+            Ky dokument përcakton kushtet dhe rregullat e përdorimit për të gjithë shërbimet, informacionet, materialet dhe aktivitetet që ofrohen nga <strong>IAAP Pjeter Bogdani, Ferizaj</strong> (më tej “Institucioni”). Duke përdorur shërbimet tona, ju pranoni pa kushte këto kushte, të cilat mund të ndryshohen nga koha në kohë. Ju lutemi që t’i lexoni me kujdes këto dispozita.
+        </p>
+
+        <!-- Section 1 -->
+        <div class="section">
+            <h2>1. Përdorimi i Shërbimeve dhe Përgjegjësia e Përdoruesit</h2>
+            <ul>
+                <li>
+                    <strong>Përdorim i Lartë:</strong> Të gjithë përdoruesit e shërbimeve të Institucionit janë të detyruar të respektojnë rregullat e përdorimit, të mbajnë një sjellje të përshtatshme dhe të shmangin çdo veprim që mund të dëmtojë imazhin, funksionimin ose integritetin e Institucionit.
+                </li>
+                <li>
+                    <strong>Autentikimi dhe Siguria:</strong> Nëse kërkohet regjistrimi për të përdorur disa shërbime, përdoruesit duhet të sigurohen që informacioni i dhënë të jetë i saktë dhe të mbajnë konfidencialitetin e të dhënave të hyrjes. Çdo aktivitet i bërë në llogarinë tuaj është përgjegjësi juaj.
+                </li>
+            </ul>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="section">
+            <h2>2. Pronësia Intelektuale dhe E drejta e Autorit</h2>
+            <ul>
+                <li>
+                    <strong>Materiale të Mbrojtura:</strong> Të gjitha materialet, përfshirë tekstet, imazhet, videot, grafikët dhe dokumentacionin e publikueshëm nga Institucioni janë të mbrojtura me të drejtat e autorit dhe të tjera të drejta pronësie intelektuale.
+                </li>
+                <li>
+                    <strong>Përdorim i Kufizuar:</strong> Nuk lejohen riprodhimi, shpërndarja, përpunimi ose përdorimi komercial i materialeve pa miratimin e shprehur të Institucionit, përveç në rastet e parashikuara me ligj.
+                </li>
+            </ul>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="section">
+            <h2>3. Modifikimi i Kushteve dhe Rregullave</h2>
+            <ul>
+                <li>
+                    <strong>Ndryshime të Mundshme:</strong> Institucioni rezervon të drejtën për të modifikuar këto kushte dhe rregulla në çdo kohë. Çdo ndryshim do të publikohet në faqen zyrtare të Institucionit dhe do të hyjë në fuqi menjëherë pas publikimit.
+                </li>
+                <li>
+                    <strong>Pranimi i Kushteve të Reja:</strong> Përdoruesit që vazhdojnë përdorimin e shërbimeve pas publikimit të ndryshimeve konsiderohen se kanë pranuar kushte të reja.
+                </li>
+            </ul>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="section">
+            <h2>4. Përgjegjësitë e Institucionit</h2>
+            <ul>
+                <li>
+                    <strong>Përmbajtja dhe Shërbimet:</strong> Institucioni përpiqet të sigurojë informacion të saktë, të azhurnuar dhe të dobishëm. Megjithatë, nuk garanton plotësisht saktësinë, plotësinë ose cilësinë e materialeve të publikuara.
+                </li>
+                <li>
+                    <strong>Shmangia e Dëmeve:</strong> Në asnjë rast, Institucioni nuk do të jetë përgjegjës për dëmet e drejtpërdrejta, indirekte, rastësore, të veçanta apo ndjekëse që mund të shkaktohen nga përdorimi ose paaftësia për përdorim të shërbimeve të tij.
+                </li>
+            </ul>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="section">
+            <h2>5. Privatësia dhe Mbrojtja e të Dhënave</h2>
+            <ul>
+                <li>
+                    <strong>Politika e Privatësisë:</strong> Përdorimi i shërbimeve të Institucionit është i rregulluar gjithashtu nga Politika e Privatësisë, e cila përshkruan mënyrën e mbledhjes, përdorimit dhe mbrojtjes së të dhënave personale të përdoruesve.
+                </li>
+                <li>
+                    <strong>Pajtueshmëria:</strong> Me përdorimin e shërbimeve, ju pranoni praktikat e përshkruara në Politika e Privatësisë, duke përfshirë çështje lidhur me cookies dhe teknologjitë e ngjashme.
+                </li>
+            </ul>
+        </div>
+
+        <!-- Section 6 -->
+        <div class="section">
+            <h2>6. Ligji në Fuqi dhe Juridiksioni</h2>
+            <ul>
+                <li>
+                    <strong>Ligji Zhyrtës:</strong> Këto kushte dhe rregulla janë nën ndikimin e ligjeve të Republikës së Shqipërisë ose rregulloreve të përcaktuara nga autoritetet kompetente në vendin ku ndodhet Institucioni.
+                </li>
+                <li>
+                    <strong>Zgjidhja e Mosmarrëveshjeve:</strong> Çdo mosmarrëveshje që lind nga ose në lidhje me këto kushte do të zgjidhet në mënyrë miqësore. Në rast se nuk arrihet një zgjidhje, çështja do të paraqitet në gjykatat kompetente.
+                </li>
+            </ul>
+        </div>
+
+        <!-- Section 7 -->
+        <div class="section">
+            <h2>7. Dispozita Shtesë</h2>
+            <ul>
+                <li>
+                    <strong>Ndryshime të Veçanta:</strong> Nëse përdorimi i ndonjë shërbimi specifik përfshin rregulla shtesë (si p.sh. platforma online, forume, etj.), ato rregulla do të jenë pjesë integrale e këtyre kushteve.
+                </li>
+                <li>
+                    <strong>Kundërshtimi dhe Pyetjet:</strong> Nëse keni ndonjë pyetje apo kundërshtim në lidhje me këto kushte, ju lutemi të kontaktoni Institucionin nëpërmjet kanaleve zyrtare të komunikimit.
+                </li>
+            </ul>
+        </div>
+
+        <p>
+            Ky dokument ka për qëllim të krijojë një ambient të sigurtë dhe të organizuar për përdorimin e shërbimeve dhe materialeve nga <strong>IAAP Pjeter Bogdani, Ferizaj</strong>. Duke përdorur shërbimet tona, ju pranoni dhe pajtoheni me këto kushte. Për çdo informacion shtesë ose sqarim, ju lutemi të referoheni në faqen zyrtare të Institucionit ose të kontaktoni drejtpërdrejt me stafin përgjegjës.
+        </p>
+
+        <p><em>(Dokumenti është hartuar për qëllime informuese dhe duhet të interpretohet në kontekstin e rregullave të brendshme të Institucionit dhe ligjeve të zhyrtës në fuqi.)</em></p>
+    </div>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-info btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>  
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
