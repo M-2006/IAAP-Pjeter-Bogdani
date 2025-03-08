@@ -571,3 +571,28 @@
         transform: scale(1.05);
     }
 
+   /* Professional button  Termat dhe kushtet*/
+    .btn-professional {
+        background: linear-gradient(90deg, #0d6efd, #0056b3); /* Professional blue gradient */
+        color: #ffffff;
+        border: none;
+        border-radius: 25px;
+        padding: 10px 20px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 4px 6px #0000001a; /* subtle shadow */
+      }
+      
+      .btn-professional:hover {
+        background: linear-gradient(90deg, #0056b3, #0d6efd);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px #00000026;
+      }
+      
+      .btn-professional:focus {
+        outline: none;
+        box-shadow: 0 0 0 0.25rem #0d6efd66;
+      }
+      
