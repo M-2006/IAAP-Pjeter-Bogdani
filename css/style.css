@@ -571,7 +571,11 @@
         transform: scale(1.05);
     }
 
+
    /* Professional button  Termat dhe kushtet*/
+
+    /* Professional button  Termat dhe kushtet*/
+
     .btn-professional {
         background: linear-gradient(90deg, #0d6efd, #0056b3); /* Professional blue gradient */
         color: #ffffff;
@@ -595,4 +599,6 @@
         outline: none;
         box-shadow: 0 0 0 0.25rem #0d6efd66;
       }
+
       
+
