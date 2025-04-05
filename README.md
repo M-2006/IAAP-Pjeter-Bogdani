@@ -53,10 +53,7 @@ Bearbeiten
 
 ## ✨ Screenshots
 
-> _Add images here by uploading them to the repo or using hosted URLs_
-
-![Home Page Preview](https://via.placeholder.com/1200x700?text=IAAP+Website+Preview)
-![Staff Section](https://via.placeholder.com/1200x700?text=Staff+Section)
+* SOON *
 
 ---
 
@@ -73,8 +70,8 @@ Front-End Developer | Passionate about Educational Tech Solutions
 
 ## 📜 License
 
-This project is licensed under the **MIT License**.  
-Feel free to use, modify, and distribute the content with appropriate credit.
+THIS A PERSONAL PROJECT HOSTED ON GIT FOR TESTING; IT IS NOT FREE NOR DOES ANYONE HAVE A AGREEMENT WITH US TU USE IT WITHOUT OUR PREMISSION.
+PLEASE CONTACT THE OWNER OF THE REPO FOR ACCESS AND PREMISSION; THANKS FOR UNDERSTANDING :)
 
 ---
 
