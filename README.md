@@ -70,8 +70,12 @@ Front-End Developer | Passionate about Educational Tech Solutions
 
 ## 📜 License
 
-THIS A PERSONAL PROJECT HOSTED ON GIT FOR TESTING; IT IS NOT FREE NOR DOES ANYONE HAVE A AGREEMENT WITH US TU USE IT WITHOUT OUR PREMISSION.
-PLEASE CONTACT THE OWNER OF THE REPO FOR ACCESS AND PREMISSION; THANKS FOR UNDERSTANDING :)
+# Important Notice
+This is a personal project hosted on GitHub for testing purposes. It is not available for free use, nor is there any agreement allowing others to utilize it without explicit permission from the owner.
+
+If you require access or permission to use this project, please contact the repository owner directly.
+
+Thank you for your understanding.
 
 ---
 
