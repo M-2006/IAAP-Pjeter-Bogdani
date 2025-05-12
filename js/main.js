@@ -113,6 +113,7 @@
         navbarToggler.addEventListener("click", function () {
             navbarCollapse.classList.toggle("show");
         });
+        
     });
 
     $(document).ready(function(){
