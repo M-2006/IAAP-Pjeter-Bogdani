@@ -32,78 +32,94 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <style>
-         .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
+        /* Contact Section Enhancements */
+    .contact-section {
+        position: relative;
+        overflow: hidden;
+        padding: 4rem 0;
+    }
 
-        .contact-item:hover {
-            transform: scale(1.05);
-            background: rgba(255, 255, 255, 0.05);
-        }
+    .contact-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        transition: transform 0.3s ease;
+        min-height: 100%;
+    }
 
-        .contact-item i {
+    .contact-card:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.08);
+    }
+
+    .map-container {
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .map-container:hover {
+        transform: scale(1.02);
+    }
+
+    .contact-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        margin-bottom: 3rem;
+        position: relative;
+        display: inline-block;
+    }
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+        border-radius: 2px;
+    }
+
+    .contact-details {
+        padding-left: 1rem;
+        border-left: 3px solid #2575fc;
+        margin: 2rem 0;
+    }
+
+    .contact-details p {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+        .contact-card {
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
             font-size: 2rem;
-            color: #FF6F61;
         }
-
-                       /* Modern glassmorphism effect */
-                       .modal-content {
-                background: rgba(255, 255, 255, 0.15);
-                backdrop-filter: blur(10px);
-                border-radius: 15px;
-                border: 1px solid rgba(255, 255, 255, 0.2);
-            }
-
-            /* Title styling */
-            .modal-title {
-                font-weight: bold;
-                color: #ffffff;
-            }
-
-            /* Header and Footer */
-            .modal-header, .modal-footer {
-                border: none;
-                background: rgba(255, 255, 255, 0.1);
-            }
-
-            /* List styling */
-            .list-group-item {
-                background: rgba(255, 255, 255, 0.1);
-                color: white;
-                border: none;
-                font-weight: 500;
-                transition: all 0.3s ease;
-            }
-
-            /* Hover effect */
-            .list-group-item:hover {
-                background: rgba(255, 255, 255, 0.2);
-                transform: scale(1.02);
-            }
-
-            /* Close button */
-            .btn-close {
-                filter: invert(1);
-            }
-
-            /* Button styling */
-            .btn-secondary {
-                background: linear-gradient(135deg, #6a11cb, #2575fc);
-                border: none;
-                transition: all 0.3s ease;
-            }
-
-            .btn-secondary:hover {
-                background: linear-gradient(135deg, #2575fc, #6a11cb);
-                transform: scale(1.05);
-            }
+    }
 </style>
+
 <body style="background-color: #080F32;">
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -142,30 +158,61 @@
         </div>
     </nav>
     <!-- Navbar End -->
+    <div class="contact-section">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="contact-title text-white">Mund T'na Gjeni Këtu</h1>
+            </div>
 
-    <!-- Contact Section -->
-    <div class="container py-5">
-        <div class="text-center">
-            <h1 class="mb-5" style="font-family: 'Heebo', sans-serif; color: white;">MUND T'NA GJENI NË:</h1>
-        </div>
-        <div class="row g-4">
-            <div class="col-lg-6">
-                <div class="contact-item">
-                    <i class="fa fa-map-marker-alt"></i>
-                    <div>
-                        <h5  style="font-family: 'Heebo', sans-serif; color: white;">Adresa</h5>
-                        <p><a 
-                            href="https://www.google.com/maps/place/Shkolla+e+Mesme+Teknike+%22Pjeter+Bogdani%22+Ferizaj/@42.364293,21.157498,15z/data=!4m6!3m5!1s0x13547ef6439ae21d:0x1e3efba0b36ed6a8!8m2!3d42.3642934!4d21.1574981!16s/g/1hjgspkw5?hl=de&entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw==" 
-                            target="_blank" class="text-light">Besim Rexhepi, Ferizaj, 70000</a></p>
+            <div class="row g-4">
+                <!-- Contact Info Card -->
+                <div class="col-lg-4">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt text-white"></i>
+                        </div>
+                        <h3 class="text-white mb-4" style="font-family: 'Heebo', sans-serif;">Lokacioni Jonë</h3>
+                        
+                        <div class="contact-details">
+                            <p class="text-white-50 mb-4">
+                                <i class="fas fa-map-marker-alt me-2 text-primary"></i>
+                                Shkolla Teknike "Pjetër Bogdani" <br>
+                                Rruga Besim Rexhepi, Ferizaj 70000
+                            </p>
+                            
+                            <p class="text-white-50 mb-4">
+                                <i class="fas fa-clock me-2 text-primary"></i>
+                                E Hënë - E Premte: 08:00 - 19:20<br>
+                                E Shtunë & Diel: Mbyllur
+                            </p>
+
+                            <div class="d-flex align-items-center">
+                                <a href="https://www.facebook.com/IAAPPjeterBogdani" 
+                                class="btn btn-primary btn-sm rounded-pill px-4"
+                                target="_blank">
+                                    <i class="fab fa-facebook-f me-2"></i>Facebook
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2947.978506203184!2d21.154923176478455!3d42.36429733483336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13547ef6439ae21d%3A0x1e3efba0b36ed6a8!2sShkolla%20e%20Mesme%20Teknike%20%22Pjeter%20Bogdani%22%20Ferizaj!5e0!3m2!1sde!2s!4v1734290600923!5m2!1sde!2s" 
-                width="100%" height="350" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            <!-- Map Card -->
+            <div class="col-lg-8">
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2947.978506203184!2d21.154923176478455!3d42.36429733483336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13547ef6439ae21d%3A0x1e3efba0b36ed6a8!2sShkolla%20e%20Mesme%20Teknike%20%22Pjeter%20Bogdani%22%20Ferizaj!5e0!3m2!1sde!2s!4v1734290600923!5m2!1sde!2s" 
+                            width="100%" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
      <!-- Footer Start -->
      <div class="container-fluid bg-dark text-light footer pt-5 mt-0 wow fadeIn" data-wow-delay="0.1s">
@@ -184,7 +231,7 @@
                         href="https://www.google.com/maps/place/Shkolla+e+Mesme+Teknike+%22Pjeter+Bogdani%22+Ferizaj/@42.364293,21.157498,15z/data=!4m6!3m5!1s0x13547ef6439ae21d:0x1e3efba0b36ed6a8!8m2!3d42.3642934!4d21.1574981!16s%2Fg%2F1hjgspkw5?hl=de&entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D">
                         Besim Rexhepi, Ferizaj, 70000</a></p>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-outline-dark btn-social" href="https://www.facebook.com/shmtpjeterbogdani" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-dark btn-social" href="https://www.facebook.com/IAAPPjeterBogdani" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -296,4 +343,3 @@
 </body>
 
 </html>
->>>>>>> mergebranch
