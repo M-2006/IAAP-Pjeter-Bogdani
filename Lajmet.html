@@ -6,11 +6,14 @@
     <title>Lajmet Më të Fundit - IAAP Pjetër Bogdani</title>
     <link rel="icon" href="logo/logo.png">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,57 +66,136 @@
                 scrollbar-width: thin; /* Thin scrollbar for Firefox */
                 scrollbar-color: #00A3FF #1A2238; /* Thumb color and track color */
             }
-                /* Modern glassmorphism effect */
-            .modal-content {
-                background: rgba(255, 255, 255, 0.15);
-                backdrop-filter: blur(10px);
-                border-radius: 15px;
-                border: 1px solid rgba(255, 255, 255, 0.2);
-            }
-
-            /* Title styling */
-            .modal-title {
-                font-weight: bold;
-                color: #ffffff;
-            }
-
-            /* Header and Footer */
-            .modal-header, .modal-footer {
-                border: none;
-                background: rgba(255, 255, 255, 0.1);
-            }
-
-            /* List styling */
-            .list-group-item {
-                background: rgba(255, 255, 255, 0.1);
-                color: white;
-                border: none;
-                font-weight: 500;
+            .news-card {
                 transition: all 0.3s ease;
+                max-height: 600px;
+                overflow: hidden;
+            }
+            
+            .news-card.expanded {
+                max-height: 1200px;
+                z-index: 2;
             }
 
-            /* Hover effect */
-            .list-group-item:hover {
-                background: rgba(255, 255, 255, 0.2);
-                transform: scale(1.02);
+         .iframe-container {
+            position: relative;
+            width: 100%;
+            padding-top: 136%; /* adjust if your embeds have a different ratio */
+            overflow: hidden;
+            }
+            .iframe-container iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
             }
 
-            /* Close button */
-            .btn-close {
-                filter: invert(1);
+            @media (max-width: 767px) {
+                .news-card {
+                    max-height: 550px;
+                }
+                
+                .news-card.expanded {
+                    max-height: 1000px;
+                }
+                
+                .iframe-container {
+                    min-height: 250px;
+                }
             }
 
-            /* Button styling */
-            .btn-secondary {
-                background: linear-gradient(135deg, #6a11cb, #2575fc);
-                border: none;
-                transition: all 0.3s ease;
-            }
+                .expand-btn {
+                  color: #f0f0f0 !important; /* Visible button color */
+                  text-decoration: none;
+                  padding: 8px 12px;
+                  border-radius: 5px;
+                  background: rgba(0,0,0,0.05);
+                  display: inline-block;
+                  margin: 10px 0;
+              }
 
-            .btn-secondary:hover {
-                background: linear-gradient(135deg, #2575fc, #6a11cb);
-                transform: scale(1.05);
+        .expand-btn:hover {
+            color: #ffffffa6 !important;
+            text-decoration: underline;
+            background: rgba(0,0,0,0.1);
+            text-underline-offset: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .card-body {
+        max-height: 6rem;        /* show ~2 lines by default */
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        }
+        .card-body.expanded {
+        max-height: 100vh;       /* or none, but vh prevents runaway */
+        }
+
+        .engagement-stats {
+            position: absolute;
+            bottom: 10px;
+            left: 1.25rem;
+        }
+
+            .fb-post-wrapper {
+              border-radius: 10px;
+              overflow: hidden;
+          }
+
+          .fb-post {
+              border: none !important;
+              margin: 0 !important;
+              padding: 0 !important;
+          }
+
+          .platform-badge {
+              background: white !important;
+              box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+          }
+        .expand-btn {
+            z-index: 3; /* Ensure button stays above iframe */
+            position: relative;
+        }
+            .card-text {
+                max-height: 60px;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
             }
+    
+              .news-card.expanded .card-text {
+                  max-height: 1000px;
+              }
+              
+              .expand-btn i {
+                  transition: transform 0.3s ease;
+              }
+              
+              .news-card.expanded .expand-btn i {
+                  transform: rotate(180deg);
+              }
+
+            /* Media: on mobile, always full-width cards */
+            @media (max-width: 767px) {
+  .iframe-container {
+    padding-top: 175%; /* Better aspect ratio for mobile */
+    min-height: 400px; /* Ensure minimum height */
+  }
+  
+  .news-card {
+    margin: 0 10px; /* Add horizontal spacing */
+    max-height: 500px; /* Adjusted initial height */
+  }
+  
+  .news-card.expanded {
+    max-height: 2000px; /* Allow more space for expansion */
+    margin: 10px; /* Add breathing room */
+  }
+  
+  /* Force single column layout */
+  .row-cols-md-2, .row-cols-lg-3 {
+    grid-template-columns: 1fr !important;
+  }
+}
     </style>
     <body style="background-color: #080F32; color: black; width: 100%;"> 
     <!-- Spinner Start -->
@@ -123,18 +205,22 @@
         </div>
     </div>
     <!-- Spinner End -->
-
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0" style="font-size: 1.2rem;">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <img src="logo/logo.png" alt="logo" height="70" style="margin-right: 20px; color: #080F32;">
             <h2 class="m-0" style="margin-left: 10px;">IAAP - Pjetër Bogdani</h2>
         </a>
-        <button type="button" class="navbar-toggler ms-auto me-2" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>        
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <button class="navbar-toggler ms-auto me-2" type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarCollapse" 
+                aria-controls="navbarCollapse" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.html" class="nav-item nav-link underline-animation" style="font-size: 1.2rem;">Ballina</a>
                 <a href="Lajmet.html" class="nav-item nav-link underline-animation" style="font-size: 1.2rem;">Lajmet</a>
                 <a href="about.html" class="nav-item nav-link underline-animation" style="font-size: 1.2rem;">Rreth Nesh</a>
@@ -155,147 +241,153 @@
     <!-- Navbar End -->
 
 <!-- News Section Start -->
-<section class="news-section bg-dark py-5">
-    <div class="container-xxxl">
-        <div class="container">
-            <!-- Section Heading -->
-            <h2 class="text-center mb-5 text-white fw-bold">Lajmet e Fundit</h2>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0" nonce="FBSDK"></script>
+
+<!-- Update the news grid section -->
+    <section class="news-section bg-dark py-5">
+        <div class="container-xxl">
+            <div class="container">
+                <h2 class="text-center mb-5 text-white fw-bold display-5">Lajmet e Fundit</h2>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="news-grid">
+                    <!-- Cards will be dynamically inserted here -->
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- News Section End -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        // Mock data - Replace with actual Facebook API call
+        const fetchFacebookPosts = () => {
+            return [
+                {
+                    id: 1,
+                    postUrl: "https://www.facebook.com/IAAPPjeterBogdani/posts/1183713403543326",
+                    title: "Vizitë inspiruese në IAAP \"Pjetër Bogdani\"",
+                    excerpt: "Përmbledhje dinamike e postimit...",
+                    content: "Full expanded text..."
+                },
+                {
+                  id: 2,
+                  postUrl: "https://www.facebook.com/IAAPPjeterBogdani/posts/pfbid04wNY5eeKRpuREi2nrEvgJFp4CZhAEqM5Y13MmhFoRG5LEJguqV97K99NFgJiPc9rl",
+                  title: "Katër grupe shpallen fituese të garës UBT Spaghetti Bridge 2025",
+                  excerpt: "Përmbledhje dinamike e postimit...",    
+                  content: "Full expanded text..."  
+                },
+                {
+                    id: 3,
+                    postUrl: "https://www.facebook.com/IAAPPjeterBogdani/posts/pfbid0SNqahE4DqxpfTXDBEcW47NmNBemFsEMsWigVMg4Gc5QfU1mSHF6fpd8HyMpdyFSQl",
+                    title: "𝗡𝗷𝗲̈ 𝘁𝗷𝗲𝘁𝗲̈𝗿 𝘀𝘂𝗸𝘀𝗲𝘀 𝗻𝗴𝗮 𝗻𝘅𝗲̈𝗻𝗲̈𝘀𝗶𝘁 𝘁𝗮𝗻𝗲̈",
+                    excerpt: "Përmbledhje dinamike e postimit...",
+                    content: "Full expanded text..."
+                },
+                {
+                    id: 4,
+                    postUrl: "https://www.facebook.com/IAAPPjeterBogdani/posts/pfbid09CqoWtsd7XYpbacPDy54okMamQC9TA1njhg1KPUXzZHU664fzzZcC25ryYiezcuhl",
+                    title: "Njihuni me nxënësin tonë Florian Siqanin",
+                    excerpt: "Përmbledhje dinamike e postimit...",
+                    content: "Full expanded text..."
+                },
+                {
+                    id: 5,
+                    postUrl: "https://www.facebook.com/IAAPPjeterBogdani/posts/pfbid0Mjk9TrPYLv5NaJaquVEdyMT1dufzW9SHQ89vgqfhryqBPMxq3uxmzww74BJ1TBW4l",
+                    title: "Aktivitet në Orientim dhe Këshillim në Karrierë",
+                    excerpt:"Përmbledhje dinamike e postimit...",
+                    content: "Full expanded text..."
+                },
+                {
+                    id: 6,
+                    postUrl: "https://www.facebook.com/IAAPPjeterBogdani/videos/1510792393224214",
+                    title: "JU PREZANTOJMË: Një animacion të veçantë Stopmotion nga nxënësit tanë!",
+                    excerpt: "Përmbledhje dinamike e postimit...",
+                    content: "Full expanded text..."
+                },
+                {
+                    id: 7,
+                    postUrl: "https://www.facebook.com/IAAPPjeterBogdani/posts/pfbid0h1WZuPjx3eaDs4pbvsEfEKRwjK3Kma6K1vJAKG58DsfAP69uBTSbBTt1G7FW9K1el",
+                    title: "Vizitë në shkollën IAAP \"Pjetër Bogdani\"",
+                    excerpt: "Përmbledhje dinamike e postimit...",
+                    content: "Full expanded text..."
+                },
+                // Add more posts...
+            ];
+        };
+
+        // Generate card HTML with Facebook iframe
+        function createNewsCard(post) {
+        const embedUrl = encodeURIComponent(post.postUrl);
+        return `
+            <div class="col">
+            <div class="card news-card" data-id="${post.id}">
+                <div class="card-header p-0 border-0">
+                <div class="iframe-container">
+                    <iframe
+                    src="https://www.facebook.com/plugins/post.php?href=${embedUrl}&width=500"
+                    scrolling="no"
+                    allowFullScreen="true">
+                    </iframe>
+                </div>
+                </div>
+                <div class="card-body">
+                <h3 class="card-title">${post.title}</h3>
+                </div>
+            </div>
+            <button class="btn btn-link expand-btn" onclick="toggleCard(${post.id})">
+                <i class="fas fa-plus"></i> Shiko më shumë
+            </button>
+            </div>
+        `;
+        }
+
+
+        // Initialize news grid with Facebook posts
+        document.addEventListener('DOMContentLoaded', () => {
+            const newsGrid = document.getElementById('news-grid');
+            const posts = fetchFacebookPosts();
             
-            <!-- News Cards Grid -->
-            <div class="row g-4" id="news-grid">
-                <!-- Initial News Cards -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 shadow-sm">
-                        <img src="logo/logo.png" class="card-img-top" alt="Lajmi 1 - Imazhi ilustrues" loading="lazy">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Lajmi 1</h5>
-                            <p class="card-text text-muted">Përshkrimi i lajmit 1. Detaje të rëndësishme që duhet të dini për këtë ngjarje.</p>
-                            <a href="#" class="btn btn-primary stretched-link" data-bs-toggle="modal" data-bs-target="#newsModal" data-title="Lajmi 1" data-description="Përshkrimi i lajmit 1. Detaje të rëndësishme që duhet të dini për këtë ngjarje.">Lexo më shumë</a>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 text-muted">
-                            <small>Postuar më: 10 Mars 2025</small>
-                        </div>
-                    </div>
-                </div>
+            newsGrid.innerHTML = posts.map(post => 
+                createNewsCard(post)).join('');
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 shadow-sm">
-                        <img src="logo/logo.png" class="card-img-top" alt="Lajmi 2 - Imazhi ilustrues" loading="lazy">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Lajmi 2</h5>
-                            <p class="card-text text-muted">Përshkrimi i lajmit 2. Detaje të rëndësishme që duhet të dini për këtë ngjarje.</p>
-                            <a href="#" class="btn btn-primary stretched-link" data-bs-toggle="modal" data-bs-target="#newsModal" data-title="Lajmi 2" data-description="Përshkrimi i lajmit 2. Detaje të rëndësishme që duhet të dini për këtë ngjarje.">Lexo më shumë</a>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 text-muted">
-                            <small>Postuar më: 9 Mars 2025</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 shadow-sm">
-                        <img src="logo/logo.png" class="card-img-top" alt="Lajmi 3 - Imazhi ilustrues" loading="lazy">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Lajmi 3</h5>
-                            <p class="card-text text-muted">Përshkrimi i lajmit 3. Detaje të rëndësishme që duhet të dini për këtë ngjarje.</p>
-                            <a href="#" class="btn btn-primary stretched-link" data-bs-toggle="modal" data-bs-target="#newsModal" data-title="Lajmi 3" data-description="Përshkrimi i lajmit 3. Detaje të rëndësishme që duhet të dini për këtë ngjarje.">Lexo më shumë</a>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 text-muted">
-                            <small>Postuar më: 8 Mars 2025</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- View More Button -->
-            <div class="text-center mt-5">
-                <button id="load-more-btn" class="btn btn-outline-light btn-lg">Shiko të gjitha lajmet</button>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- News Section End -->
-
-<!-- Modal for Extended Information -->
-<div class="modal fade" id="newsModal" tabindex="-1" aria-labelledby="newsModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="newsModalLabel"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p id="modal-description"></p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mbyll</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- JavaScript for Dynamic Functionality -->
-<script>
-    // Load More Cards on Button Click
-    document.getElementById('load-more-btn').addEventListener('click', function () {
-        const newsGrid = document.getElementById('news-grid');
-        const newCards = [
-            {
-                title: 'Lajmi 4',
-                description: 'Përshkrimi i lajmit 4. Detaje të reja dhe të rëndësishme.',
-                date: '7 Mars 2025'
-            },
-            {
-                title: 'Lajmi 5',
-                description: 'Përshkrimi i lajmit 5. Detaje të reja dhe të rëndësishme.',
-                date: '6 Mars 2025'
-            },
-            {
-                title: 'Lajmi 6',
-                description: 'Përshkrimi i lajmit 6. Detaje të reja dhe të rëndësishme.',
-                date: '5 Mars 2025'
+            // Reinitialize Facebook SDK for dynamic embeds
+            if(typeof FB !== 'undefined') {
+                FB.XFBML.parse(newsGrid);
             }
-        ];
-
-        newCards.forEach(card => {
-            const cardHtml = `
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 shadow-sm">
-                        <img src="logo/logo.png" class="card-img-top" alt="${card.title} - Imazhi ilustrues" loading="lazy">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">${card.title}</h5>
-                            <p class="card-text text-muted">${card.description}</p>
-                            <a href="#" class="btn btn-primary stretched-link" data-bs-toggle="modal" data-bs-target="#newsModal" data-title="${card.title}" data-description="${card.description}">Lexo më shumë</a>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 text-muted">
-                            <small>Postuar më: ${card.date}</small>
-                        </div>
-                    </div>
-                </div>
-            `;
-            newsGrid.insertAdjacentHTML('beforeend', cardHtml);
         });
 
-        // Disable the button after loading all cards
-        this.disabled = true;
-        this.textContent = 'Të gjitha lajmet janë shfaqur';
-    });
+        // Toggle function for card expansion
+   // Modified toggleCard function
+        function toggleCard(id) {
+        const card = document.querySelector(`.news-card[data-id="${id}"]`);
+        const btn = card.querySelector('.expand-btn');
+        const icon = btn.querySelector('i');
 
-    // Modal for Extended Information
-    const newsModal = document.getElementById('newsModal');
-    newsModal.addEventListener('show.bs.modal', function (event) {
-        const button = event.relatedTarget; // Button that triggered the modal
-        const title = button.getAttribute('data-title');
-        const description = button.getAttribute('data-description');
+        card.classList.toggle('expanded');
+        icon.classList.toggle('fa-plus');
+        icon.classList.toggle('fa-minus');
 
-        // Update modal content
-        const modalTitle = newsModal.querySelector('.modal-title');
-        const modalDescription = newsModal.querySelector('#modal-description');
-        modalTitle.textContent = title;
-        modalDescription.textContent = description;
-    });
-</script>
+        btn.innerHTML = card.classList.contains('expanded') 
+            ? '<i class="fas fa-minus"></i> Shiko më pak' 
+            : '<i class="fas fa-plus"></i> Shiko më shumë';
+        }
 
+        // Facebook SDK initialization (keep existing code)
+        document.querySelectorAll('.fb-post-wrapper').forEach(wrapper => {
+            const observer = new MutationObserver((mutations, obs) => {
+                for (let m of mutations) {
+                    m.addedNodes.forEach(node => {
+                        if (node.classList && node.classList.contains('xfbml-parse-ignore') === false && node.innerHTML.trim()) {
+                            const overlay = wrapper.querySelector('.loading-overlay');
+                            if (overlay) overlay.remove();
+                            obs.disconnect();
+                        }
+                    });
+                }
+            });
+            observer.observe(wrapper, { childList: true, subtree: true });
+        });
+    </script>
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer pt-5 mt-0 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
@@ -313,7 +405,7 @@
                         href="https://www.google.com/maps/place/Shkolla+e+Mesme+Teknike+%22Pjeter+Bogdani%22+Ferizaj/@42.364293,21.157498,15z/data=!4m6!3m5!1s0x13547ef6439ae21d:0x1e3efba0b36ed6a8!8m2!3d42.3642934!4d21.1574981!16s%2Fg%2F1hjgspkw5?hl=de&entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D">
                         Besim Rexhepi, Ferizaj, 70000</a></p>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-outline-dark btn-social" href="https://www.facebook.com/shmtpjeterbogdani" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-dark btn-social" href="https://www.facebook.com/IAAPPjeterBogdani" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -397,8 +489,6 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-info btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> -->
@@ -421,10 +511,11 @@
                     }
                 });
             });
-            </script>
+        </script>
+            
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-</body>
+    </body>
 
 </html>
