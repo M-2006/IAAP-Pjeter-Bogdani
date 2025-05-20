@@ -6,7 +6,7 @@
     <title>Lajmet Më të Fundit - IAAP Pjetër Bogdani</title>
     <link rel="icon" href="logo/logo.png">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
@@ -37,6 +37,7 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    
 
 </head>
     <style>
@@ -66,135 +67,250 @@
                 scrollbar-width: thin; /* Thin scrollbar for Firefox */
                 scrollbar-color: #00A3FF #1A2238; /* Thumb color and track color */
             }
-            .news-card {
-                transition: all 0.3s ease;
-                max-height: 600px;
-                overflow: hidden;
-            }
-            
-            .news-card.expanded {
-                max-height: 1200px;
-                z-index: 2;
-            }
+   /* Improved News Card Design */
+.news-card {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    max-height: 650px;
+    overflow: hidden;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)) !important;
+    transform: translateY(0);
+}
 
-         .iframe-container {
-            position: relative;
-            width: 100%;
-            padding-top: 136%; /* adjust if your embeds have a different ratio */
-            overflow: hidden;
-            }
-            .iframe-container iframe {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            border: none;
-            }
+.news-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
 
-            @media (max-width: 767px) {
-                .news-card {
-                    max-height: 550px;
-                }
-                
-                .news-card.expanded {
-                    max-height: 1000px;
-                }
-                
-                .iframe-container {
-                    min-height: 250px;
-                }
-            }
+.news-card.expanded {
+    max-height: 2000px;
+    z-index: 2;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
 
-                .expand-btn {
-                  color: #f0f0f0 !important; /* Visible button color */
-                  text-decoration: none;
-                  padding: 8px 12px;
-                  border-radius: 5px;
-                  background: rgba(0,0,0,0.05);
-                  display: inline-block;
-                  margin: 10px 0;
-              }
+/* Enhanced Iframe Container */
+.iframe-container {
+    position: relative;
+    width: 100%;
+    padding-top: 120%;
+    overflow: hidden;
+    transition: padding-top 0.4s ease;
+    border-radius: 12px 12px 0 0;
+}
 
-        .expand-btn:hover {
-            color: #ffffffa6 !important;
-            text-decoration: underline;
-            background: rgba(0,0,0,0.1);
-            text-underline-offset: 3px;
-            transition: all 0.3s ease;
-        }
+.news-card.expanded .iframe-container {
+    padding-top: 140%;
+}
 
-        .card-body {
-        max-height: 6rem;        /* show ~2 lines by default */
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-        }
-        .card-body.expanded {
-        max-height: 100vh;       /* or none, but vh prevents runaway */
-        }
+.iframe-container iframe {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    border: none;
+    backdrop-filter: blur(4px);
+}
 
-        .engagement-stats {
-            position: absolute;
-            bottom: 10px;
-            left: 1.25rem;
-        }
+/* Modern Expand Button */
+.expand-btn {
+    color: #fff !important;
+    padding: 12px 24px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgba(0, 119, 255, 0.9), rgba(0, 84, 179, 0.9));
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 16px auto;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 119, 255, 0.2);
+    position: relative;
+}
 
-            .fb-post-wrapper {
-              border-radius: 10px;
-              overflow: hidden;
-          }
+.expand-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 119, 255, 0.3);
+    background: linear-gradient(135deg, rgba(0, 119, 255, 1), rgba(0, 84, 179, 1));
+    text-decoration: none !important;
+}
 
-          .fb-post {
-              border: none !important;
-              margin: 0 !important;
-              padding: 0 !important;
-          }
+.expand-btn i {
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    font-size: 0.9em;
+}
 
-          .platform-badge {
-              background: white !important;
-              box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-          }
-        .expand-btn {
-            z-index: 3; /* Ensure button stays above iframe */
-            position: relative;
-        }
-            .card-text {
-                max-height: 60px;
-                overflow: hidden;
-                transition: max-height 0.3s ease-out;
-            }
+.news-card.expanded .expand-btn i {
+    transform: rotate(180deg) scale(1.1);
+}
+
+/* Card Body Enhancements */
+.card-body {
+    max-height: 5rem;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    padding: 20px !important;
+    position: relative;
+}
+
+.card-body:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+    transition: opacity 0.3s ease;
+}
+
+.news-card.expanded .card-body:before {
+    opacity: 0;
+}
+
+.card-title {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    line-height: 1.4;
+    color: #fff !important;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+    .news-card {
+        max-height: 580px;
+        margin: 0 8px;
+    }
     
-              .news-card.expanded .card-text {
-                  max-height: 1000px;
-              }
-              
-              .expand-btn i {
-                  transition: transform 0.3s ease;
-              }
-              
-              .news-card.expanded .expand-btn i {
-                  transform: rotate(180deg);
-              }
+    .news-card.expanded {
+        max-height: 1800px;
+    }
+    
+    .iframe-container {
+        padding-top: 130%;
+        min-height: 220px;
+    }
+    
+    .expand-btn {
+        width: calc(100% - 32px);
+        margin: 12px 16px;
+        padding: 10px 20px;
+    }
+    
+    .card-body {
+        padding: 16px !important;
+    }
+}
 
-            /* Media: on mobile, always full-width cards */
-            @media (max-width: 767px) {
-  .iframe-container {
-    padding-top: 175%; /* Better aspect ratio for mobile */
-    min-height: 400px; /* Ensure minimum height */
-  }
-  
-  .news-card {
-    margin: 0 10px; /* Add horizontal spacing */
-    max-height: 500px; /* Adjusted initial height */
-  }
-  
-  .news-card.expanded {
-    max-height: 2000px; /* Allow more space for expansion */
-    margin: 10px; /* Add breathing room */
-  }
-  
-  /* Force single column layout */
-  .row-cols-md-2, .row-cols-lg-3 {
-    grid-template-columns: 1fr !important;
-  }
+/* Additional Enhancements */
+.fb-post-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+body {
+    background: linear-gradient(45deg, #0f0f1a, #1a1a2f);
+}
+
+/* Smooth scroll behavior */
+.news-card {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for expanded content */
+.news-card.expanded .card-body {
+    overflow-y: auto;
+    max-height: 800px;
+}
+
+.news-card.expanded .card-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.news-card.expanded .card-body::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+.card-content {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-excerpt {
+    max-height: 4.5em;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card-full {
+    opacity: 0;
+    max-height: 0;
+    transition: all 0.3s ease;
+}
+
+.card-full.expanded {
+    opacity: 1;
+    max-height: 1000px;
+}
+
+.expand-news-btn {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.fa-plus, .fa-minus {
+    margin-left: 5px;
+}
+/* CSS for expand functionality */
+.news-card {
+    position: relative;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+.card-excerpt {
+    max-height: 72px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-excerpt::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+}
+
+.card-full-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.expanded .card-full-content {
+    max-height: 1000px;
+    opacity: 1;
+}
+
+.expanded .card-excerpt {
+    max-height: 0;
+    opacity: 0;
+}
+
+.expand-btn {
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
 }
     </style>
     <body style="background-color: #080F32; color: black; width: 100%;"> 
@@ -240,27 +356,51 @@
     </nav>
     <!-- Navbar End -->
 
-<!-- News Section Start -->
-  <div id="fb-root"></div>
-  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0" nonce="FBSDK"></script>
+<!-- Facebook SDK -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0" nonce="FBSDK"></script>
 
-<!-- Update the news grid section -->
-    <section class="news-section bg-dark py-5">
+<!-- Button Section -->
+<section class="btn-section py-4" style="background-color: #080F32; color: black; width: 100%;">
+    <div class="container text-center">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary btn-lg mx-2" onclick="showFacebookPosts()">Shiko Poste Nga Facebook</button>
+            <button type="button" class="btn btn-secondary btn-lg mx-2" onclick="showLatestNews()">Shiko Lajmet me te Fundit</button>
+        </div>
+    </div>
+</section>
+
+<!-- Facebook Posts Section -->
+<section id="facebook-section" class="content-section" style="display: none;">
+    <div class="news-section bg-dark py-5">
+        <div class="container-xxl">
+            <div class="container">
+                <h2 class="text-center mb-5 text-white fw-bold display-5">Postet e Fundit nga Facebook</h2>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="facebook-grid"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Latest News Section -->
+<section id="news-section" class="content-section" style="display: none;">
+    <div class="news-section bg-dark py-5">
         <div class="container-xxl">
             <div class="container">
                 <h2 class="text-center mb-5 text-white fw-bold display-5">Lajmet e Fundit</h2>
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="news-grid">
-                    <!-- Cards will be dynamically inserted here -->
-                </div>
-
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="news-grid"></div>
             </div>
         </div>
-    </section>
-    <!-- News Section End -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        // Mock data - Replace with actual Facebook API call
-        const fetchFacebookPosts = () => {
+    </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    // Common Variables
+    let newsLoaded = false;
+
+    // Facebook Posts Logic
+   const fetchFacebookPosts = () => {
             return [
                 {
                     id: 1,
@@ -315,52 +455,142 @@
             ];
         };
 
-        // Generate card HTML with Facebook iframe
-        function createNewsCard(post) {
+    function createFacebookCard(post) {
         const embedUrl = encodeURIComponent(post.postUrl);
         return `
             <div class="col">
-            <div class="card news-card" data-id="${post.id}">
-                <div class="card-header p-0 border-0">
-                <div class="iframe-container">
-                    <iframe
-                    src="https://www.facebook.com/plugins/post.php?href=${embedUrl}&width=500"
-                    scrolling="no"
-                    allowFullScreen="true">
-                    </iframe>
+                <div class="card news-card" data-id="${post.id}">
+                    <div class="card-header p-0 border-0">
+                        <div class="iframe-container">
+                            <iframe src="https://www.facebook.com/plugins/post.php?href=${embedUrl}&width=100%&show_text=true" 
+                                    style="border:none;overflow:hidden" 
+                                    scrolling="no" 
+                                    frameborder="0" 
+                                    allowfullscreen="true" 
+                                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                                    width="100%" 
+                                    height="450">
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">${post.title}</h3>
+                        <button class="btn btn-link" onclick="window.open('${post.postUrl}', '_blank')">
+                            <i class="fab fa-facebook me-2"></i>Shiko ne Facebook
+                        </button>
+                    </div>
                 </div>
-                </div>
-                <div class="card-body">
-                <h3 class="card-title">${post.title}</h3>
-                </div>
-            </div>
-            <button class="btn btn-link expand-btn" onclick="toggleCard(${post.id})">
-                <i class="fas fa-plus"></i> Shiko më shumë
-            </button>
-            </div>
-        `;
+                <button class="btn btn-link expand-btn" onclick="toggleCard(${post.id})">
+                    <i class="fas fa-plus"></i> Shiko më shumë
+                </button>
+            </div>`;
+    }
+
+    // Latest News Logic
+const fetchLatestNews = () => {
+    return [
+        {
+            id: 1,
+            title: "FITORJA E MADHE NË KONKURSIN 'TIKA THËNË'",
+            excerpt: "Nxënësit e shkollës sonë shpallën fitues të konkursit kombëtar për poezi...",
+            content: "Në një ceremoni mbreslënëse në Prishtinë...",
+            image: "https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+            date: "2023-10-27",
+            credit: "Photo by Element5 Digital"
+        },
+        {
+            id: 2,
+            title: "SHKËMBIM KULTUROR ME SHKOLLËN 'ALBANET'",
+            excerpt: "Realizuar projekti i bashkëpunimit ndërkufitar...",
+            content: "Gjatë një jave intensive...",
+            image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+            date: "2023-10-15",
+            credit: "Photo by NESA by Makers"
+        },
+        {
+            id: 3,
+            title: "FESTA E DITËS SË MËSUESIT",
+            excerpt: "Celebrim me program artistik...",
+            content: "Nxënësit organizuan një program të pasur...",
+            image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+            date: "2023-10-05",
+            credit: "Photo by CDC"
+        },
+        {
+            id: 4,
+            title: "WORKSHOP PËR ROBOTIKË",
+            excerpt: "Trajnime për programim dhe robotikë...",
+            content: "Në bashkëpunim me UBT...",
+            image: "https://www.stemrobo.com/wp-content/uploads/2024/01/blog-24-1024x663.jpg",    
+            date: "2023-09-20",
+            credit: "Photo by Andrea De Santis"
+        },
+        {
+            id: 5,
+            title: "VEPRA TË REJA NË BIBLIOTEKË",
+            excerpt: "Biblioteka pasurohet me 500 titra...",
+            content: "Falë një dhurimi nga Ministria...",
+            image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+            date: "2023-09-10",
+            credit: "Photo by Kimberly Farmer"
         }
+    ];
+};
 
+// Updated createNewsCard function
+function createNewsCard(news) {
+    return `
+    <div class="col">
+        <div class="card news-card" data-id="${news.id}">
+            <img src="${news.image}" class="card-img-top" alt="${news.title}">
+            <div class="card-body">
+                <h5 class="card-title">${news.title}</h5>
+                <div class="card-excerpt">${news.excerpt}</div>
+                <div class="card-full-content">${news.content}</div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-link expand-btn" onclick="toggleNewsExpand(${news.id})">
+                    <i class="fas fa-plus"></i> Lexo më shumë
+                </button>
+                <small class="text-muted float-end">${news.date}</small>
+            </div>
+        </div>
+    </div>`;
+}
 
-        // Initialize news grid with Facebook posts
-        document.addEventListener('DOMContentLoaded', () => {
-            const newsGrid = document.getElementById('news-grid');
-            const posts = fetchFacebookPosts();
-            
-            newsGrid.innerHTML = posts.map(post => 
-                createNewsCard(post)).join('');
+// Working toggle function
+function toggleNewsExpand(id) {
+    const card = document.querySelector(`.news-card[data-id="${id}"]`);
+    if (!card) return;
 
-            // Reinitialize Facebook SDK for dynamic embeds
-            if(typeof FB !== 'undefined') {
-                FB.XFBML.parse(newsGrid);
-            }
+    const isExpanded = card.classList.toggle('expanded');
+    const btn = card.querySelector('.expand-btn');
+    const icon = btn.querySelector('i');
+    
+    icon.className = isExpanded ? 'fas fa-minus' : 'fas fa-plus';
+    btn.innerHTML = `${isExpanded ? '<i class="fas fa-minus"></i> Shiko më pak' : '<i class="fas fa-plus"></i> Lexo më shumë'}`;
+}
+
+// Initialize news grid
+document.addEventListener('DOMContentLoaded', () => {
+    const newsGrid = document.getElementById('news-grid');
+    const newsItems = fetchLatestNews();
+    
+    newsGrid.innerHTML = newsItems.map(news => 
+        createNewsCard(news)).join('');
+});
+    // Common Functions
+    function showSection(sectionId) {
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.style.display = 'none';
         });
+        document.getElementById(sectionId).style.display = 'block';
+    }
 
-        // Toggle function for card expansion
-   // Modified toggleCard function
-        function toggleCard(id) {
+    function toggleCard(id) {
         const card = document.querySelector(`.news-card[data-id="${id}"]`);
-        const btn = card.querySelector('.expand-btn');
+        const col = card.parentElement;
+        const btn = col.querySelector('.expand-btn');
         const icon = btn.querySelector('i');
 
         card.classList.toggle('expanded');
@@ -370,24 +600,46 @@
         btn.innerHTML = card.classList.contains('expanded') 
             ? '<i class="fas fa-minus"></i> Shiko më pak' 
             : '<i class="fas fa-plus"></i> Shiko më shumë';
-        }
+    }
 
-        // Facebook SDK initialization (keep existing code)
-        document.querySelectorAll('.fb-post-wrapper').forEach(wrapper => {
-            const observer = new MutationObserver((mutations, obs) => {
-                for (let m of mutations) {
-                    m.addedNodes.forEach(node => {
-                        if (node.classList && node.classList.contains('xfbml-parse-ignore') === false && node.innerHTML.trim()) {
-                            const overlay = wrapper.querySelector('.loading-overlay');
-                            if (overlay) overlay.remove();
-                            obs.disconnect();
-                        }
-                    });
-                }
+    // Section Specific Functions
+    function showFacebookPosts() {
+        showSection('facebook-section');
+        if(typeof FB !== 'undefined') FB.XFBML.parse();
+    }
+
+    function showLatestNews() {
+        showSection('news-section');
+        if(!newsLoaded) {
+            const newsGrid = document.getElementById('news-grid');
+            newsGrid.innerHTML = fetchLatestNews().map(news => createNewsCard(news)).join('');
+            newsLoaded = true;
+        }
+    }
+
+    // Initialization
+    document.addEventListener('DOMContentLoaded', () => {
+        // Initialize Facebook posts
+        const facebookGrid = document.getElementById('facebook-grid');
+        facebookGrid.innerHTML = fetchFacebookPosts().map(post => createFacebookCard(post)).join('');
+
+        // Show Facebook posts by default
+        showFacebookPosts();
+
+        // Facebook SDK initialization
+        window.fbAsyncInit = function() {
+            FB.init({
+                autoLogAppEvents: true,
+                xfbml: true,
+                version: 'v17.0'
             });
-            observer.observe(wrapper, { childList: true, subtree: true });
+        };
+
+        window.addEventListener('resize', () => {
+            if(typeof FB !== 'undefined') FB.XFBML.parse();
         });
-    </script>
+    });
+</script>
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer pt-5 mt-0 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
@@ -512,8 +764,41 @@
                 });
             });
         </script>
-            
+            <script>
+    // Force Facebook embeds to reload on mobile
+    function reloadEmbeds() {
+        if(typeof FB !== 'undefined') {
+            FB.XFBML.parse();
+            Array.from(document.querySelectorAll('.fb-post')).forEach(post => {
+                post.style.width = '100%';
+                post.setAttribute('data-width', '100%');
+            });
+        }
+    }
 
+    // Initial load
+    document.addEventListener('DOMContentLoaded', reloadEmbeds);
+    
+    // Reload on resize
+    window.addEventListener('resize', reloadEmbeds);
+    
+    // Reload when rotating device
+    window.addEventListener('orientationchange', reloadEmbeds);
+</script>
+        <script>
+    // Emergency mobile fix
+// Detect if Facebook SDK failed to load
+setTimeout(() => {
+  const fallbacks = document.querySelectorAll('.fallback-content');
+  const fbEmbeds = document.querySelectorAll('.fb-post');
+  
+  fbEmbeds.forEach((embed, index) => {
+    if (embed.clientHeight === 0) {
+      fallbacks[index].style.display = 'block';
+    }
+  });
+}, 5000); // Check after 5 seconds
+</script>
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     </body>
