@@ -37,283 +37,468 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
-    <style>
-                /* Style for WebKit-based browsers (Chrome, Edge, Safari) */
-                ::-webkit-scrollbar {
-                width: 12px; /* Width of the scrollbar */
-                background-color: #080F32; /* Matches the page background */
+ <style>
+            :root {
+            --fb-primary: #080F32;
+            --fb-secondary: #0c1445;
+            --fb-accent: #1a5fff;
+            --fb-light: #4a5bd8;
+            --fb-card-bg: #0e183e;
+            --fb-text: #e6e9ff;
+            --fb-border: #1c2a6d;
+            --fb-shadow: 0 10px 30px rgba(0, 10, 50, 0.6);
+        }
+        
+        body {
+            background: linear-gradient(135deg, #050a23, var(--fb-primary));
+            color: var(--fb-text);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            min-height: 100vh;
+            padding: 20px;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+        
+        .school-logo {
+            background: linear-gradient(135deg, #080F32, #0c1445);
+            padding: 8px;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+        
+        .school-name {
+            font-weight: 700;
+            color: #080F32;
+            font-size: 1.8rem;
+        }
+        
+        .fb-section {
+            background: rgba(10, 18, 55, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 18px;
+            box-shadow: var(--fb-shadow);
+            overflow: hidden;
+            margin: 40px auto;
+            max-width: 1400px;
+            border: 1px solid var(--fb-border);
+            position: relative;
+        }
+        
+        .fb-container {
+            position: relative;
+            z-index: 1;
+            padding: 30px;
+        }
+        
+        .fb-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding-top: 20px;
+        }
+        
+        .fb-title {
+            font-weight: 700;
+            font-size: 2.5rem;
+            background: linear-gradient(to right, #ffffff, #b8c2ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .fb-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--fb-accent), var(--fb-light));
+            border-radius: 2px;
+        }
+        
+        .fb-filters {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .fb-filter-btn {
+            background: rgba(255, 255, 255, 0.08);
+            color: #b8c2ff;
+            border: 1px solid var(--fb-border);
+            border-radius: 30px;
+            padding: 8px 22px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .fb-filter-btn:hover, .fb-filter-btn.active {
+            background: var(--fb-accent);
+            color: white;
+            border-color: var(--fb-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(26, 95, 255, 0.3);
+        }
+        
+        .fb-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .fb-card {
+            background: var(--fb-card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            border: 1px solid var(--fb-border);
+            box-shadow: 0 8px 20px rgba(0, 10, 50, 0.4);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+        }
+        
+        .fb-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 20, 80, 0.5);
+            border-color: var(--fb-light);
+        }
+        
+        .fb-card-img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .fb-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .fb-card:hover .fb-card-img img {
+            transform: scale(1.05);
+        }
+        
+        .fb-card-img::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 70%;
+            background: linear-gradient(transparent, var(--fb-card-bg));
+        }
+        
+        .fb-card-meta {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 20px 0;
+            font-size: 0.9rem;
+            color: #8a9aff;
+        }
+        
+        .fb-card-likes {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .fb-card-content {
+            padding: 0 20px 20px;
+            flex-grow: 1;
+        }
+        
+        .fb-card-title {
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin: 10px 0 15px;
+            color: white;
+            line-height: 1.4;
+        }
+        
+        .fb-card-text {
+            color: #b8c2ff;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            max-height: 4.8em;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .fb-card-text::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1.6em;
+            background: linear-gradient(to bottom, rgba(14, 24, 62, 0), rgba(14, 24, 62, 1));
+        }
+        
+        .fb-card-footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px 25px;
+            align-items: center;
+        }
+        
+        .fb-action-btn {
+            background: linear-gradient(135deg, var(--fb-accent), var(--fb-light));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 22px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(26, 95, 255, 0.3);
+        }
+        
+        .fb-action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(26, 95, 255, 0.4);
+            background: linear-gradient(135deg, var(--fb-light), var(--fb-accent));
+        }
+        
+        .fb-expand-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #8a9aff;
+            border: 1px solid var(--fb-border);
+            border-radius: 10px;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .fb-expand-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            transform: rotate(90deg);
+        }
+        
+        .fb-load-more {
+            display: block;
+            margin: 20px auto 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--fb-text);
+            border: 1px solid var(--fb-border);
+            border-radius: 30px;
+            padding: 12px 45px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .fb-load-more:hover {
+            background: var(--fb-accent);
+            color: white;
+            border-color: var(--fb-accent);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(26, 95, 255, 0.4);
+        }
+        
+        /* Expanded card styles */
+        .card-expanded {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 800px;
+            max-height: 85vh;
+            z-index: 1000;
+            background: var(--fb-card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+            border: 2px solid var(--fb-light);
+            display: flex;
+            flex-direction: column;
+            animation: expandCard 0.4s ease forwards;
+        }
+        
+        @keyframes expandCard {
+            from { opacity: 0; transform: translate(-50%, -45%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
+        }
+        
+        .card-expanded .fb-card-img {
+            height: 300px;
+        }
+        
+        .card-expanded .fb-card-text {
+            max-height: none;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .card-expanded .fb-card-text::after {
+            display: none;
+        }
+        
+        .card-expanded .fb-card-content {
+            flex: 1;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 999;
+            backdrop-filter: blur(5px);
+        }
+        
+        .close-expanded {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            z-index: 1001;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .close-expanded:hover {
+            background: var(--fb-accent);
+            transform: rotate(90deg);
+        }
+        
+        /* Animation for cards */
+        @keyframes fbFadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fb-card {
+            animation: fbFadeIn 0.6s ease forwards;
+            opacity: 0;
+        }
+        
+        .fb-card:nth-child(1) { animation-delay: 0.1s; }
+        .fb-card:nth-child(2) { animation-delay: 0.2s; }
+        .fb-card:nth-child(3) { animation-delay: 0.3s; }
+        .fb-card:nth-child(4) { animation-delay: 0.4s; }
+        .fb-card:nth-child(5) { animation-delay: 0.5s; }
+        .fb-card:nth-child(6) { animation-delay: 0.6s; }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .fb-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
-
-            ::-webkit-scrollbar-thumb {
-                background: linear-gradient(45deg, #00A3FF, #080F32); /* Stylish gradient */
-                border-radius: 6px; /* Rounded edges for a sleek look */
-                border: 3px solid #080F32; /* Space around the thumb */
+            
+            .fb-title {
+                font-size: 2.2rem;
             }
-
-            ::-webkit-scrollbar-thumb:hover {
-                background: linear-gradient(45deg, #00C8FF, #080F32); /* Brighter gradient on hover */
+        }
+        
+        @media (max-width: 768px) {
+            .fb-header {
+                flex-direction: column;
+                align-items: flex-start;
             }
-
-            ::-webkit-scrollbar-track {
-                background: #1A2238; /* Slightly lighter background for the track */
-                border-radius: 6px; /* Rounded edges for track as well */
+            
+            .fb-filters {
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 10px;
             }
-
-            /* For Firefox */
-            * {
-                scrollbar-width: thin; /* Thin scrollbar for Firefox */
-                scrollbar-color: #00A3FF #1A2238; /* Thumb color and track color */
+            
+            .fb-title {
+                font-size: 2rem;
             }
-   /* Improved News Card Design */
-.news-card {
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    max-height: 650px;
-    overflow: hidden;
-    border-radius: 16px !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)) !important;
-    transform: translateY(0);
-}
-
-.news-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
-}
-
-.news-card.expanded {
-    max-height: 2000px;
-    z-index: 2;
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Enhanced Iframe Container */
-.iframe-container {
-    position: relative;
-    width: 100%;
-    padding-top: 120%;
-    overflow: hidden;
-    transition: padding-top 0.4s ease;
-    border-radius: 12px 12px 0 0;
-}
-
-.news-card.expanded .iframe-container {
-    padding-top: 140%;
-}
-
-.iframe-container iframe {
-    position: absolute;
-    top: 0; 
-    left: 0;
-    width: 100%; 
-    height: 100%;
-    border: none;
-    backdrop-filter: blur(4px);
-}
-
-/* Modern Expand Button */
-.expand-btn {
-    color: #fff !important;
-    padding: 12px 24px;
-    border-radius: 8px;
-    background: linear-gradient(135deg, rgba(0, 119, 255, 0.9), rgba(0, 84, 179, 0.9));
-    border: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 16px auto;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 119, 255, 0.2);
-    position: relative;
-}
-
-.expand-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 119, 255, 0.3);
-    background: linear-gradient(135deg, rgba(0, 119, 255, 1), rgba(0, 84, 179, 1));
-    text-decoration: none !important;
-}
-
-.expand-btn i {
-    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    font-size: 0.9em;
-}
-
-.news-card.expanded .expand-btn i {
-    transform: rotate(180deg) scale(1.1);
-}
-
-/* Card Body Enhancements */
-.card-body {
-    max-height: 5rem;
-    overflow: hidden;
-    transition: all 0.4s ease;
-    padding: 20px !important;
-    position: relative;
-}
-
-.card-body:before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 40px;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
-    transition: opacity 0.3s ease;
-}
-
-.news-card.expanded .card-body:before {
-    opacity: 0;
-}
-
-.card-title {
-    font-size: 1.3rem;
-    margin-bottom: 12px;
-    line-height: 1.4;
-    color: #fff !important;
-    font-weight: 600;
-}
-
-/* Responsive Design */
-@media (max-width: 767px) {
-    .news-card {
-        max-height: 580px;
-        margin: 0 8px;
-    }
-    
-    .news-card.expanded {
-        max-height: 1800px;
-    }
-    
-    .iframe-container {
-        padding-top: 130%;
-        min-height: 220px;
-    }
-    
-    .expand-btn {
-        width: calc(100% - 32px);
-        margin: 12px 16px;
-        padding: 10px 20px;
-    }
-    
-    .card-body {
-        padding: 16px !important;
-    }
-}
-
-/* Additional Enhancements */
-.fb-post-wrapper {
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-body {
-    background: linear-gradient(45deg, #0f0f1a, #1a1a2f);
-}
-
-/* Smooth scroll behavior */
-.news-card {
-    scroll-behavior: smooth;
-}
-
-/* Custom scrollbar for expanded content */
-.news-card.expanded .card-body {
-    overflow-y: auto;
-    max-height: 800px;
-}
-
-.news-card.expanded .card-body::-webkit-scrollbar {
-    width: 6px;
-}
-
-.news-card.expanded .card-body::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-}
-.card-content {
-    position: relative;
-    overflow: hidden;
-}
-
-.card-excerpt {
-    max-height: 4.5em;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.card-full {
-    opacity: 0;
-    max-height: 0;
-    transition: all 0.3s ease;
-}
-
-.card-full.expanded {
-    opacity: 1;
-    max-height: 1000px;
-}
-
-.expand-news-btn {
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.fa-plus, .fa-minus {
-    margin-left: 5px;
-}
-/* CSS for expand functionality */
-.news-card {
-    position: relative;
-    overflow: hidden;
-    transition: height 0.3s ease;
-}
-
-.card-excerpt {
-    max-height: 72px;
-    overflow: hidden;
-    position: relative;
-}
-
-.card-excerpt::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 30px;
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
-}
-
-.card-full-content {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.expanded .card-full-content {
-    max-height: 1000px;
-    opacity: 1;
-}
-
-.expanded .card-excerpt {
-    max-height: 0;
-    opacity: 0;
-}
-
-.expand-btn {
-    cursor: pointer;
-    position: relative;
-    z-index: 2;
-}
+            
+            .card-expanded {
+                width: 95%;
+                max-height: 90vh;
+            }
+            
+            .card-expanded .fb-card-img {
+                height: 250px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .fb-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .fb-card-img {
+                height: 200px;
+            }
+            
+            .fb-title {
+                font-size: 1.8rem;
+            }
+            
+            .card-expanded .fb-card-img {
+                height: 200px;
+            }
+        }
+        
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+            background-color: transparent;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--fb-light);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
     </style>
-    <body style="background-color: #080F32; color: black; width: 100%;"> 
+    <body style="background-color: #080F32; color: black; width: 100%; padding: 0;"> 
+            <!-- Overlay for expanded card -->
+    <div class="overlay" id="overlay"></div>
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -321,7 +506,7 @@ body {
         </div>
     </div>
     <!-- Spinner End -->
-    <!-- Navbar Start -->
+       <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0" style="font-size: 1.2rem;">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <img src="logo/logo.png" alt="logo" height="70" style="margin-right: 20px; color: #080F32;">
@@ -356,290 +541,264 @@ body {
     </nav>
     <!-- Navbar End -->
 
-<!-- Facebook SDK -->
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0" nonce="FBSDK"></script>
-
-<!-- Button Section -->
-<section class="btn-section py-4" style="background-color: #080F32; color: black; width: 100%;">
-    <div class="container text-center">
-        <div class="btn-group" role="group">
-            <button type="button" class="btn btn-primary btn-lg mx-2" onclick="showFacebookPosts()">Shiko Poste Nga Facebook</button>
-            <button type="button" class="btn btn-secondary btn-lg mx-2" onclick="showLatestNews()">Shiko Lajmet me te Fundit</button>
-        </div>
-    </div>
-</section>
-
-<!-- Facebook Posts Section -->
-<section id="facebook-section" class="content-section" style="display: none;">
-    <div class="news-section bg-dark py-5">
-        <div class="container-xxl">
-            <div class="container">
-                <h2 class="text-center mb-5 text-white fw-bold display-5">Postet e Fundit nga Facebook</h2>
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="facebook-grid"></div>
+    <!-- Facebook Section -->
+    <section id="facebook-section" class="fb-section">
+        <div class="container fb-container">
+            <div class="fb-header">
+                <h2 class="fb-title">Postet e Fundit nga Facebook</h2>
+                <div class="fb-filters">
+                    <button class="fb-filter-btn active">Të gjitha</button>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- Latest News Section -->
-<section id="news-section" class="content-section" style="display: none;">
-    <div class="news-section bg-dark py-5">
-        <div class="container-xxl">
-            <div class="container">
-                <h2 class="text-center mb-5 text-white fw-bold display-5">Lajmet e Fundit</h2>
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="news-grid"></div>
+            
+            <div class="fb-grid" id="facebook-grid">
+                <!-- Cards will be loaded here dynamically -->
             </div>
+            
+            <button class="fb-load-more" id="fb-load-more">
+                <i class="fas fa-plus-circle me-2"></i>Shiko më shumë postime
+            </button>
         </div>
-    </div>
-</section>
+    </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    // Common Variables
-    let newsLoaded = false;
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Facebook posts data
+        const fbPosts = [
+            {
+                id: 1,
+                title: "KONTRIBUT I ÇMUAR PËR DIJEN!",
+                content: "Mësimdhënësi Afrim Demiri i ka dhuruar IAAP “Pjetër Bogdani” rreth 80 libra me tituj të ndryshëm letrar, publicistik dhe shkollor. Ky veprim i vyer vjen në një moment kur kemi hedhur hapat e parë me Këndin Amerikan të Librit, dhe tashmë po hapet rruga edhe për krijimin e Bibliotekës së shkollës sonë. Duke e falënderuar me mirënjohje mësimdhënësin Demiri për këtë gjest të frymëzueshëm, i ftojmë edhe mësimdhënësit e tjerë të bashkohen me këtë nismë, duke dhuruar libra për të pasuruar fondin letrar të shkollës – një hap i madh drejt dijes dhe leximit për nxënësit tanë! ",
+                image: "https://scontent.fprn1-1.fna.fbcdn.net/v/t39.30808-6/503430874_1209312717650061_6041736838499323749_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=COwRSdTM8_oQ7kNvwEo8ACZ&_nc_oc=AdkNZZAn6fBCx3xhdEXHQ_S63Ktvi58p7x5CbNr0Xh4A7A-99GyoNgKAuYPElzGLl72IlHYzdZGWHWfaqjnADyqv&_nc_zt=23&_nc_ht=scontent.fprn1-1.fna&_nc_gid=O9TV4fOu001-0hsN5Yof-Q&oh=00_AfL2LmrEzBGGmQj9N3wuDns3c6KAgIDiZKYNWIZwm3-1KA&oe=68451B51",
+                date: "03 Qershor 2025",
+                likes: 245,
+                comments: 42,
+                shares: 18,
+                url: "https://www.facebook.com/IAAPPjeterBogdani/posts/pfbid02A1NvUmbmsh8j6QdvPo2Qdbci1T2uBcLB8XyTM2jPawUZR463FX1pxyPAWKwDQ2VDl"
+            },
+            {
+                id: 2,
+                title: "Certifikim i nxënësve tanë në C++ ESSENTIALS 1!",
+                content: "Sot në IAAP 'Pjetër Bogdani', drejtori i shkollës z. Sami Jahiu, së bashku me mësimdhënësen znj. Lendita Surdulli Shabani, shpërndanë certifikatat për nxënësit e klasës XII10, profili Informatikë, të cilët përfunduan me sukses trajnimin tremujor në modulin C++ Essentials 1. Ky kurs profesional u zhvillua në bashkëpunim me CISCO Academy, dhe u udhëhoq me përkushtim nga znj. Lendita Surdulli Shabani, e cila është e certifikuar si instruktore nga kjo akademi. IAAP 'Pjetër Bogdani' është shkollë e akredituar nga CISCO Academy për zhvillimin e trajnimeve të tilla, që synojnë fuqizimin e njohurive dhe aftësive të nxënësve tanë në fushën e teknologjisë. Urime të gjithë nxënësve për angazhimin dhe arritjet e tyre! ✅ Regjistrohu në njërin nga profilet e IAAP “Pjetër Bogdani” dhe fito FALAS trajnime të certifikuara nga CISCO Academy!",
+                image: "https://scontent.fprn1-1.fna.fbcdn.net/v/t39.30808-6/502567768_1208442237737109_4569893441084133883_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=C3vcc_hEQXkQ7kNvwGlRAC9&_nc_oc=AdnXmYXcEdaT_VDTGKa9SzOGN2dEb6LH81w9U0UXgfcobAvPcnlO498EeEtIP90fueKO7ORd4QD7f6DWJCPu8G4v&_nc_zt=23&_nc_ht=scontent.fprn1-1.fna&_nc_gid=HpiAKQBGuG31AzxaimwEFA&oh=00_AfLPE9o62ElQHyfbiix3zz0lLRZ1pZMQqRLiHnsAUjkE7A&oe=6845183A",
+                date: "02 Qershor 2023",
+                likes: 189,
+                comments: 28,
+                shares: 9,
+                url: "https://www.facebook.com/IAAPPjeterBogdani/posts/pfbid02kw1PJcnTS2ey4i5iZteTSYvRm66QStvevMkYMRXDdjM6PNZCegvw5RWfgcQ46E8wl"
+            },
+            {
+                id: 3,
+                title: "Në një garë të organizuar nga 𝗨𝗕𝗧 – “𝗦𝗽𝗮𝗴𝗵𝗲𝘁𝘁𝗶 𝗕𝗿𝗶𝗱𝗴𝗲”",
+                content: "shkolla jonë u përfaqësua nga nxënësit e drejtimit të 𝗔𝗿𝗸𝗶𝘁𝗲𝗸𝘁𝘂𝗿𝗲̈𝘀: 𝙇𝙪𝙖𝙣 𝙐𝙠𝙖, 𝙀𝙧𝙨𝙖𝙣 𝙎𝙝𝙖𝙗𝙖𝙣𝙞 dhe 𝘽𝙖𝙧𝙙𝙝 𝘼𝙨𝙡𝙡𝙖𝙣𝙞, si dhe nga drejtimi i 𝗗𝗶𝘇𝗮𝗷𝗻𝗶𝘁 𝗚𝗿𝗮𝗳𝗶𝗸: 𝘼𝙣𝙚𝙨 𝙐𝙠𝙨𝙢𝙖𝙟𝙡𝙞 dhe 𝘼𝙡𝙞 𝙉𝙚𝙯𝙞𝙧𝙞.\n𝗦𝗵𝗸𝗼𝗹𝗹𝗮 𝗷𝗼𝗻𝗲̈ 𝗶𝘀𝗵𝘁𝗲 𝗲 𝘃𝗲𝘁𝗺𝗷𝗮 𝘀𝗵𝗸𝗼𝗹𝗹𝗲̈ 𝗲 𝗺𝗲𝘀𝗺𝗲 𝗲 𝗽𝗲̈𝗿𝘇𝗴𝗷𝗲𝗱𝗵𝘂𝗿 𝗻𝗴𝗮 𝗲 𝗴𝗷𝗶𝘁𝗵𝗲̈ 𝗞𝗼𝘀𝗼𝘃𝗮 që mori pjesë në këtë garë, duke sfiduar 𝘀𝘁𝘂𝗱𝗲𝗻𝘁𝗲̈𝘁 e Universitetit.\nGjatë dy ditëve të garës, grupet ndërtuan 𝘂𝗿𝗮 𝘃𝗲𝘁𝗲̈𝗺 𝗻𝗴𝗮 𝘀𝗵𝗽𝗮𝗴𝗲𝘁𝗶 𝗺𝗲 𝗽𝗲𝘀𝗵𝗲̈ 𝟭.𝟮 𝗸𝗴, të cilat më pas u testuan me 𝗽𝗲𝘀𝗵𝗮 𝘁𝗲̈ 𝗺𝗲̈𝗱𝗵𝗮 𝗽𝗲̈𝗿 𝗾𝗲̈𝗻𝗱𝗿𝘂𝗲𝘀𝗵𝗺𝗲̈𝗿𝗶 𝗱𝗵𝗲 𝗳𝗼𝗿𝗰𝗲̈, derisa arrinin 𝗽𝗶𝗸𝗲̈𝗻 𝗲 𝘁𝗵𝘆𝗲𝗿𝗷𝗲𝘀.\nNxënësit tanë, të cilët i vendosën grupit emrin “𝗝𝘂𝗻𝗶𝗼𝗿𝗮𝘁”, për shkak të moshës më të vogël në krahasim me pjesëmarrësit e tjerë, arritën të sigurojnë 𝘃𝗲𝗻𝗱𝗶𝗻 𝗲 𝟰-𝘁𝗲̈, ndër shumë grupe konkurrente.\nPër këtë kompania investitore “𝗧𝗼𝗻𝗶 𝗕𝗲𝘁𝗼𝗻” vendosi t’i shpërblejë “𝗝𝘂𝗻𝗶𝗼𝗿𝗮𝘁” me një çmim prej 𝟭𝟬𝟬€, si motivim për punën dhe suksesin e tyre.\nGjatë gjithë garës, nxënësit tanë u mbështetën dhe u udhëhoqën nga profesoreshat 𝗦𝗮𝗿𝗮𝗻𝗱𝗮 𝗠𝘂𝘀𝘁𝗮𝗳𝗮 (Arkitekturë) dhe 𝗝𝗲𝗵𝗼𝗻𝗮 𝗖̧𝗲𝗿𝗸𝗶𝗻𝗶 (Dizajn Grafik).",
+                image: "https://scontent.fprn1-1.fna.fbcdn.net/v/t39.30808-6/491939684_1176118507636149_2352841565003306676_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=OvmzdXXdSJcQ7kNvwHjAXAx&_nc_oc=Adm3mNeqb07K8iBt0wj2nWqvju2mqsFnXd8tzfY9fxzFyqhGz5AF-MmwhRth3NW6IbI8fbLU2yloYQETtNOyuH5O&_nc_zt=23&_nc_ht=scontent.fprn1-1.fna&_nc_gid=eYJ0xeQcARZuKjn6P9FXrQ&oh=00_AfKzhZjaNsbccZNXn7n4oicuNys3n2U6DLSz1x0x1fy6iA&oe=6844F90F",
+                date: "19 Prill 2025",
+                likes: 321,
+                comments: 56,
+                shares: 34,
+                url: "https://www.facebook.com/IAAPPjeterBogdani/posts/pfbid0SCodQ76BJKd8r6XRwmvP2x2qmZdDFCCXvWXjsm8QjwBTsogqhT5tSycsJFNVHzYml"
+            },
+            {
+                id: 4,
+                title: "Suksesi i nxënësit tonë",
+                content: "Në një ekip prej pesë (5) nxënësve ishte pjesëmarrës edhe nxënësi i shkollës tonë nga klasa XI-të Bardh Hasani. Në këtë garë inovative 48 orëshe, sfida e përzgjedhur kishte për temë: “AI-Enhanced Traffic Management in Kosovo”, dhe ekipi tregoi aftësi të jashtëzakonshme duke përdorur inteligjencën artificiale (AI) për të krijuar një zgjidhje që ndihmon në menaxhimin më efikas të trafikut në Kosovë. Ata fituan edhe GOLDEN TICKET që iu siguron pjesëmarrje në Hackathon-in më të madh në Evropë – Junction 2025 , që do të mbahet në Finlandë.",
+                image: "img_Ekstra/PRZ.jpg",
+                date: "1 Qershor 2025",
+                likes: 178,
+                comments: 31,
+                shares: 12,
+                url: "#"
+            },
+            {
+                id: 5,
+                title: "Nderimi digjital i Dëshmorëve të Kombitpërmes QR Code.",
+                content: "Nxënësi i klasës së XI Florian Siqani në bashkëpunim me një nxënës tjetër kanë bërë një projekt shumë inovativ për Dëshmorët e Ferizajit, i quajtur “Ata kanë krijuar “stikers” (ngjitës) në varret e dëshmorëve me qëllim që të skanohen këta barkode përmes telefonit mobil për të gjithë qytetarët që bëjnë homazhe. Kur bëhet skanimi i këtyre barkodeve në telefon shfaqet biografia e atij dëshmori me të gjitha të dhënat dhe kontributi i tij për atdheun. Ky projekt është një dhuratë shumë e mirë për të gjithë ,në veçanti për gjeneratat  e reja që nuk e kanë përjetuar luftën,e  nuk kanë shumë të dhënë për të gjithë dëshmorët që dhanë jetën për lirinë ,që ne sot e gëzojmë.",
+                image: "img_Ekstra/QR.jpg",
+                date: "17 Prill 2025",
+                likes: 542,
+                comments: 89,
+                shares: 67,
+                url: "https://www.facebook.com/watch/?v=1013123034332864"
+            },
+            {
+                id: 6,
+                title: "🎯 Aktivitet në Orientim dhe Këshillim në Karrierë – 'Pikat e mia të forta'",
+                content: "Sot në IAAP ” Pjetër Bogdani” u zhvillua një aktivitet me nxënësit e klasës së dhjetë, me temën “Pikat e mia të forta”, si pjesë e programit të orientimit dhe këshillimit në karrierë. Aktiviteti u udhëhoq nga këshilltari për karrierë, Xhemil Halili, i cili përmes ushtrimeve interaktive dhe diskutimeve të udhëhequra ndihmoi nxënësit të njohin më mirë vlerat, aftësitë dhe potencialin e tyre individual. 🔍 Çfarë synoi ky aktivitet? Qëllimi kryesor i këtij aktiviteti ishte që nxënësit të fillojnë ta kuptojnë më mirë veten, të identifikojnë pikat e tyre të forta personale dhe profesionale, dhe t’i lidhin ato me zgjedhjet e mundshme të karrierës në të ardhmen. Përmes vetëreflektimit dhe punës në grupe, nxënësit analizuan: • Cilat janë aftësitë e tyre më të spikatura? • Në çfarë situatash ndihen më të sigurt dhe të suksesshëm? • Si mund t’i përdorin pikat e tyre të forta për të pasur sukses në shkollë, punë dhe jetë? 🌱 Pse është e rëndësishme kjo temë? Njohja e vetes është hapi i parë dhe më i rëndësishëm në ndërtimin e një karriere të suksesshme. Kur një nxënës e kupton se ku qëndron forca e tij – qoftë në komunikim, krijimtari, analizë apo udhëheqje – ai bëhet më i vetëdijshëm për rrugët që mund të ndjekë dhe për vendimet që duhet të marrë në të ardhmen. 🙌 Falenderojmë nxënësit për pjesëmarrjen aktive dhe energjinë pozitive që sollën në këtë sesion. Të tillë aktivitete janë investim në të ardhmen e tyre!",
+                image: "https://scontent.fprn1-1.fna.fbcdn.net/v/t39.30808-6/491257211_1174400201141313_5778653167804361376_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=k2XBkh7RdP0Q7kNvwGSi0ur&_nc_oc=AdmH_9c7F55-crhqH1QScDqNxZMKiyj9ZLGqgcHEuRARsl1mZ4jTrkOhpAAm8mWTZ6RrkjX9S6IYkUrJUWLtunzY&_nc_zt=23&_nc_ht=scontent.fprn1-1.fna&_nc_gid=QE1SAfwsxbD_PSNxCaHHrg&oh=00_AfL6uaGH8q7h1_I9zsEpmN5ailQPMd8l4Ge6QXPmdHmpFQ&oe=6845086C",
+                date: "17 Prill 2025",
+                likes: 287,
+                comments: 47,
+                shares: 42,
+                url: "https://www.facebook.com/IAAPPjeterBogdani/posts/pfbid02Ru7Rv3vXUVHo7amGWj4yiVU872xQ8aYshako2csJiG9CHu89SE4sHHWb7zAaUCr5l"
+            }
+        ];
 
-    // Facebook Posts Logic
-   const fetchFacebookPosts = () => {
-            return [
-                {
-                    id: 1,
-                    postUrl: "https://www.facebook.com/IAAPPjeterBogdani/posts/1183713403543326",
-                    title: "Vizitë inspiruese në IAAP \"Pjetër Bogdani\"",
-                    excerpt: "Përmbledhje dinamike e postimit...",
-                    content: "Full expanded text..."
-                },
-                {
-                  id: 2,
-                  postUrl: "https://www.facebook.com/IAAPPjeterBogdani/posts/pfbid04wNY5eeKRpuREi2nrEvgJFp4CZhAEqM5Y13MmhFoRG5LEJguqV97K99NFgJiPc9rl",
-                  title: "Katër grupe shpallen fituese të garës UBT Spaghetti Bridge 2025",
-                  excerpt: "Përmbledhje dinamike e postimit...",    
-                  content: "Full expanded text..."  
-                },
-                {
-                    id: 3,
-                    postUrl: "https://www.facebook.com/IAAPPjeterBogdani/posts/pfbid0SNqahE4DqxpfTXDBEcW47NmNBemFsEMsWigVMg4Gc5QfU1mSHF6fpd8HyMpdyFSQl",
-                    title: "𝗡𝗷𝗲̈ 𝘁𝗷𝗲𝘁𝗲̈𝗿 𝘀𝘂𝗸𝘀𝗲𝘀 𝗻𝗴𝗮 𝗻𝘅𝗲̈𝗻𝗲̈𝘀𝗶𝘁 𝘁𝗮𝗻𝗲̈",
-                    excerpt: "Përmbledhje dinamike e postimit...",
-                    content: "Full expanded text..."
-                },
-                {
-                    id: 4,
-                    postUrl: "https://www.facebook.com/IAAPPjeterBogdani/posts/pfbid09CqoWtsd7XYpbacPDy54okMamQC9TA1njhg1KPUXzZHU664fzzZcC25ryYiezcuhl",
-                    title: "Njihuni me nxënësin tonë Florian Siqanin",
-                    excerpt: "Përmbledhje dinamike e postimit...",
-                    content: "Full expanded text..."
-                },
-                {
-                    id: 5,
-                    postUrl: "https://www.facebook.com/IAAPPjeterBogdani/posts/pfbid0Mjk9TrPYLv5NaJaquVEdyMT1dufzW9SHQ89vgqfhryqBPMxq3uxmzww74BJ1TBW4l",
-                    title: "Aktivitet në Orientim dhe Këshillim në Karrierë",
-                    excerpt:"Përmbledhje dinamike e postimit...",
-                    content: "Full expanded text..."
-                },
-                {
-                    id: 6,
-                    postUrl: "https://www.facebook.com/IAAPPjeterBogdani/videos/1510792393224214",
-                    title: "JU PREZANTOJMË: Një animacion të veçantë Stopmotion nga nxënësit tanë!",
-                    excerpt: "Përmbledhje dinamike e postimit...",
-                    content: "Full expanded text..."
-                },
-                {
-                    id: 7,
-                    postUrl: "https://www.facebook.com/IAAPPjeterBogdani/posts/pfbid0h1WZuPjx3eaDs4pbvsEfEKRwjK3Kma6K1vJAKG58DsfAP69uBTSbBTt1G7FW9K1el",
-                    title: "Vizitë në shkollën IAAP \"Pjetër Bogdani\"",
-                    excerpt: "Përmbledhje dinamike e postimit...",
-                    content: "Full expanded text..."
-                },
-                // Add more posts...
-            ];
-        };
-
-    function createFacebookCard(post) {
-        const embedUrl = encodeURIComponent(post.postUrl);
-        return `
-            <div class="col">
-                <div class="card news-card" data-id="${post.id}">
-                    <div class="card-header p-0 border-0">
-                        <div class="iframe-container">
-                            <iframe src="https://www.facebook.com/plugins/post.php?href=${embedUrl}&width=100%&show_text=true" 
-                                    style="border:none;overflow:hidden" 
-                                    scrolling="no" 
-                                    frameborder="0" 
-                                    allowfullscreen="true" 
-                                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                                    width="100%" 
-                                    height="450">
-                            </iframe>
-                        </div>
+        // Function to generate Facebook cards
+        function generateFbCards(posts) {
+            const grid = document.getElementById('facebook-grid');
+            grid.innerHTML = '';
+            
+            posts.forEach(post => {
+                const card = document.createElement('div');
+                card.className = 'fb-card';
+                card.innerHTML = `
+                    <div class="fb-card-img">
+                        <img src="${post.image}" alt="${post.title}">
                     </div>
-                    <div class="card-body">
-                        <h3 class="card-title">${post.title}</h3>
-                        <button class="btn btn-link" onclick="window.open('${post.postUrl}', '_blank')">
-                            <i class="fab fa-facebook me-2"></i>Shiko ne Facebook
+                    <div class="fb-card-meta">
+                        <span>${post.date}</span>
+
+                    </div>
+                    <div class="fb-card-content">
+                        <h3 class="fb-card-title">${post.title}</h3>
+                        <p class="fb-card-text">${post.content}</p>
+                    </div>
+                    <div class="fb-card-footer">
+                        <button class="fb-action-btn" onclick="window.open('${post.url}', '_blank')">
+                            <i class="fab fa-facebook"></i> Shiko në Facebook
+                        </button>
+                        <button class="fb-expand-btn" data-id="${post.id}">
+                            <i class="fas fa-expand-alt"></i>
                         </button>
                     </div>
-                </div>
-                <button class="btn btn-link expand-btn" onclick="toggleCard(${post.id})">
-                    <i class="fas fa-plus"></i> Shiko më shumë
-                </button>
-            </div>`;
-    }
-
-    // Latest News Logic
-const fetchLatestNews = () => {
-    return [
-        {
-            id: 1,
-            title: "FITORJA E MADHE NË KONKURSIN 'TIKA THËNË'",
-            excerpt: "Nxënësit e shkollës sonë shpallën fitues të konkursit kombëtar për poezi...",
-            content: "Në një ceremoni mbreslënëse në Prishtinë...",
-            image: "https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-            date: "2023-10-27",
-            credit: "Photo by Element5 Digital"
-        },
-        {
-            id: 2,
-            title: "SHKËMBIM KULTUROR ME SHKOLLËN 'ALBANET'",
-            excerpt: "Realizuar projekti i bashkëpunimit ndërkufitar...",
-            content: "Gjatë një jave intensive...",
-            image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-            date: "2023-10-15",
-            credit: "Photo by NESA by Makers"
-        },
-        {
-            id: 3,
-            title: "FESTA E DITËS SË MËSUESIT",
-            excerpt: "Celebrim me program artistik...",
-            content: "Nxënësit organizuan një program të pasur...",
-            image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-            date: "2023-10-05",
-            credit: "Photo by CDC"
-        },
-        {
-            id: 4,
-            title: "WORKSHOP PËR ROBOTIKË",
-            excerpt: "Trajnime për programim dhe robotikë...",
-            content: "Në bashkëpunim me UBT...",
-            image: "https://www.stemrobo.com/wp-content/uploads/2024/01/blog-24-1024x663.jpg",    
-            date: "2023-09-20",
-            credit: "Photo by Andrea De Santis"
-        },
-        {
-            id: 5,
-            title: "VEPRA TË REJA NË BIBLIOTEKË",
-            excerpt: "Biblioteka pasurohet me 500 titra...",
-            content: "Falë një dhurimi nga Ministria...",
-            image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-            date: "2023-09-10",
-            credit: "Photo by Kimberly Farmer"
-        }
-    ];
-};
-
-// Updated createNewsCard function
-function createNewsCard(news) {
-    return `
-    <div class="col">
-        <div class="card news-card" data-id="${news.id}">
-            <img src="${news.image}" class="card-img-top" alt="${news.title}">
-            <div class="card-body">
-                <h5 class="card-title">${news.title}</h5>
-                <div class="card-excerpt">${news.excerpt}</div>
-                <div class="card-full-content">${news.content}</div>
-            </div>
-            <div class="card-footer">
-                <button class="btn btn-link expand-btn" onclick="toggleNewsExpand(${news.id})">
-                    <i class="fas fa-plus"></i> Lexo më shumë
-                </button>
-                <small class="text-muted float-end">${news.date}</small>
-            </div>
-        </div>
-    </div>`;
-}
-
-// Working toggle function
-function toggleNewsExpand(id) {
-    const card = document.querySelector(`.news-card[data-id="${id}"]`);
-    if (!card) return;
-
-    const isExpanded = card.classList.toggle('expanded');
-    const btn = card.querySelector('.expand-btn');
-    const icon = btn.querySelector('i');
-    
-    icon.className = isExpanded ? 'fas fa-minus' : 'fas fa-plus';
-    btn.innerHTML = `${isExpanded ? '<i class="fas fa-minus"></i> Shiko më pak' : '<i class="fas fa-plus"></i> Lexo më shumë'}`;
-}
-
-// Initialize news grid
-document.addEventListener('DOMContentLoaded', () => {
-    const newsGrid = document.getElementById('news-grid');
-    const newsItems = fetchLatestNews();
-    
-    newsGrid.innerHTML = newsItems.map(news => 
-        createNewsCard(news)).join('');
-});
-    // Common Functions
-    function showSection(sectionId) {
-        document.querySelectorAll('.content-section').forEach(section => {
-            section.style.display = 'none';
-        });
-        document.getElementById(sectionId).style.display = 'block';
-    }
-
-    function toggleCard(id) {
-        const card = document.querySelector(`.news-card[data-id="${id}"]`);
-        const col = card.parentElement;
-        const btn = col.querySelector('.expand-btn');
-        const icon = btn.querySelector('i');
-
-        card.classList.toggle('expanded');
-        icon.classList.toggle('fa-plus');
-        icon.classList.toggle('fa-minus');
-
-        btn.innerHTML = card.classList.contains('expanded') 
-            ? '<i class="fas fa-minus"></i> Shiko më pak' 
-            : '<i class="fas fa-plus"></i> Shiko më shumë';
-    }
-
-    // Section Specific Functions
-    function showFacebookPosts() {
-        showSection('facebook-section');
-        if(typeof FB !== 'undefined') FB.XFBML.parse();
-    }
-
-    function showLatestNews() {
-        showSection('news-section');
-        if(!newsLoaded) {
-            const newsGrid = document.getElementById('news-grid');
-            newsGrid.innerHTML = fetchLatestNews().map(news => createNewsCard(news)).join('');
-            newsLoaded = true;
-        }
-    }
-
-    // Initialization
-    document.addEventListener('DOMContentLoaded', () => {
-        // Initialize Facebook posts
-        const facebookGrid = document.getElementById('facebook-grid');
-        facebookGrid.innerHTML = fetchFacebookPosts().map(post => createFacebookCard(post)).join('');
-
-        // Show Facebook posts by default
-        showFacebookPosts();
-
-        // Facebook SDK initialization
-        window.fbAsyncInit = function() {
-            FB.init({
-                autoLogAppEvents: true,
-                xfbml: true,
-                version: 'v17.0'
+                `;
+                grid.appendChild(card);
             });
-        };
+        }
 
-        window.addEventListener('resize', () => {
-            if(typeof FB !== 'undefined') FB.XFBML.parse();
+        // Function to expand a card
+        function expandCard(post) {
+            const overlay = document.getElementById('overlay');
+            overlay.style.display = 'block';
+            
+            // Create expanded card element
+            const expandedCard = document.createElement('div');
+            expandedCard.className = 'card-expanded';
+            expandedCard.innerHTML = `
+                <button class="close-expanded">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="fb-card-img">
+                    <img src="${post.image}" alt="${post.title}">
+                </div>
+                <div class="fb-card-meta">
+                    <span>${post.date}</span>
+                   
+                </div>
+                <div class="fb-card-content">
+                    <h3 class="fb-card-title">${post.title}</h3>
+                    <p class="fb-card-text">${post.content}</p>
+                </div>
+                <div class="fb-card-footer">
+                    <button class="fb-action-btn" onclick="window.open('${post.url}', '_blank')">
+                        <i class="fab fa-facebook"></i> Shiko në Facebook
+                    </button>
+                </div>
+            `;
+            
+            document.body.appendChild(expandedCard);
+            
+            // Add event listener to close button
+            const closeBtn = expandedCard.querySelector('.close-expanded');
+            closeBtn.addEventListener('click', () => {
+                overlay.style.display = 'none';
+                expandedCard.remove();
+            });
+            
+            // Close when clicking outside the card
+            overlay.addEventListener('click', () => {
+                overlay.style.display = 'none';
+                expandedCard.remove();
+            });
+        }
+
+        // Initial load
+        document.addEventListener('DOMContentLoaded', function() {
+            generateFbCards(fbPosts);
+            
+            // Add event listeners for expand buttons
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.fb-expand-btn')) {
+                    const btn = e.target.closest('.fb-expand-btn');
+                    const card = btn.closest('.fb-card');
+                    const cardId = btn.dataset.id;
+                    const post = fbPosts.find(p => p.id == cardId);
+                    
+                    if (post) {
+                        expandCard(post);
+                    }
+                }
+            });
+            
+            // Load more functionality
+            const loadMoreBtn = document.getElementById('fb-load-more');
+            loadMoreBtn.addEventListener('click', function() {
+                // Add loading animation
+                this.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Duke ngarkuar...';
+                
+                // Simulate API call delay
+                setTimeout(() => {
+                    // Add new posts
+                    const newPosts = [
+                        {
+                            id: 7,
+                            title: "Prof. Dr. Xhemajl Fejzullahu rikthehet në IAAP ''Pjetër Bogdani'' me një ligjëratë inspiruese mbi sfidat energjetike në Kosovë",
+                            content: "Në vazhdën e Ligjëratave me mësimdhënës të çmuar, të cilët ndër vite kanë mbajtur dhe ngritur arsimin shqip, sot në IAAP 'Pjetër Bogdani', në Ferizaj, patëm nderin ta kemi, mysafir  prof.dr. Xhemajl Fejzullahu, ligjërues shumë vjeçar në Fakultetin e Inxhinierisë Mekanike- drejtimi i Termoenergjetikës.  Atij mirëseardhje i dëshiroi drejtori Sami Jahiu duke vlerësuar kontributin e tij ndër vite me studentë. Prof.Fejzullahu para nxënësve, mësimdhënësve dhe mysafirëve foli për Energjitë dhe resurset e tyre në Kosovë, duke sjellë një shqyrtim shumëdimensional. Sfidat energjetike, shikuar jo vetëm nga aspekti teknologjik dhe energjetik por edhe nga ai global dhe politik, sipas prof.Fejzullahut, dolën të jenë një nga problemet e Kosovës në këtë dekadë të tretë të lirisë. Ligjërata u përcollë me një kurreshtje preokupuese dhe më pas u zhvillua një debat i hapur. Për më tepër, profesori Fejzullahu, dikur një nga nxënësit e parë të kësaj shkolle, riktheu me krenari lidhjen me institucionin ku nisi rrugëtimin e tij të shkëlqyer. Ky cikël i ligjëratave synon të ndërtojë ura mes përvojave dhe brezave, duke nderuar emrat e shquar të mësimdhënësve dhe frymëzuar të rinjtë për të ardhmen.",
+                            image: "https://scontent.fprn1-1.fna.fbcdn.net/v/t39.30808-6/485915874_1152969246617742_5125285086714821610_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=5EqPtU1z_u0Q7kNvwGiXyis&_nc_oc=Adm-FK7usyLn7HY5cfueLzfuo_s6X9KLSvT18rsKiiB1rEIf2GQv2DBL5cmqhxnPqL8PykQmmpWee2oA9b7grwSQ&_nc_zt=23&_nc_ht=scontent.fprn1-1.fna&_nc_gid=zrIZIDLj3sP3fdlFOgNE_A&oh=00_AfJLbWgPcdegN-uXsh390talJq31JgtM8XMdYnTMFPhh_A&oe=68453547",
+                            date: "21 Mars 2025",
+                            likes: 132,
+                            comments: 24,
+                            shares: 8,
+                            url: "https://www.facebook.com/IAAPPjeterBogdani/posts/pfbid0qWiX8vxHb2BsqkWFJMX3knzEc3r2YnTJAqrbafUzjKnYzZ7V1suqaDtWSL6Uz4W6l"
+                        }
+                    ];
+                    
+                    // Append new posts to the grid
+                    newPosts.forEach(post => {
+                        const card = document.createElement('div');
+                        card.className = 'fb-card';
+                        card.innerHTML = `
+                            <div class="fb-card-img">
+                                <img src="${post.image}" alt="${post.title}">
+                            </div>
+                            <div class="fb-card-meta">
+                                <span>${post.date}</span>
+      
+                            </div>
+                            <div class="fb-card-content">
+                                <h3 class="fb-card-title">${post.title}</h3>
+                                <p class="fb-card-text">${post.content}</p>
+                            </div>
+                            <div class="fb-card-footer">
+                                <button class="fb-action-btn" onclick="window.open('${post.url}', '_blank')">
+                                    <i class="fab fa-facebook"></i> Shiko në Facebook
+                                </button>
+                                <button class="fb-expand-btn" data-id="${post.id}">
+                                    <i class="fas fa-expand-alt"></i>
+                                </button>
+                            </div>
+                        `;
+                        document.getElementById('facebook-grid').appendChild(card);
+                    });
+                    
+                    // Update button text and disable
+                    this.innerHTML = '<i class="fas fa-check me-2"></i>Të gjitha postimet u ngarkuan';
+                    this.disabled = true;
+                }, 1200);
+            });
+            
+            // Filter buttons
+            document.querySelectorAll('.fb-filter-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.fb-filter-btn').forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    generateFbCards(fbPosts);
+                });
+            });
         });
-    });
-</script>
+    </script>
+
+
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer pt-5 mt-0 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
@@ -749,6 +908,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
 
         <script>
             document.addEventListener("DOMContentLoaded", function () {
@@ -764,41 +924,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
         </script>
-            <script>
-    // Force Facebook embeds to reload on mobile
-    function reloadEmbeds() {
-        if(typeof FB !== 'undefined') {
-            FB.XFBML.parse();
-            Array.from(document.querySelectorAll('.fb-post')).forEach(post => {
-                post.style.width = '100%';
-                post.setAttribute('data-width', '100%');
-            });
-        }
-    }
-
-    // Initial load
-    document.addEventListener('DOMContentLoaded', reloadEmbeds);
-    
-    // Reload on resize
-    window.addEventListener('resize', reloadEmbeds);
-    
-    // Reload when rotating device
-    window.addEventListener('orientationchange', reloadEmbeds);
-</script>
-        <script>
-    // Emergency mobile fix
-// Detect if Facebook SDK failed to load
-setTimeout(() => {
-  const fallbacks = document.querySelectorAll('.fallback-content');
-  const fbEmbeds = document.querySelectorAll('.fb-post');
-  
-  fbEmbeds.forEach((embed, index) => {
-    if (embed.clientHeight === 0) {
-      fallbacks[index].style.display = 'block';
-    }
-  });
-}, 5000); // Check after 5 seconds
-</script>
+           
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     </body>
