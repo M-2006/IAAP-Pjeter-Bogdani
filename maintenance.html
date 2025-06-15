@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Mode - IAAP Pjetër Bogdani</title>
+    <link rel="icon" href="logo/logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #080F32 0%, #1a2347 100%);
+            color: white;
+            font-family: 'Heebo', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo {
+            width: 150px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #00A3FF, #2575fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .divider {
+            height: 4px;
+            width: 100px;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            margin: 25px auto;
+            border-radius: 2px;
+        }
+        
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .status {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255, 0, 0, 0.2);
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 15px 0;
+            border: 1px solid rgba(255, 100, 100, 0.3);
+        }
+        
+        .contact {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .contact a {
+            color: #00A3FF;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .contact a:hover {
+            color: #00C8FF;
+            text-decoration: underline;
+        }
+        
+        .progress-container {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 30px auto;
+            max-width: 500px;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            width: 65%;
+            border-radius: 10px;
+            animation: progress 2s infinite ease-in-out;
+        }
+        
+        @keyframes progress {
+            0% { width: 65%; }
+            50% { width: 75%; }
+            100% { width: 65%; }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .container { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="logo/logo.png" alt="IAAP Logo" class="logo">
+        <h1>SITE UNDER MAINTENANCE</h1>
+        <div class="divider"></div>
+        <div class="status">UPDATE IN PROGRESS</div>
+        <p>We're currently performing scheduled maintenance and updates to improve your experience. The website will be back online shortly.</p>
+        
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        
+        <p>Please check back soon. We apologize for any inconvenience.</p>
+        
+        <div class="contact">
+            <p>For urgent inquiries, contact us at:<br>
+            <a href="mailto:contact@iaap-ferizaj.com">contact@iaap-ferizaj.com</a></p>
+        </div>
+    </div>
+</body>
+</html>
