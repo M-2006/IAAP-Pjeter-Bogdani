@@ -6,50 +6,128 @@
     <title>Maintenance Mode - IAAP Pjetër Bogdani</title>
     <link rel="icon" href="logo/logo.png">
     <style>
+        /* Global Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Heebo', sans-serif;
         }
         
         body {
             background: linear-gradient(135deg, #080F32 0%, #1a2347 100%);
             color: white;
-            font-family: 'Heebo', sans-serif;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 20px;
+            overflow-x: hidden;
+            position: relative;
         }
         
+        /* Background Animation */
+        .bg-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(106, 17, 203, 0.1);
+            animation: float 15s infinite linear;
+            opacity: 0;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(0.2);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.2;
+            }
+            100% {
+                transform: translateY(-100px) scale(1);
+                opacity: 0;
+            }
+        }
+        
+        /* Main Container */
         .container {
             max-width: 800px;
-            padding: 40px;
+            padding: 50px;
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(12px);
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            position: relative;
         }
         
-        .logo {
-            width: 150px;
+        /* Logo Styling */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin-bottom: 30px;
         }
         
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             background: linear-gradient(90deg, #00A3FF, #2575fc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         
+        /* Content Styling */
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #00A3FF, #2575fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        
+        .status {
+            display: inline-block;
+            padding: 8px 25px;
+            background: rgba(255, 0, 0, 0.2);
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 15px 0;
+            border: 1px solid rgba(255, 100, 100, 0.3);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        
         .divider {
             height: 4px;
-            width: 100px;
+            width: 150px;
             background: linear-gradient(90deg, #6a11cb, #2575fc);
             margin: 25px auto;
             border-radius: 2px;
@@ -62,23 +140,116 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            color: #e0e0e0;
         }
         
-        .status {
-            display: inline-block;
-            padding: 8px 20px;
-            background: rgba(255, 0, 0, 0.2);
-            border-radius: 50px;
-            font-weight: 600;
-            margin: 15px 0;
-            border: 1px solid rgba(255, 100, 100, 0.3);
+        /* Progress Animation */
+        .progress-container {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 40px auto;
+            max-width: 500px;
+            position: relative;
         }
         
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            width: 65%;
+            border-radius: 10px;
+            position: absolute;
+            animation: progress 2s infinite ease-in-out, glow 1.5s infinite alternate;
+        }
+        
+        @keyframes progress {
+            0% { width: 65%; }
+            50% { width: 75%; }
+            100% { width: 65%; }
+        }
+        
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px rgba(106, 17, 203, 0.5); }
+            100% { box-shadow: 0 0 20px rgba(106, 17, 203, 0.8); }
+        }
+        
+        /* Timeline */
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            max-width: 500px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: -1;
+        }
+        
+        .timeline-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .timeline-item.active {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(106, 17, 203, 0.5);
+        }
+        
+        .timeline-item i {
+            font-size: 1.2rem;
+        }
+        
+        /* Contact Information */
         .contact {
-            margin-top: 30px;
-            padding-top: 20px;
+            margin-top: 40px;
+            padding-top: 25px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
+        
+        .contact h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #00C8FF;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+        width: 175px;
+        height: 50px;
+        display: flex;
+        justify-content: center;  /* centers horizontally */
+        align-items: center;      /* centers vertically */
+        border-radius:5%;       /* optional: makes it circular */
+        }
+
+        .contact-item i {
+        font-size: 1.2rem;
+        color: #00A3FF;
+        }
+
         
         .contact a {
             color: #00A3FF;
@@ -91,53 +262,148 @@
             text-decoration: underline;
         }
         
-        .progress-container {
-            height: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 30px auto;
-            max-width: 500px;
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
         
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, #6a11cb, #2575fc);
-            width: 65%;
-            border-radius: 10px;
-            animation: progress 2s infinite ease-in-out;
-        }
-        
-        @keyframes progress {
-            0% { width: 65%; }
-            50% { width: 75%; }
-            100% { width: 65%; }
-        }
-        
+        /* Responsive Design */
         @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .container { padding: 30px 20px; }
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .logo-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .timeline {
+                max-width: 90%;
+            }
+            
+            .timeline-item {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
     </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+    <!-- Background Animation -->
+    <div class="bg-animation" id="bgAnimation"></div>
+    
+    <!-- Main Content -->
     <div class="container">
-        <img src="logo/logo.png" alt="IAAP Logo" class="logo">
-        <h1>SITE UNDER MAINTENANCE</h1>
-        <div class="divider"></div>
-        <div class="status">UPDATE IN PROGRESS</div>
-        <p>We're currently performing scheduled maintenance and updates to improve your experience. The website will be back online shortly.</p>
+        <div class="logo-container">
+            <img src="logo/logo.png" alt="IAAP Logo" class="logo">
+            <div class="logo-text">IAAP - Pjetër Bogdani</div>
+        </div>
         
+        <h1>WE'LL BE BACK SOON</h1>
+        <div class="status">Maintenance in Progress</div>
+        
+        <div class="divider"></div>
+        
+        <p>We're currently performing scheduled maintenance and updates to improve your experience. Our team is working diligently to bring the website back online as soon as possible.</p>
+        
+        <!-- Progress Timeline -->
+        <div class="timeline">
+            <div class="timeline-item active">
+                <i class="fas fa-wrench"></i>
+            </div>
+            <div class="timeline-item">
+                <i class="fas fa-sync-alt"></i>
+            </div>
+            <div class="timeline-item">
+                <i class="fas fa-check"></i>
+            </div>
+        </div>
+        
+        <!-- Progress Bar -->
         <div class="progress-container">
             <div class="progress-bar"></div>
         </div>
         
-        <p>Please check back soon. We apologize for any inconvenience.</p>
+        <p>Thank you for your patience. We apologize for any inconvenience and appreciate your understanding.</p>
         
+        <!-- Contact Information -->
         <div class="contact">
-            <p>For urgent inquiries, contact us at:<br>
-            <a href="mailto:contact@iaap-ferizaj.com">contact@iaap-ferizaj.com</a></p>
+            <h3>Need Immediate Assistance?</h3>
+            <!-- <p>Contact our support team:</p>
+            
+            
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:contact@iaap-ferizaj.com">contact@iaap-ferizaj.com</a>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+383 44 123 456</span>
+                </div> -->
+                <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fab fa-facebook"></i><br><br>
+                    <a href="https://www.facebook.com/IAAPPjeterBogdani" target="_blank">Facebook Page</a>
+                </div>
+            </div>
         </div>
     </div>
+    
+    <script>
+        // Create background bubbles
+        const bgAnimation = document.getElementById('bgAnimation');
+        const colors = ['rgba(106, 17, 203, 0.1)', 'rgba(37, 117, 252, 0.1)', 'rgba(0, 163, 255, 0.1)'];
+        
+        for (let i = 0; i < 20; i++) {
+            const bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            
+            // Random properties
+            const size = Math.random() * 100 + 20;
+            const posX = Math.random() * 100;
+            const delay = Math.random() * 15;
+            const duration = 15 + Math.random() * 20;
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            bubble.style.left = `${posX}%`;
+            bubble.style.animationDelay = `${delay}s`;
+            bubble.style.animationDuration = `${duration}s`;
+            bubble.style.background = color;
+            
+            bgAnimation.appendChild(bubble);
+        }
+        
+        // Animate timeline items
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        let currentActive = 0;
+        
+        setInterval(() => {
+            timelineItems.forEach(item => item.classList.remove('active'));
+            currentActive = (currentActive + 1) % timelineItems.length;
+            timelineItems[currentActive].classList.add('active');
+        }, 2000);
+    </script>
 </body>
 </html>
