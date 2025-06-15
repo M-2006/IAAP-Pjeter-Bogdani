@@ -290,19 +290,21 @@
             color: #8a9aff;
             border: 1px solid var(--fb-border);
             border-radius: 10px;
-            width: 42px;
+            width: 175px;
             height: 42px;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
             cursor: pointer;
+            gap: 0.5rem;
         }
         
         .fb-expand-btn:hover {
             background: rgba(255, 255, 255, 0.2);
             color: white;
-            transform: rotate(90deg);
+            transform: rotate(7.5deg);
+            border-color: var(--fb-light);
         }
         
         .fb-load-more {
@@ -529,7 +531,7 @@
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" style="font-size: 1.2rem;">Drejtimet</a>
                     <div class="dropdown-menu fade-down m-0">
                         <a href="Makineri.html" class="dropdown-item underline-animation" style="font-size: 1.2rem;"> <i class="fas fa-cogs me-2"></i>  MAKINERI</a>
-                        <a href="Elektronik.html" class="dropdown-item underline-animation" style="font-size: 1.2rem;"><i class="fas fa-microchip me-2"></i> ELEKTRONIKË</a>
+                        <a href="Elektroteknike.html" class="dropdown-item underline-animation" style="font-size: 1.2rem;"><i class="fas fa-microchip me-2"></i> ELEKTORTEKNIKË</a>
                         <a href="Ndertimtari.html" class="dropdown-item underline-animation" style="font-size: 1.2rem;"><i class="fas fa-building me-2"></i> NDËRTIMTARI</a>
                     </div>
                 </div>
@@ -545,7 +547,7 @@
     <section id="facebook-section" class="fb-section">
         <div class="container fb-container">
             <div class="fb-header">
-                <h2 class="fb-title">Postet e Fundit nga Facebook</h2>
+                <h2 class="fb-title">Lajmet më të fundit!</h2>
                 <div class="fb-filters">
                     <button class="fb-filter-btn active">Të gjitha</button>
                 </div>
@@ -568,7 +570,7 @@
             {
                 id: 1,
                 title: "KONTRIBUT I ÇMUAR PËR DIJEN!",
-                content: "Mësimdhënësi Afrim Demiri i ka dhuruar IAAP “Pjetër Bogdani” rreth 80 libra me tituj të ndryshëm letrar, publicistik dhe shkollor. Ky veprim i vyer vjen në një moment kur kemi hedhur hapat e parë me Këndin Amerikan të Librit, dhe tashmë po hapet rruga edhe për krijimin e Bibliotekës së shkollës sonë. Duke e falënderuar me mirënjohje mësimdhënësin Demiri për këtë gjest të frymëzueshëm, i ftojmë edhe mësimdhënësit e tjerë të bashkohen me këtë nismë, duke dhuruar libra për të pasuruar fondin letrar të shkollës – një hap i madh drejt dijes dhe leximit për nxënësit tanë! ",
+                content: "Biblioteka e Shkollës pasurohet me dhurimin e disa librave të rinj Biblioteka e shkollës sonë u pasurua sot me një fond prej 80 librash të rinj, falë një dhurate bujare nga mësimdhënësi i përkushtuar, z. Afrim Demri. Ky gjest fisnik vjen si dëshmi e përkushtimit të tij të vazhdueshëm ndaj edukimit dhe rritjes intelektuale të brezit të ri. Titujt e rinj janë përzgjedhur dhe sistemuar me kujdes nga prof. Bardha Vladi, në bashkëpunim me nxënësin Lumbardh Maliqi. Ky i fundit ka kontribuar edhe me një portret artistik të Pjetër Bogdanit, duke e kthyer këndin e leximit në një hapësirë të gjallë, të pasur e frymëzuese. “Një libër më shumë është një dritare më shumë drejt dijes. Jemi krenarë për mësuesit tanë që nuk ndalojnë së mbjelli dashurinë për librin,” u shprehën përfaqësues të shkollës. Me këtë dhuratë, biblioteka bëhet jo vetëm më e pasur, por edhe më e gjallë, duke nxitur kulturën e leximit dhe zhvillimin e mendimit kritik te nxënësit. Sepse siç thuhet: “Sot një lexues, nesër një udhëheqës.”",
                 image: "https://scontent.fprn1-1.fna.fbcdn.net/v/t39.30808-6/503430874_1209312717650061_6041736838499323749_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=COwRSdTM8_oQ7kNvwEo8ACZ&_nc_oc=AdkNZZAn6fBCx3xhdEXHQ_S63Ktvi58p7x5CbNr0Xh4A7A-99GyoNgKAuYPElzGLl72IlHYzdZGWHWfaqjnADyqv&_nc_zt=23&_nc_ht=scontent.fprn1-1.fna&_nc_gid=O9TV4fOu001-0hsN5Yof-Q&oh=00_AfL2LmrEzBGGmQj9N3wuDns3c6KAgIDiZKYNWIZwm3-1KA&oe=68451B51",
                 date: "03 Qershor 2025",
                 likes: 245,
@@ -654,13 +656,12 @@
                         <p class="fb-card-text">${post.content}</p>
                     </div>
                     <div class="fb-card-footer">
-                        <button class="fb-action-btn" onclick="window.open('${post.url}', '_blank')">
-                            <i class="fab fa-facebook"></i> Shiko në Facebook
-                        </button>
                         <button class="fb-expand-btn" data-id="${post.id}">
                             <i class="fas fa-expand-alt"></i>
+                            SHIKO MË SHUMË
                         </button>
                     </div>
+
                 `;
                 grid.appendChild(card);
             });
@@ -690,9 +691,10 @@
                     <p class="fb-card-text">${post.content}</p>
                 </div>
                 <div class="fb-card-footer">
-                    <button class="fb-action-btn" onclick="window.open('${post.url}', '_blank')">
-                        <i class="fab fa-facebook"></i> Shiko në Facebook
-                    </button>
+                        <button class="fb-expand-btn" data-id="${post.id}">
+                            <i class="fas fa-expand-alt"></i>
+                            SHIKO MË SHUMË
+                        </button>
                 </div>
             `;
             
@@ -770,12 +772,10 @@
                                 <p class="fb-card-text">${post.content}</p>
                             </div>
                             <div class="fb-card-footer">
-                                <button class="fb-action-btn" onclick="window.open('${post.url}', '_blank')">
-                                    <i class="fab fa-facebook"></i> Shiko në Facebook
-                                </button>
-                                <button class="fb-expand-btn" data-id="${post.id}">
-                                    <i class="fas fa-expand-alt"></i>
-                                </button>
+                            <button class="fb-expand-btn" data-id="${post.id}">
+                                <i class="fas fa-expand-alt"></i>
+                                SHIKO MË SHUMË
+                            </button>
                             </div>
                         `;
                         document.getElementById('facebook-grid').appendChild(card);
@@ -821,21 +821,34 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Profilet</h4>
-                    <div class="row g-2 pt-2">
-                        <div class="footer-menu">
-                            <a href="Elektronik.html" class="btn btn-link">IT</a>
-                            <a href="Elektronik.html" class="btn btn-link">Informatik</a>
-                            <a href="Elektronik.html" class="btn btn-link">Arkitekturë</a>
-                            <a href="Makineri.html" class="btn btn-link">Mekatronikë</a>
-                            <a href="Elektronik.html" class="btn btn-link">Dizajn Grafik</a>
-                            <a href="Makineri.html" class="btn btn-link">Metalpunues</a>
-                            <a href="Ndertimtari.html" class="btn btn-link">Ndertimtari</a>
-                            <a href="Makineri.html" class="btn btn-link">Trafik Rrugor</a>
-                            <a href="Elektronik.html" class="btn btn-link">Instalues Elektrik</a>
-                            <a href="Makineri.html" class="btn btn-link">Automekanik</a>
-                        </div>
-                    </div>
+                <div class="footer-menu d-flex flex-column gap-2 pt-2">
+                    <a href="Makineri.html" class="btn btn-link text-start text-white">Operator i makinave me dirigjim kompjuterik</a>
+                    <a href="Makineri.html" class="btn btn-link text-start text-white">Instalues Ujësjellesi dhe Ngrohje e Klimatizim (INKU)</a>
+                    <a href="Makineri.html" class="btn btn-link text-start text-white">Automekanik</a>
+                    <a href="Makineri.html" class="btn btn-link text-start text-white">Mekatronikë</a>
+                    <a href="Makineri.html" class="btn btn-link text-start text-white">Trafik Rrugor</a>
+                    <a href="Makineri.html" class="btn btn-link text-start text-white">Metal punues</a>
+                    <a href="Elektroteknike.html" class="btn btn-link text-start text-white">IT</a>
+                    <a href="Elektroteknike.html" class="btn btn-link text-start text-white">Informatik</a>
+                    <a href="Elektroteknike.html" class="btn btn-link text-start text-white">Dizajn Grafik</a>
+                    <a href="Elektroteknike.html" class="btn btn-link text-start text-white">Instalues Elektrik</a>
+                    <a href="Ndertimtari.html" class="btn btn-link text-start text-white">Ndertimtari</a>
+                    <a href="Ndertimtari.html" class="btn btn-link text-start text-white">Arkitekturë</a>
                 </div>
+                </div>
+                <style>
+                    .footer-menu a.btn-link {
+                    white-space: normal;/* Allow long titles to wrap */
+                    line-height: 1.4;
+                    padding-left: 0;
+                    padding-right: 0;
+                    }
+                    .footer-menu a.btn-link:hover {
+                    text-decoration: underline;
+                    color: #f0f0f0;
+                    }
+
+                </style>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Orari i Punës</h4>
                     <p class="mb-2"><i class="fa fa-clock me-3"></i><strong>E Hënë - E Premte:</strong> 08:00 - 19:20</p>
