@@ -33,57 +33,264 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <style>
-                   /* Modern glassmorphism effect */
-                   .modal-content {
-                background: rgba(255, 255, 255, 0.15);
-                backdrop-filter: blur(10px);
-                border-radius: 15px;
-                border: 1px solid rgba(255, 255, 255, 0.2);
-            }
+         /* Modern glassmorphism effect */
+        .modal-content {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
 
-            /* Title styling */
-            .modal-title {
-                font-weight: bold;
-                color: #ffffff;
-            }
+        /* Title styling */
+        .modal-title {
+            font-weight: bold;
+            color: #ffffff;
+        }
 
-            /* Header and Footer */
-            .modal-header, .modal-footer {
-                border: none;
-                background: rgba(255, 255, 255, 0.1);
-            }
+        /* Header and Footer */
+        .modal-header, .modal-footer {
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+        }
 
-            /* List styling */
-            .list-group-item {
-                background: rgba(255, 255, 255, 0.1);
-                color: white;
-                border: none;
-                font-weight: 500;
-                transition: all 0.3s ease;
-            }
+        /* List styling */
+        .list-group-item {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
 
-            /* Hover effect */
-            .list-group-item:hover {
-                background: rgba(255, 255, 255, 0.2);
-                transform: scale(1.02);
-            }
+        /* Hover effect */
+        .list-group-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.02);
+        }
 
-            /* Close button */
-            .btn-close {
-                filter: invert(1);
-            }
+        /* Close button */
+        .btn-close {
+            filter: invert(1);
+        }
 
-            /* Button styling */
-            .btn-secondary {
-                background: linear-gradient(135deg, #6a11cb, #2575fc);
-                border: none;
-                transition: all 0.3s ease;
-            }
+        /* Button styling */
+        .btn-secondary {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            border: none;
+            transition: all 0.3s ease;
+        }
 
-            .btn-secondary:hover {
-                background: linear-gradient(135deg, #2575fc, #6a11cb);
-                transform: scale(1.05);
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #2575fc, #6a11cb);
+            transform: scale(1.05);
+        }
+        
+        /* New Card Styles */
+        .profile-card {
+            background: linear-gradient(145deg, #0c1445, #080F32);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            border: 1px solid rgba(74, 91, 216, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 10, 50, 0.4);
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(26, 95, 255, 0.5);
+            border-color: rgba(74, 91, 216, 0.7);
+        }
+        
+        .card-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .profile-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+        
+        .card-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 70%;
+            background: linear-gradient(transparent, #0c1445);
+        }
+        
+        .card-body {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-title {
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: white;
+            line-height: 1.4;
+            position: relative;
+            padding-bottom: 12px;
+        }
+        
+        .card-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #1a5fff, #4a5bd8);
+            border-radius: 2px;
+        }
+        
+        .card-text {
+            color: #b8c2ff;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .card-footer {
+            display: flex;
+            justify-content: center;
+            padding: 0 20px 25px;
+        }
+        
+        .card-btn {
+            background: linear-gradient(135deg, #1a5fff, #4a5bd8);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(26, 95, 255, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(26, 95, 255, 0.4);
+            background: linear-gradient(135deg, #4a5bd8, #1a5fff);
+        }
+        
+        .icon-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(26, 95, 255, 0.9);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+        }
+        
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 60%, rgba(8, 15, 50, 0.9) 100%);
+            z-index: 1;
+        }
+        
+        /* Section header styles */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-top: 50px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #ffffff, #b8c2ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title::after {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #1a5fff, #4a5bd8);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            color: #b8c2ff;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
+        /* Animation for cards */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .profile-card {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+        
+        .profile-card:nth-child(1) { animation-delay: 0.1s; }
+        .profile-card:nth-child(2) { animation-delay: 0.2s; }
+        .profile-card:nth-child(3) { animation-delay: 0.3s; }
+        .profile-card:nth-child(4) { animation-delay: 0.4s; }
+        .profile-card:nth-child(5) { animation-delay: 0.5s; }
+        .profile-card:nth-child(6) { animation-delay: 0.6s; }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .card-title {
+                font-size: 1.3rem;
+            }
+        }
 </style>
 <body style="background-color: #080F32;">
     <!-- Spinner Start -->
@@ -124,83 +331,119 @@
     </nav>
     <!-- Navbar End -->
      
-    <!-- Header Start -->
-    <div class="container-xxxl  " style="background-color: #080F32; color: white; width: 100%;">
-        <div class="container text-center">
-            <br><br><br><br>
-            <h1 class="display-5 text-white fw-bold">DREJTIMI - MAKINERI</h1>
-            <br><br>
-            <p class="display-9 text-white">Drejtimi i makinerisë nxënësve u mundëson që të mësojnë inxhinierinë e metaleve, dizajnin e produkteve, termodinamikën, automatizimin, makinat CNC, motoristikën. Projektet praktike dhe eksperimentale, zhvillojnë aftësitë teknike dhe analitike dhe hapin dyert për studime në nivele të larta, në teknologji dhe inteligjencë artificiale dhe për tregun e punës.
-            </p>
-        </div>
+       <!-- Header Section -->
+    <div class="section-header">
+        <h1 class="section-title">DREJTIMI - MAKINERI</h1>
+        <p class="section-subtitle">Drejtimi i makinerisë nxënësve u mundëson që të mësojnë inxhinierinë e metaleve, dizajnin e produkteve, termodinamikën, automatizimin, makinat CNC, motoristikën. Projektet praktike dhe eksperimentale, zhvillojnë aftësitë teknike dhe analitike dhe hapin dyert për studime në nivele të larta, në teknologji dhe inteligjencë artificiale dhe për tregun e punës.</p>
     </div>
-    <!-- Header End -->
 
     <div class="container-fluid py-5" style="background-color: #080F32;">
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             <!-- Section 1 -->
             <div class="col">
-                <div class="card text-center h-100 shadow border-0" style="background-color: #f8f9fa; border-radius: 15px;">
-                    <img src="Ekstras/makin.jpg" class="card-img-top" alt="Image 1">
+                <div class="profile-card">
+                    <div class="card-image">
+                        <div class="card-overlay"></div>
+                        <div class="icon-badge">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <img src="Ekstras/makin.jpg" class="card-img-top" alt="Operator i makinave">
+                    </div>
                     <div class="card-body">
-                        <h5 class="card-title">Operator i makinave me dirigjim kompjuterik</h5>
+                        <h3 class="card-title">Operator i makinave me dirigjim kompjuterik</h3>
                         <p class="card-text">Nxënësit përfitojnë aftësi profesionale për përdorimin e makinave CNC në zhvillimin e teknologjisë në përpunim e metaleve, plastikës dhe drurit, në programimin, dhe operimin e këtyre makinave dhe mundësi punësimi në tregun global.</p>
                     </div>
+
                 </div>
             </div>
             
             <!-- Section 2 -->
             <div class="col">
-                <div class="card text-center h-100 shadow border-0" style="background-color: #f8f9fa; border-radius: 15px;">
-                    <img src="Ekstras/in.jpg" class="card-img-top" alt="Image 2">
+                <div class="profile-card">
+                    <div class="card-image">
+                        <div class="card-overlay"></div>
+                        <div class="icon-badge">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <img src="Ekstras/in.jpg" class="card-img-top" alt="Instalues Ujësjellesi">
+                    </div>
                     <div class="card-body">
-                        <h5 class="card-title">Instalues Ujësjellesi dhe Ngrohje e Klimatizim (INKU)</h5>
+                        <h3 class="card-title">Instalues Ujësjellesi dhe Ngrohje e Klimatizim (INKU)</h3>
                         <p class="card-text">Nevoja për Instalues i ngrohjes, klimatizimit dhe ujësjellësit (INKU) është e madhe. Kërkesat për sistemet efikase, efiçiente dhe të sigurta janë në rritje. Përdorimi i energjive të rinovueshme kërkon njohuri teknike në përputhje me standardet.</p>
                     </div>
+
                 </div>
             </div>
             
             <!-- Section 3 -->
             <div class="col">
-                <div class="card text-center h-100 shadow border-0" style="background-color: #f8f9fa; border-radius: 15px;">
-                    <img src="Ekstras/automekanika.jpg" class="card-img-top" alt="Image 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Automekanik</h5>
-                        <p class="card-text">Në profilin e automjeteve nxënësit marrin njohuri mbi sistemet mekanike të automjeteve, për motorët,pjesët përcjellëse,sistemet e frenimit, drejtimit,e gazrave dalëse, aerodinamikën, elektronikën në automjete, sensorë dhe kompjutera. Njohuri mbi materialet për ndërtimin e pjesëve të automjeteve duke përfshirë peshën,rezistencën dhe formë.</p>
+                <div class="profile-card">
+                    <div class="card-image">
+                        <div class="card-overlay"></div>
+                        <div class="icon-badge">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <img src="Ekstras/automekanika.jpg" class="card-img-top" alt="Automekanik">
                     </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Automekanik</h3>
+                        <p class="card-text">Në profilin e automjeteve nxënësit marrin njohuri mbi sistemet mekanike të automjeteve, për motorët,pjesët përcjellëse,sistemet e frenimit, drejtimit,e gazrave dalëse, aerodinamikën, elektronikën në automjete, sensorë dhe kompjutera.</p>
+                    </div>
+
                 </div>
             </div>
 
             <!-- Section 4 -->
             <div class="col">
-                <div class="card text-center h-100 shadow border-0" style="background-color: #f8f9fa; border-radius: 15px;">
-                    <img src="Ekstras/img_2603.jpg" class="card-img-top" alt="Image 4">
-                    <div class="card-body">
-                        <h5 class="card-title">Mekatronikë - Robotik</h5>
-                        <p class="card-text">Mekatronika integron inxhinierinë mekanike, inxhinierinë elektrike, inxhinierinë kompjuterike dhe teknologjinë informative për të realizuar principet bazë të metodologjisë bashkëkohore të disajnimit. Tregu i punës në Mekatronikë është i shumëllojshëm, duke ofruar mundësi në sektorë të ndryshëm si prodhim industrial,automobilistik,robotik,teknologji e informacionit.</p>
+                <div class="profile-card">
+                    <div class="card-image">
+                        <div class="card-overlay"></div>
+                        <div class="icon-badge">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <img src="Ekstras/img_2603.jpg" class="card-img-top" alt="Mekatronikë - Robotik">
                     </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Mekatronikë - Robotik</h3>
+                        <p class="card-text">Mekatronika integron inxhinierinë mekanike, inxhinierinë elektrike, inxhinierinë kompjuterike dhe teknologjinë informative për të realizuar principet bazë të metodologjisë bashkëkohore të disajnimit.</p>
+                    </div>
+
                 </div>
             </div>
 
             <!-- Section 5 -->
             <div class="col">
-                <div class="card text-center h-100 shadow border-0" style="background-color: #f8f9fa; border-radius: 15px;">
-                    <img src="Ekstras/trafiku.png" class="card-img-top" alt="Image 5">
-                    <div class="card-body">
-                        <h5 class="card-title">Trafiku Rrugor</h5>
-                        <p class="card-text">Shkollimi të krijon mundësi për të gjithë nxënësit,duke i përgatitur ata emocionalisht, intelektualisht dhe profesionalisht. Me përfundimin e profilit "Trafik Rrugor", nxënësi do të zhvillojë kompetenca profesionale të nevojshme për tregun e punës nga fusha e komunikacionit dhe automjeteve.</p>
+                <div class="profile-card">
+                    <div class="card-image">
+                        <div class="card-overlay"></div>
+                        <div class="icon-badge">
+                            <i class="fas fa-traffic-light"></i>
+                        </div>
+                        <img src="Ekstras/trafiku.png" class="card-img-top" alt="Trafiku Rrugor">
                     </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Trafiku Rrugor</h3>
+                        <p class="card-text">Shkollimi të krijon mundësi për të gjithë nxënësit,duke i përgatitur ata emocionalisht, intelektualisht dhe profesionalisht. Me përfundimin e profilit "Trafik Rrugor", nxënësi do të zhvillojë kompetenca profesionale të nevojshme për tregun e punës.</p>
+                    </div>
+
                 </div>
             </div>
 
             <!-- Section 6 -->
             <div class="col">
-                <div class="card text-center h-100 shadow border-0" style="background-color: #f8f9fa; border-radius: 15px;">
-                    <img src="Ekstras/metal.jpg" class="card-img-top" alt="Image 6">
-                    <div class="card-body">
-                        <h5 class="card-title">Metal Punues - Saldator</h5>
-                        <p class="card-text">Metlpunuesit janë të këkuar në treg. Ata janë përgjegjës për ndërtimin dhe montimin, mirëmbajtjen, riparimin dhe shërbimin e produkteve metalike, për të ndërtuar ndërtesa dhe struktura të skeleve, shkallëve, urave, fasadave, automjeteve etj. Fabrikuesit e metaleve e vazhdojnë arsimimin e tyre.</p>
+                <div class="profile-card">
+                    <div class="card-image">
+                        <div class="card-overlay"></div>
+                        <div class="icon-badge">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <img src="Ekstras/metal.jpg" class="card-img-top" alt="Metal Punues - Saldator">
                     </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Metal Punues - Saldator</h3>
+                        <p class="card-text">Metlpunuesit janë të këkuar në treg. Ata janë përgjegjës për ndërtimin dhe montimin, mirëmbajtjen, riparimin dhe shërbimin e produkteve metalike, për të ndërtuar ndërtesa dhe struktura të skeleve, shkallëve, urave, fasadave, automjeteve etj.</p>
+                    </div>
+
                 </div>
             </div>
         </div>
