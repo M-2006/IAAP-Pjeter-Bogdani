@@ -14,7 +14,6 @@
     <link href="img/favicon.ico" rel="icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=FAMILY_NAME:wght@WEIGHT_OR_RANGE&display=swap" rel="stylesheet">
@@ -40,9 +39,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-</head>
- <style>
-            :root {
+    <style>
+        :root {
             --fb-primary: #080F32;
             --fb-secondary: #0c1445;
             --fb-accent: #1a5fff;
@@ -175,7 +173,6 @@
             box-shadow: 0 8px 20px rgba(0, 10, 50, 0.4);
             display: flex;
             flex-direction: column;
-            height: 100%;
             position: relative;
         }
         
@@ -227,8 +224,7 @@
         }
         
         .fb-card-content {
-            padding: 0 20px 20px;
-            flex-grow: 1;
+            padding: 0 20px;
         }
         
         .fb-card-title {
@@ -242,10 +238,10 @@
         .fb-card-text {
             color: #b8c2ff;
             line-height: 1.6;
-            margin-bottom: 20px;
             max-height: 4.8em;
             overflow: hidden;
             position: relative;
+            transition: max-height 0.5s ease, padding-bottom 0.3s ease;
         }
         
         .fb-card-text::after {
@@ -256,6 +252,7 @@
             right: 0;
             height: 1.6em;
             background: linear-gradient(to bottom, rgba(14, 24, 62, 0), rgba(14, 24, 62, 1));
+            transition: opacity 0.3s ease;
         }
         
         .fb-card-footer {
@@ -263,6 +260,7 @@
             justify-content: space-between;
             padding: 0 20px 25px;
             align-items: center;
+            margin-top: auto;
         }
         
         .fb-action-btn {
@@ -303,7 +301,6 @@
         .fb-expand-btn:hover {
             background: rgba(255, 255, 255, 0.2);
             color: white;
-            transform: rotate(7.5deg);
             border-color: var(--fb-light);
         }
         
@@ -328,85 +325,42 @@
         }
         
         /* Expanded card styles */
-        .card-expanded {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 800px;
-            max-height: 85vh;
-            z-index: 1000;
-            background: var(--fb-card-bg);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
-            border: 2px solid var(--fb-light);
-            display: flex;
-            flex-direction: column;
+        .fb-card.expanded {
+            grid-column: 1 / -1;
+            transform: none;
+            border-color: var(--fb-light);
+            z-index: 10;
+            box-shadow: 0 15px 35px rgba(0, 20, 80, 0.5);
             animation: expandCard 0.4s ease forwards;
         }
         
-        @keyframes expandCard {
-            from { opacity: 0; transform: translate(-50%, -45%); }
-            to { opacity: 1; transform: translate(-50%, -50%); }
+        .fb-card.expanded .fb-card-text {
+            max-height: 1000px;
+            padding-bottom: 15px;
         }
         
-        .card-expanded .fb-card-img {
-            height: 300px;
+        .fb-card.expanded .fb-card-text::after {
+            opacity: 0;
         }
         
-        .card-expanded .fb-card-text {
-            max-height: none;
-            overflow-y: auto;
-            padding-right: 10px;
-        }
-        
-        .card-expanded .fb-card-text::after {
-            display: none;
-        }
-        
-        .card-expanded .fb-card-content {
-            flex: 1;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 999;
-            backdrop-filter: blur(5px);
-        }
-        
-        .close-expanded {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 42px;
-            height: 42px;
-            background: rgba(255, 255, 255, 0.15);
+        .fb-card.expanded .fb-expand-btn {
+            background: rgba(255, 255, 255, 0.2);
             color: white;
-            border: none;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            z-index: 1001;
-            cursor: pointer;
-            transition: all 0.3s ease;
         }
         
-        .close-expanded:hover {
-            background: var(--fb-accent);
-            transform: rotate(90deg);
+        .fb-card.expanded .fb-expand-btn i {
+            transform: rotate(180deg);
+        }
+        
+        @keyframes expandCard {
+            from { 
+                opacity: 0.8; 
+                transform: scale(0.98);
+            }
+            to { 
+                opacity: 1; 
+                transform: scale(1);
+            }
         }
         
         /* Animation for cards */
@@ -454,13 +408,8 @@
                 font-size: 2rem;
             }
             
-            .card-expanded {
-                width: 95%;
-                max-height: 90vh;
-            }
-            
-            .card-expanded .fb-card-img {
-                height: 250px;
+            .fb-card.expanded {
+                grid-column: 1;
             }
         }
         
@@ -477,8 +426,8 @@
                 font-size: 1.8rem;
             }
             
-            .card-expanded .fb-card-img {
-                height: 200px;
+            .fb-expand-btn {
+                width: 100%;
             }
         }
         
@@ -498,9 +447,8 @@
             border-radius: 4px;
         }
     </style>
-    <body style="background-color: #080F32; color: black; width: 100%; padding: 0;"> 
-            <!-- Overlay for expanded card -->
-    <div class="overlay" id="overlay"></div>
+</head>
+<body style="background-color: #080F32; color: black; width: 100%; padding: 0;"> 
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -508,22 +456,23 @@
         </div>
     </div>
     <!-- Spinner End -->
-       <!-- Navbar Start -->
+    
+    <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0" style="font-size: 1.2rem;">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <img src="logo/logo.png" alt="logo" height="70" style="margin-right: 20px; color: #080F32;">
             <h2 class="m-0" style="margin-left: 10px;">IAAP - Pjetër Bogdani</h2>
         </a>
-                <button class="navbar-toggler ms-auto me-2" type="button" 
+        <button class="navbar-toggler ms-auto me-2" type="button" 
                 data-bs-toggle="collapse" 
                 data-bs-target="#navbarCollapse" 
                 aria-controls="navbarCollapse" 
                 aria-expanded="false" 
                 aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto p-4 p-lg-0">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.html" class="nav-item nav-link underline-animation" style="font-size: 1.2rem;">Ballina</a>
                 <a href="Lajmet.html" class="nav-item nav-link underline-animation" style="font-size: 1.2rem;">Lajmet</a>
                 <a href="about.html" class="nav-item nav-link underline-animation" style="font-size: 1.2rem;">Rreth Nesh</a>
@@ -537,7 +486,6 @@
                 </div>
                 <a href="stafi.html" class="nav-item nav-link underline-animation" style="font-size: 1.2rem;">Stafi</a>
                 <a href="contact.html" class="nav-item nav-link underline-animation" style="font-size: 1.2rem;">Contact</a>
-                <!-- <a href="creators.html" class="nav-item nav-link underline-animation" style="font-size: 1.2rem;">Creators</a> -->
             </div>
         </div>
     </nav>
@@ -568,10 +516,21 @@
         // Facebook posts data
         const fbPosts = [
             {
+                id: 0,
+                title: "Takim informues për orientimin në karrierë!",
+                content: "Në kuadër të këshillimit dhe orientimit në karrierë, mësimdhënësit e shkollës sonë IAAP “Pjetër Bogdani” – Leudita Baftiu, Xhemil Halili dhe Neki Sadriu – të përkrahur nga organizata 'Syri i Vizionit', realizuan një takim informues me nxënësit e klasëve VII dhe VIII të shkollave 'Naim Frashëri' dhe 'Ahmet Hoxha'. Gjatë takimit, nxënësit u informuan rreth: \n• Përzgjedhjes së profesionit të duhur, \n• Profileve arsimore që ofron shkolla jonë përmes sistemit dual, \n• Përparësitë e ndjekjes së arsimit profesional, veçanërisht në profilet teknike që ofron shkolla jonë. Ky takim synon të ndihmojë të rinjtë në marrjen e vendimeve të informuara për të ardhmen e tyre profesionale. IAAP 'Pjetër Bogdani' – zgjedhja e duhur për të ardhmen tuaj në fushën teknike!",
+                image: "./img_Ekstra/06.jpg",
+                date: "16 Qershor 2025",
+                likes: 150,
+                comments: 20,
+                shares: 10,
+                url: "#"
+            },
+            {
                 id: 1,
                 title: "KONTRIBUT I ÇMUAR PËR DIJEN!",
                 content: "Biblioteka e Shkollës pasurohet me dhurimin e disa librave të rinj Biblioteka e shkollës sonë u pasurua sot me një fond prej 80 librash të rinj, falë një dhurate bujare nga mësimdhënësi i përkushtuar, z. Afrim Demri. Ky gjest fisnik vjen si dëshmi e përkushtimit të tij të vazhdueshëm ndaj edukimit dhe rritjes intelektuale të brezit të ri. Titujt e rinj janë përzgjedhur dhe sistemuar me kujdes nga prof. Bardha Vladi, në bashkëpunim me nxënësin Lumbardh Maliqi. Ky i fundit ka kontribuar edhe me një portret artistik të Pjetër Bogdanit, duke e kthyer këndin e leximit në një hapësirë të gjallë, të pasur e frymëzuese. “Një libër më shumë është një dritare më shumë drejt dijes. Jemi krenarë për mësuesit tanë që nuk ndalojnë së mbjelli dashurinë për librin,” u shprehën përfaqësues të shkollës. Me këtë dhuratë, biblioteka bëhet jo vetëm më e pasur, por edhe më e gjallë, duke nxitur kulturën e leximit dhe zhvillimin e mendimit kritik te nxënësit. Sepse siç thuhet: “Sot një lexues, nesër një udhëheqës.”",
-                image: "https://scontent.fprn1-1.fna.fbcdn.net/v/t39.30808-6/503430874_1209312717650061_6041736838499323749_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=COwRSdTM8_oQ7kNvwEo8ACZ&_nc_oc=AdkNZZAn6fBCx3xhdEXHQ_S63Ktvi58p7x5CbNr0Xh4A7A-99GyoNgKAuYPElzGLl72IlHYzdZGWHWfaqjnADyqv&_nc_zt=23&_nc_ht=scontent.fprn1-1.fna&_nc_gid=O9TV4fOu001-0hsN5Yof-Q&oh=00_AfL2LmrEzBGGmQj9N3wuDns3c6KAgIDiZKYNWIZwm3-1KA&oe=68451B51",
+                image: "./img_Ekstra/01.jpg",
                 date: "03 Qershor 2025",
                 likes: 245,
                 comments: 42,
@@ -582,7 +541,7 @@
                 id: 2,
                 title: "Certifikim i nxënësve tanë në C++ ESSENTIALS 1!",
                 content: "Sot në IAAP 'Pjetër Bogdani', drejtori i shkollës z. Sami Jahiu, së bashku me mësimdhënësen znj. Lendita Surdulli Shabani, shpërndanë certifikatat për nxënësit e klasës XII10, profili Informatikë, të cilët përfunduan me sukses trajnimin tremujor në modulin C++ Essentials 1. Ky kurs profesional u zhvillua në bashkëpunim me CISCO Academy, dhe u udhëhoq me përkushtim nga znj. Lendita Surdulli Shabani, e cila është e certifikuar si instruktore nga kjo akademi. IAAP 'Pjetër Bogdani' është shkollë e akredituar nga CISCO Academy për zhvillimin e trajnimeve të tilla, që synojnë fuqizimin e njohurive dhe aftësive të nxënësve tanë në fushën e teknologjisë. Urime të gjithë nxënësve për angazhimin dhe arritjet e tyre! ✅ Regjistrohu në njërin nga profilet e IAAP “Pjetër Bogdani” dhe fito FALAS trajnime të certifikuara nga CISCO Academy!",
-                image: "https://scontent.fprn1-1.fna.fbcdn.net/v/t39.30808-6/502567768_1208442237737109_4569893441084133883_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=C3vcc_hEQXkQ7kNvwGlRAC9&_nc_oc=AdnXmYXcEdaT_VDTGKa9SzOGN2dEb6LH81w9U0UXgfcobAvPcnlO498EeEtIP90fueKO7ORd4QD7f6DWJCPu8G4v&_nc_zt=23&_nc_ht=scontent.fprn1-1.fna&_nc_gid=HpiAKQBGuG31AzxaimwEFA&oh=00_AfLPE9o62ElQHyfbiix3zz0lLRZ1pZMQqRLiHnsAUjkE7A&oe=6845183A",
+                image: "./img_Ekstra/02.jpg",
                 date: "02 Qershor 2023",
                 likes: 189,
                 comments: 28,
@@ -593,7 +552,7 @@
                 id: 3,
                 title: "Në një garë të organizuar nga 𝗨𝗕𝗧 – “𝗦𝗽𝗮𝗴𝗵𝗲𝘁𝘁𝗶 𝗕𝗿𝗶𝗱𝗴𝗲”",
                 content: "shkolla jonë u përfaqësua nga nxënësit e drejtimit të 𝗔𝗿𝗸𝗶𝘁𝗲𝗸𝘁𝘂𝗿𝗲̈𝘀: 𝙇𝙪𝙖𝙣 𝙐𝙠𝙖, 𝙀𝙧𝙨𝙖𝙣 𝙎𝙝𝙖𝙗𝙖𝙣𝙞 dhe 𝘽𝙖𝙧𝙙𝙝 𝘼𝙨𝙡𝙡𝙖𝙣𝙞, si dhe nga drejtimi i 𝗗𝗶𝘇𝗮𝗷𝗻𝗶𝘁 𝗚𝗿𝗮𝗳𝗶𝗸: 𝘼𝙣𝙚𝙨 𝙐𝙠𝙨𝙢𝙖𝙟𝙡𝙞 dhe 𝘼𝙡𝙞 𝙉𝙚𝙯𝙞𝙧𝙞.\n𝗦𝗵𝗸𝗼𝗹𝗹𝗮 𝗷𝗼𝗻𝗲̈ 𝗶𝘀𝗵𝘁𝗲 𝗲 𝘃𝗲𝘁𝗺𝗷𝗮 𝘀𝗵𝗸𝗼𝗹𝗹𝗲̈ 𝗲 𝗺𝗲𝘀𝗺𝗲 𝗲 𝗽𝗲̈𝗿𝘇𝗴𝗷𝗲𝗱𝗵𝘂𝗿 𝗻𝗴𝗮 𝗲 𝗴𝗷𝗶𝘁𝗵𝗲̈ 𝗞𝗼𝘀𝗼𝘃𝗮 që mori pjesë në këtë garë, duke sfiduar 𝘀𝘁𝘂𝗱𝗲𝗻𝘁𝗲̈𝘁 e Universitetit.\nGjatë dy ditëve të garës, grupet ndërtuan 𝘂𝗿𝗮 𝘃𝗲𝘁𝗲̈𝗺 𝗻𝗴𝗮 𝘀𝗵𝗽𝗮𝗴𝗲𝘁𝗶 𝗺𝗲 𝗽𝗲𝘀𝗵𝗲̈ 𝟭.𝟮 𝗸𝗴, të cilat më pas u testuan me 𝗽𝗲𝘀𝗵𝗮 𝘁𝗲̈ 𝗺𝗲̈𝗱𝗵𝗮 𝗽𝗲̈𝗿 𝗾𝗲̈𝗻𝗱𝗿𝘂𝗲𝘀𝗵𝗺𝗲̈𝗿𝗶 𝗱𝗵𝗲 𝗳𝗼𝗿𝗰𝗲̈, derisa arrinin 𝗽𝗶𝗸𝗲̈𝗻 𝗲 𝘁𝗵𝘆𝗲𝗿𝗷𝗲𝘀.\nNxënësit tanë, të cilët i vendosën grupit emrin “𝗝𝘂𝗻𝗶𝗼𝗿𝗮𝘁”, për shkak të moshës më të vogël në krahasim me pjesëmarrësit e tjerë, arritën të sigurojnë 𝘃𝗲𝗻𝗱𝗶𝗻 𝗲 𝟰-𝘁𝗲̈, ndër shumë grupe konkurrente.\nPër këtë kompania investitore “𝗧𝗼𝗻𝗶 𝗕𝗲𝘁𝗼𝗻” vendosi t’i shpërblejë “𝗝𝘂𝗻𝗶𝗼𝗿𝗮𝘁” me një çmim prej 𝟭𝟬𝟬€, si motivim për punën dhe suksesin e tyre.\nGjatë gjithë garës, nxënësit tanë u mbështetën dhe u udhëhoqën nga profesoreshat 𝗦𝗮𝗿𝗮𝗻𝗱𝗮 𝗠𝘂𝘀𝘁𝗮𝗳𝗮 (Arkitekturë) dhe 𝗝𝗲𝗵𝗼𝗻𝗮 𝗖̧𝗲𝗿𝗸𝗶𝗻𝗶 (Dizajn Grafik).",
-                image: "https://scontent.fprn1-1.fna.fbcdn.net/v/t39.30808-6/491939684_1176118507636149_2352841565003306676_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=OvmzdXXdSJcQ7kNvwHjAXAx&_nc_oc=Adm3mNeqb07K8iBt0wj2nWqvju2mqsFnXd8tzfY9fxzFyqhGz5AF-MmwhRth3NW6IbI8fbLU2yloYQETtNOyuH5O&_nc_zt=23&_nc_ht=scontent.fprn1-1.fna&_nc_gid=eYJ0xeQcARZuKjn6P9FXrQ&oh=00_AfKzhZjaNsbccZNXn7n4oicuNys3n2U6DLSz1x0x1fy6iA&oe=6844F90F",
+                image: "./img_Ekstra/03.jpg",
                 date: "19 Prill 2025",
                 likes: 321,
                 comments: 56,
@@ -621,17 +580,6 @@
                 comments: 89,
                 shares: 67,
                 url: "https://www.facebook.com/watch/?v=1013123034332864"
-            },
-            {
-                id: 6,
-                title: "🎯 Aktivitet në Orientim dhe Këshillim në Karrierë – 'Pikat e mia të forta'",
-                content: "Sot në IAAP ” Pjetër Bogdani” u zhvillua një aktivitet me nxënësit e klasës së dhjetë, me temën “Pikat e mia të forta”, si pjesë e programit të orientimit dhe këshillimit në karrierë. Aktiviteti u udhëhoq nga këshilltari për karrierë, Xhemil Halili, i cili përmes ushtrimeve interaktive dhe diskutimeve të udhëhequra ndihmoi nxënësit të njohin më mirë vlerat, aftësitë dhe potencialin e tyre individual. 🔍 Çfarë synoi ky aktivitet? Qëllimi kryesor i këtij aktiviteti ishte që nxënësit të fillojnë ta kuptojnë më mirë veten, të identifikojnë pikat e tyre të forta personale dhe profesionale, dhe t’i lidhin ato me zgjedhjet e mundshme të karrierës në të ardhmen. Përmes vetëreflektimit dhe punës në grupe, nxënësit analizuan: • Cilat janë aftësitë e tyre më të spikatura? • Në çfarë situatash ndihen më të sigurt dhe të suksesshëm? • Si mund t’i përdorin pikat e tyre të forta për të pasur sukses në shkollë, punë dhe jetë? 🌱 Pse është e rëndësishme kjo temë? Njohja e vetes është hapi i parë dhe më i rëndësishëm në ndërtimin e një karriere të suksesshme. Kur një nxënës e kupton se ku qëndron forca e tij – qoftë në komunikim, krijimtari, analizë apo udhëheqje – ai bëhet më i vetëdijshëm për rrugët që mund të ndjekë dhe për vendimet që duhet të marrë në të ardhmen. 🙌 Falenderojmë nxënësit për pjesëmarrjen aktive dhe energjinë pozitive që sollën në këtë sesion. Të tillë aktivitete janë investim në të ardhmen e tyre!",
-                image: "https://scontent.fprn1-1.fna.fbcdn.net/v/t39.30808-6/491257211_1174400201141313_5778653167804361376_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=k2XBkh7RdP0Q7kNvwGSi0ur&_nc_oc=AdmH_9c7F55-crhqH1QScDqNxZMKiyj9ZLGqgcHEuRARsl1mZ4jTrkOhpAAm8mWTZ6RrkjX9S6IYkUrJUWLtunzY&_nc_zt=23&_nc_ht=scontent.fprn1-1.fna&_nc_gid=QE1SAfwsxbD_PSNxCaHHrg&oh=00_AfL6uaGH8q7h1_I9zsEpmN5ailQPMd8l4Ge6QXPmdHmpFQ&oe=6845086C",
-                date: "17 Prill 2025",
-                likes: 287,
-                comments: 47,
-                shares: 42,
-                url: "https://www.facebook.com/IAAPPjeterBogdani/posts/pfbid02Ru7Rv3vXUVHo7amGWj4yiVU872xQ8aYshako2csJiG9CHu89SE4sHHWb7zAaUCr5l"
             }
         ];
 
@@ -645,11 +593,10 @@
                 card.className = 'fb-card';
                 card.innerHTML = `
                     <div class="fb-card-img">
-                        <img src="${post.image}" alt="${post.title}">
+                        <img src="${post.image}" alt="${post.title}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;"> 
                     </div>
                     <div class="fb-card-meta">
                         <span>${post.date}</span>
-
                     </div>
                     <div class="fb-card-content">
                         <h3 class="fb-card-title">${post.title}</h3>
@@ -661,57 +608,29 @@
                             SHIKO MË SHUMË
                         </button>
                     </div>
-
                 `;
                 grid.appendChild(card);
             });
         }
 
-        // Function to expand a card
-        function expandCard(post) {
-            const overlay = document.getElementById('overlay');
-            overlay.style.display = 'block';
+        // Function to toggle card expansion
+        function toggleCardExpansion(card) {
+            const isExpanded = card.classList.contains('expanded');
             
-            // Create expanded card element
-            const expandedCard = document.createElement('div');
-            expandedCard.className = 'card-expanded';
-            expandedCard.innerHTML = `
-                <button class="close-expanded">
-                    <i class="fas fa-times"></i>
-                </button>
-                <div class="fb-card-img">
-                    <img src="${post.image}" alt="${post.title}">
-                </div>
-                <div class="fb-card-meta">
-                    <span>${post.date}</span>
-                   
-                </div>
-                <div class="fb-card-content">
-                    <h3 class="fb-card-title">${post.title}</h3>
-                    <p class="fb-card-text">${post.content}</p>
-                </div>
-                <div class="fb-card-footer">
-                        <button class="fb-expand-btn" data-id="${post.id}">
-                            <i class="fas fa-expand-alt"></i>
-                            SHIKO MË SHUMË
-                        </button>
-                </div>
-            `;
-            
-            document.body.appendChild(expandedCard);
-            
-            // Add event listener to close button
-            const closeBtn = expandedCard.querySelector('.close-expanded');
-            closeBtn.addEventListener('click', () => {
-                overlay.style.display = 'none';
-                expandedCard.remove();
+            // Collapse all other expanded cards
+            document.querySelectorAll('.fb-card.expanded').forEach(expandedCard => {
+                if (expandedCard !== card) {
+                    expandedCard.classList.remove('expanded');
+                }
             });
             
-            // Close when clicking outside the card
-            overlay.addEventListener('click', () => {
-                overlay.style.display = 'none';
-                expandedCard.remove();
-            });
+            // Toggle the current card
+            card.classList.toggle('expanded', !isExpanded);
+            
+            // Scroll to the expanded card if it's being expanded
+            if (!isExpanded) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
 
         // Initial load
@@ -723,12 +642,7 @@
                 if (e.target.closest('.fb-expand-btn')) {
                     const btn = e.target.closest('.fb-expand-btn');
                     const card = btn.closest('.fb-card');
-                    const cardId = btn.dataset.id;
-                    const post = fbPosts.find(p => p.id == cardId);
-                    
-                    if (post) {
-                        expandCard(post);
-                    }
+                    toggleCardExpansion(card);
                 }
             });
             
@@ -742,11 +656,23 @@
                 setTimeout(() => {
                     // Add new posts
                     const newPosts = [
+                        
+                        {
+                            id: 6,
+                            title: "🎯 Aktivitet në Orientim dhe Këshillim në Karrierë – 'Pikat e mia të forta'",
+                            content: "Sot në IAAP ” Pjetër Bogdani” u zhvillua një aktivitet me nxënësit e klasës së dhjetë, me temën “Pikat e mia të forta”, si pjesë e programit të orientimit dhe këshillimit në karrierë. Aktiviteti u udhëhoq nga këshilltari për karrierë, Xhemil Halili, i cili përmes ushtrimeve interaktive dhe diskutimeve të udhëhequra ndihmoi nxënësit të njohin më mirë vlerat, aftësitë dhe potencialin e tyre individual. 🔍 Çfarë synoi ky aktivitet? Qëllimi kryesor i këtij aktiviteti ishte që nxënësit të fillojnë ta kuptojnë më mirë veten, të identifikojnë pikat e tyre të forta personale dhe profesionale, dhe t’i lidhin ato me zgjedhjet e mundshme të karrierës në të ardhmen. Përmes vetëreflektimit dhe punës në grupe, nxënësit analizuan: • Cilat janë aftësitë e tyre më të spikatura? • Në çfarë situatash ndihen më të sigurt dhe të suksesshëm? • Si mund t’i përdorin pikat e tyre të forta për të pasur sukses në shkollë, punë dhe jetë? 🌱 Pse është e rëndësishme kjo temë? Njohja e vetes është hapi i parë dhe më i rëndësishëm në ndërtimin e një karriere të suksesshme. Kur një nxënës e kupton se ku qëndron forca e tij – qoftë në komunikim, krijimtari, analizë apo udhëheqje – ai bëhet më i vetëdijshëm për rrugët që mund të ndjekë dhe për vendimet që duhet të marrë në të ardhmen. 🙌 Falenderojmë nxënësit për pjesëmarrjen aktive dhe energjinë pozitive që sollën në këtë sesion. Të tillë aktivitete janë investim në të ardhmen e tyre!",
+                            image: "./img_Ekstra/04.jpg",
+                            date: "17 Prill 2025",
+                            likes: 287,
+                            comments: 47,
+                            shares: 42,
+                            url: "https://www.facebook.com/IAAPPjeterBogdani/posts/pfbid02Ru7Rv3vXUVHo7amGWj4yiVU872xQ8aYshako2csJiG9CHu89SE4sHHWb7zAaUCr5l"
+                        },
                         {
                             id: 7,
                             title: "Prof. Dr. Xhemajl Fejzullahu rikthehet në IAAP ''Pjetër Bogdani'' me një ligjëratë inspiruese mbi sfidat energjetike në Kosovë",
                             content: "Në vazhdën e Ligjëratave me mësimdhënës të çmuar, të cilët ndër vite kanë mbajtur dhe ngritur arsimin shqip, sot në IAAP 'Pjetër Bogdani', në Ferizaj, patëm nderin ta kemi, mysafir  prof.dr. Xhemajl Fejzullahu, ligjërues shumë vjeçar në Fakultetin e Inxhinierisë Mekanike- drejtimi i Termoenergjetikës.  Atij mirëseardhje i dëshiroi drejtori Sami Jahiu duke vlerësuar kontributin e tij ndër vite me studentë. Prof.Fejzullahu para nxënësve, mësimdhënësve dhe mysafirëve foli për Energjitë dhe resurset e tyre në Kosovë, duke sjellë një shqyrtim shumëdimensional. Sfidat energjetike, shikuar jo vetëm nga aspekti teknologjik dhe energjetik por edhe nga ai global dhe politik, sipas prof.Fejzullahut, dolën të jenë një nga problemet e Kosovës në këtë dekadë të tretë të lirisë. Ligjërata u përcollë me një kurreshtje preokupuese dhe më pas u zhvillua një debat i hapur. Për më tepër, profesori Fejzullahu, dikur një nga nxënësit e parë të kësaj shkolle, riktheu me krenari lidhjen me institucionin ku nisi rrugëtimin e tij të shkëlqyer. Ky cikël i ligjëratave synon të ndërtojë ura mes përvojave dhe brezave, duke nderuar emrat e shquar të mësimdhënësve dhe frymëzuar të rinjtë për të ardhmen.",
-                            image: "https://scontent.fprn1-1.fna.fbcdn.net/v/t39.30808-6/485915874_1152969246617742_5125285086714821610_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=5EqPtU1z_u0Q7kNvwGiXyis&_nc_oc=Adm-FK7usyLn7HY5cfueLzfuo_s6X9KLSvT18rsKiiB1rEIf2GQv2DBL5cmqhxnPqL8PykQmmpWee2oA9b7grwSQ&_nc_zt=23&_nc_ht=scontent.fprn1-1.fna&_nc_gid=zrIZIDLj3sP3fdlFOgNE_A&oh=00_AfJLbWgPcdegN-uXsh390talJq31JgtM8XMdYnTMFPhh_A&oe=68453547",
+                            image: "./img_Ekstra/05.jpg",
                             date: "21 Mars 2025",
                             likes: 132,
                             comments: 24,
@@ -765,17 +691,16 @@
                             </div>
                             <div class="fb-card-meta">
                                 <span>${post.date}</span>
-      
                             </div>
                             <div class="fb-card-content">
                                 <h3 class="fb-card-title">${post.title}</h3>
                                 <p class="fb-card-text">${post.content}</p>
                             </div>
                             <div class="fb-card-footer">
-                            <button class="fb-expand-btn" data-id="${post.id}">
-                                <i class="fas fa-expand-alt"></i>
-                                SHIKO MË SHUMË
-                            </button>
+                                <button class="fb-expand-btn" data-id="${post.id}">
+                                    <i class="fas fa-expand-alt"></i>
+                                    SHIKO MË SHUMË
+                                </button>
                             </div>
                         `;
                         document.getElementById('facebook-grid').appendChild(card);
@@ -797,7 +722,6 @@
             });
         });
     </script>
-
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer pt-5 mt-0 wow fadeIn" data-wow-delay="0.1s">
@@ -940,6 +864,5 @@
            
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    </body>
-
+</body>
 </html>
