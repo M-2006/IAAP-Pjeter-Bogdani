@@ -3,10 +3,10 @@ RewriteEngine On
 
 # MAINTENANCE MODE REDIRECTION
 # ==================================================
- Uncomment the following 4 lines to activate maintenance mode
- RewriteCond %{REQUEST_URI} !^/maintenance\.html$ [NC]
- RewriteCond %{REQUEST_URI} !\.(css|js|png|jpg|jpeg|gif|ico)$ [NC]
- RewriteRule ^(.*)$ /maintenance.html [R=307,L]
+# Uncomment the following 4 lines to activate maintenance mode
+# RewriteCond %{REQUEST_URI} !^/maintenance\.html$ [NC]
+# RewriteCond %{REQUEST_URI} !\.(css|js|png|jpg|jpeg|gif|ico)$ [NC]
+# RewriteRule ^(.*)$ /maintenance.html [R=307,L]
 # ==================================================
 
 # Redirect www to non-www (change if needed)
