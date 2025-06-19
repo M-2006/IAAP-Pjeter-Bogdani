@@ -43,7 +43,7 @@ RewriteRule ^(.+[^/])$ /$1/ [R=301,L]
 
 # Prevent hotlinking of images
 RewriteCond %{HTTP_REFERER} !^$
-RewriteCond %{HTTP_REFERER} !^https://(www\.)?m-2006.github.io/IAAP-Pjeter-Bogdani/ [NC]
+RewriteCond %{HTTP_REFERER} !^https://(www\.)?iaap-pjeterbogdani.com/ [NC]
 RewriteRule \.(jpg|jpeg|png|gif)$ - [F]
 
 # Enable Gzip compression for performance
